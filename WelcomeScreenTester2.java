@@ -54,7 +54,7 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		WelcomeScreenTester2 g = new WelcomeScreenTester2();
 		
 		JPanel panel = new JPanel();
-		JLabel battleShip = new JLabel("BattleShip");
+		JLabel battleShip = new JLabel("Welcome to BattleShip");
 		battleShip.setAlignmentX(0);
 		battleShip.setAlignmentY(0);
 		battleShip.setFont(new Font("Copperplate", Font.PLAIN, 35));
