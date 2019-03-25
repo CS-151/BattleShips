@@ -1,3 +1,4 @@
+package edu.sjsu.cs.cs151.tester; 
 import javax.swing.*;
 
 import java.awt.BorderLayout;
