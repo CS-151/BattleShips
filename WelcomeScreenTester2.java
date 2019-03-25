@@ -32,7 +32,19 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		g.drawArc(750, 625, 50, 100, 0, -180);
 		g.drawArc(800, 625, 130, 100, 0, -180);
 		g.drawArc(930, 625, 70, 100, 0, -180);
-		//g.setColor(Color.BLUE);
+		
+		
+		//Clouds
+		g.setColor(Color.WHITE);
+		//g.drawArc(200, 200, 80, 100, 0, -180);
+		g.fillArc(200, 200, 80, 100, 0, -180);
+		g.fillArc(280, 200, 60, 100, 0, -180);
+		g.fillArc(340, 200, 40, 100, 0, -180);
+		g.fillArc(350, 190, 60, 60, -90, 180);
+		g.fillArc(300, 140, 80, 100, 0, 180);
+		g.fillArc(220, 140, 80, 100, 0, 180);
+		g.fillArc(180, 190, 80, 60, 60, 180);
+		g.fillRect(200, 190, 190, 60);
 		//g.fillRect(0, 700, 1000, 750);
 		//First Ship
 		g.setColor(Color.BLACK);
