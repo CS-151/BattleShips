@@ -34,7 +34,7 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		g.drawArc(930, 625, 70, 100, 0, -180);
 		
 		
-		//Clouds
+		//First clouds
 		g.setColor(Color.WHITE);
 		//g.drawArc(200, 200, 80, 100, 0, -180);
 		g.fillArc(200, 200, 80, 100, 0, -180);
@@ -45,6 +45,16 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		g.fillArc(220, 140, 80, 100, 0, 180);
 		g.fillArc(180, 190, 80, 60, 60, 180);
 		g.fillRect(200, 190, 190, 60);
+		
+		//Second Cloud
+		g.fillArc(600, 200, 80, 100, 0, -180);
+		g.fillArc(680, 200, 60, 100, 0, -180);
+		g.fillArc(740, 200, 40, 100, 0, -180);
+		g.fillArc(750, 190, 60, 60, -90, 180);
+		g.fillArc(700, 140, 80, 100, 0, 180);
+		g.fillArc(620, 140, 80, 100, 0, 180);
+		g.fillArc(580, 190, 80, 60, 60, 180);
+		g.fillRect(600, 190, 190, 60);
 		//g.fillRect(0, 700, 1000, 750);
 		//First Ship
 		g.setColor(Color.BLACK);
