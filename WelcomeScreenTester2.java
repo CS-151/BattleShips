@@ -4,43 +4,58 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Arc2D;
 
 class WelcomeScreenTester2 extends JPanel implements ActionListener {
 	private  JFrame frame;
 	Timer tm = new Timer(1,this);
-	int x = 240, velX = 20;
-
+	int x = 240, velX = 25;
+	
 	public void paintComponent(Graphics g)
 	{
+		Graphics2D g2;
 		//g.drawRect(95, 95, 50, 50);
 		super.paintComponent(g);
 		//Ocean
-		g.setColor(new Color(30,144,255));
-		g.fillRect(0, 400, 1000, 750);
+		g.setColor(Color.BLUE);
+		g.drawArc(0, 625, 90, 100, 0, -180);
+		g.drawArc(90, 625, 90, 100, 0, -180);
+		g.drawArc(180, 625, 90, 100, 0, -180);
+		g.drawArc(270, 625, 90, 100, 0, -180);
+		g.drawArc(360, 625, 90, 100, 0, -180);
+		g.drawArc(450, 625, 90, 100, 0, -180);
+		g.drawArc(540, 625, 90, 100, 0, -180);
+		g.drawArc(630, 625, 90, 100, 0, -180);
+		g.drawArc(720, 625, 90, 100, 0, -180);
+		g.drawArc(810, 625, 90, 100, 0, -180);
+		g.drawArc(900, 625, 90, 100, 0, -180);
+		//g.setColor(Color.BLUE);
+		//g.fillRect(0, 700, 1000, 750);
 		//First Ship
 		g.setColor(Color.BLACK);
-		g.drawLine(40, 300, 90, 400); //left base
-		g.drawLine(90, 400, 190, 400); //bottom base
-		g.drawLine(190, 400, 240, 300); // right base 
-		g.drawLine(40, 300, 240, 300); // top base
-		g.drawRect(90, 260, 100, 40); // top rectangle
-		g.drawRect(190, 270, 50, 20); // cannon
+		g.drawLine(40, 600, 90, 700); //left base
+		g.drawLine(90, 700, 190, 700); //bottom base
+		g.drawLine(190, 700, 240, 600); // right base 
+		g.drawLine(40, 600, 240, 600); // top base
+		g.drawRect(90, 560, 100, 40); // top rectangle
+		g.drawRect(190, 570, 50, 20); // cannon
 		//g.drawRect(20, 300, 100, 50);
 		//g.drawRect(405, 300, 75, 50);
 		
 		
 		// Second Ship
-		g.drawLine(760,300,810,400); //left base
-		g.drawLine(810,400,910,400); //bottom base
-		g.drawLine(910,400,960,300); // right base 
-		g.drawLine(760,300,960,300); // top base
-		g.drawRect(820,260, 100, 40); // top rectangle
-		g.drawRect(765, 270, 55, 20); // cannon
+		g.drawLine(760,600,810,700); //left base
+		g.drawLine(810,700,910,700); //bottom base
+		g.drawLine(910,700,960,600); // right base 
+		g.drawLine(760,600,960,600); // top base
+		g.drawRect(820,560, 100, 40); // top rectangle
+		g.drawRect(765, 570, 55, 20); // cannon
 				
 		g.setColor(Color.RED);
-		g.fillOval(x, 270, 20, 20);	//240,570,20,20
+		g.fillOval(x, 570, 20, 20);	//240,570,20,20
 		tm.start();
 		
 
@@ -50,21 +65,18 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 	public static void main(String args[]) {
 		JFrame frame = new JFrame("GUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1000, 700);
+		frame.setSize(1000, 1000);
 		WelcomeScreenTester2 g = new WelcomeScreenTester2();
 		
 		JPanel panel = new JPanel();
+		
 		JLabel battleShip = new JLabel("Welcome to BattleShip");
 		battleShip.setAlignmentX(0);
 		battleShip.setAlignmentY(0);
 		battleShip.setFont(new Font("Copperplate", Font.PLAIN, 35));
 		
-//		JButton start = new JButton("Start");
-//		start.setBounds(500, 200, 50, 50);
-		
 		panel.add(battleShip);
 		panel.add(g);
-		//panel.add(start);
 		frame.add(panel,BorderLayout.NORTH);
 		//frame.getContentPane().setLayout(null);
 			frame.add(g);
@@ -76,12 +88,11 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		panel.add(loginButton);
 		panel.revalidate();
 		panel.repaint();
-
+		
 		JButton signUpButton = new JButton("Sign Up");
 		panel.add(signUpButton);
 		panel.revalidate();
 		panel.repaint();
-
 
 	}
 
