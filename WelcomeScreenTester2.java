@@ -8,35 +8,40 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Arc2D;
+import java.util.ArrayList;
 
 class WelcomeScreenTester2 extends JPanel implements ActionListener {
-	private  JFrame frame;
-	Timer tm = new Timer(200,this);
+//	private  JFrame frame;
+	Timer tm1 = new Timer(200,this);
+	//Timer tm2 = new Timer(300,this);
 	int x = 240, velX = 25, waveY = 625, upWave = 20;
 	
 	public void paintComponent(Graphics g)
 	{
-		Graphics2D g2;
+		
+		
 		//g.drawRect(95, 95, 50, 50);
 		super.paintComponent(g);
 		//Ocean
+		
 		g.setColor(Color.BLUE);
-		g.drawArc(0, 625, 80, 100, 0, -180);
-		g.drawArc(80, 625, 120, 100, 0, -180);
-		g.drawArc(200, 625, 130, 100, 0, -180);
-		g.drawArc(330, 625, 60, 100, 0, -180);
-		g.drawArc(390, 625, 90, 100, 0, -180);
-		g.drawArc(480, 625, 50, 100, 0, -180);
-		g.drawArc(530, 625, 120, 100, 0, -180);
-		g.drawArc(650, 625, 100, 100, 0, -180);
-		g.drawArc(750, 625, 50, 100, 0, -180);
-		g.drawArc(800, 625, 130, 100, 0, -180);
-		g.drawArc(930, 625, 70, 100, 0, -180);
+		g.drawArc(0, waveY, 80, 100, 0, -180);
+		g.drawArc(80, waveY, 120, 100, 0, -180);
+		g.drawArc(200, waveY, 130, 100, 0, -180);
+		g.drawArc(330, waveY, 60, 100, 0, -180);
+		g.drawArc(390, waveY, 90, 100, 0, -180);
+		g.drawArc(480, waveY, 50, 100, 0, -180);
+		g.drawArc(530, waveY, 120, 100, 0, -180);
+		g.drawArc(650, waveY, 100, 100, 0, -180);
+		g.drawArc(750, waveY, 50, 100, 0, -180);
+		g.drawArc(800, waveY, 130, 100, 0, -180);
+		g.drawArc(930, waveY, 70, 100, 0, -180);
+		//tm2.start();
+		//g.setColor(Color.BLUE);
+		//g.fillRect(0, 700, 1000, 750);
 		
-		
-		//First clouds
+		//First Cloud
 		g.setColor(Color.WHITE);
-		//g.drawArc(200, 200, 80, 100, 0, -180);
 		g.fillArc(200, 200, 80, 100, 0, -180);
 		g.fillArc(280, 200, 60, 100, 0, -180);
 		g.fillArc(340, 200, 40, 100, 0, -180);
@@ -55,7 +60,6 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		g.fillArc(620, 140, 80, 100, 0, 180);
 		g.fillArc(580, 190, 80, 60, 60, 180);
 		g.fillRect(600, 190, 190, 60);
-		//g.fillRect(0, 700, 1000, 750);
 		//First Ship
 		g.setColor(Color.BLACK);
 		g.drawLine(40, 600, 90, 700); //left base
@@ -78,7 +82,7 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 				
 		g.setColor(Color.RED);
 		g.fillOval(x, 570, 20, 20);	//240,570,20,20
-		tm.start();
+		tm1.start();
 		
 
 	}
@@ -86,10 +90,12 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 	
 	public static void main(String args[]) {
 		JFrame frame = new JFrame("GUI");
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBackground( Color.DARK_GRAY);
 		frame.setSize(1000, 1000);
 		WelcomeScreenTester2 g = new WelcomeScreenTester2();
-		
+			
 		JPanel panel = new JPanel();
 		
 		JLabel battleShip = new JLabel("Welcome to BattleShip");
@@ -126,6 +132,13 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 			velX = -velX;
 		}
 		x = x + velX;
+		//repaint();
+		
+		if(waveY < 625 || waveY>615 )
+		{
+			upWave = -upWave;
+		}
+		waveY = waveY + upWave;
 		repaint();
 	}
 }
