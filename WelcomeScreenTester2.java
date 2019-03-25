@@ -11,8 +11,8 @@ import java.awt.geom.Arc2D;
 
 class WelcomeScreenTester2 extends JPanel implements ActionListener {
 	private  JFrame frame;
-	Timer tm = new Timer(1,this);
-	int x = 240, velX = 25;
+	Timer tm = new Timer(200,this);
+	int x = 240, velX = 25, waveY = 625, upWave = 20;
 	
 	public void paintComponent(Graphics g)
 	{
