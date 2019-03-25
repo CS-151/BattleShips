@@ -67,6 +67,16 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 //		frame.setSize(1000,1000);
 		frame.setVisible(true);
 		//frame.add(battleShip);
+		
+		JButton loginButton = new JButton("Log in");
+		panel.add(loginButton);
+		panel.revalidate();
+		panel.repaint();
+		
+		JButton signUpButton = new JButton("Sign Up");
+		panel.add(signUpButton);
+		panel.revalidate();
+		panel.repaint();
 
 
 	}
