@@ -21,17 +21,17 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		super.paintComponent(g);
 		//Ocean
 		g.setColor(Color.BLUE);
-		g.drawArc(0, 625, 90, 100, 0, -180);
-		g.drawArc(90, 625, 90, 100, 0, -180);
-		g.drawArc(180, 625, 90, 100, 0, -180);
-		g.drawArc(270, 625, 90, 100, 0, -180);
-		g.drawArc(360, 625, 90, 100, 0, -180);
-		g.drawArc(450, 625, 90, 100, 0, -180);
-		g.drawArc(540, 625, 90, 100, 0, -180);
-		g.drawArc(630, 625, 90, 100, 0, -180);
-		g.drawArc(720, 625, 90, 100, 0, -180);
-		g.drawArc(810, 625, 90, 100, 0, -180);
-		g.drawArc(900, 625, 90, 100, 0, -180);
+		g.drawArc(0, 625, 80, 100, 0, -180);
+		g.drawArc(80, 625, 120, 100, 0, -180);
+		g.drawArc(200, 625, 130, 100, 0, -180);
+		g.drawArc(330, 625, 60, 100, 0, -180);
+		g.drawArc(390, 625, 90, 100, 0, -180);
+		g.drawArc(480, 625, 50, 100, 0, -180);
+		g.drawArc(530, 625, 120, 100, 0, -180);
+		g.drawArc(650, 625, 100, 100, 0, -180);
+		g.drawArc(750, 625, 50, 100, 0, -180);
+		g.drawArc(800, 625, 130, 100, 0, -180);
+		g.drawArc(930, 625, 70, 100, 0, -180);
 		//g.setColor(Color.BLUE);
 		//g.fillRect(0, 700, 1000, 750);
 		//First Ship
