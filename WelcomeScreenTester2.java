@@ -12,7 +12,7 @@ import java.awt.geom.Arc2D;
 import java.util.ArrayList;
 
 class WelcomeScreenTester2 extends JPanel implements ActionListener {
-//	private  JFrame frame;
+	
 	Timer tm1 = new Timer(200,this);
 	//Timer tm2 = new Timer(300,this);
 	int x = 240, velX = 25, waveY = 625, upWave = 20;
