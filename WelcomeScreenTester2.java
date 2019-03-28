@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 class WelcomeScreenTester2 extends JPanel implements ActionListener {
 	
+	//
 	Timer tm1 = new Timer(200,this);
 	//Timer tm2 = new Timer(300,this);
 	int x = 240, velX = 25, waveY = 625, upWave = 20;
