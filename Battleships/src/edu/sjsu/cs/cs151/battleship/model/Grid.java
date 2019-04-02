@@ -1,6 +1,9 @@
+package edu.sjsu.cs.cs151.battleship.model;
+
 /*
  * Constructs grid with a fixed length and width. Each cell has a coordinate object. 
  */
+
 public class Grid {
 	
 	 public Grid()
