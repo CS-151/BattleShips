@@ -10,9 +10,41 @@ public class Coordinates {
 	public Coordinates(int x, int y) {
 		this.x = x;
 		this.y = y;
+		containsShip = false;
 		isHit = false;
+		status = "-";
 	}
 
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	
+
+
+
+	public boolean isContainsShip() {
+		return containsShip;
+	}
+
+
+
+	public void setContainsShip(boolean containsShip) {
+		this.containsShip = containsShip;
+	}
+
+
+
+	
 	/*
 	 * Gets the x-coordinate
 	 * 
@@ -70,5 +102,9 @@ public class Coordinates {
 	private int x;
 	private int y;
 	private boolean isHit;
+	private String status;
+	boolean containsShip;
+	
+
 
 }
