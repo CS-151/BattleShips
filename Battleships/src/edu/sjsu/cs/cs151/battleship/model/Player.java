@@ -47,11 +47,11 @@ public class Player
         playerGrid.printGrid();
     }
     
-    public void guessOpponentShip(int row, int col)
+    public void guessOpponentShip(int row, int col, Player p2)
     {
-    	oppGrid.guessShip(row, col);
-    	oppGrid.setCoordinates(row, col, true);
-    	oppGrid.printOppGrid();
+    	p2.playerGrid.guessShip(row, col);
+    	p2.playerGrid.printOppGrid();
+    	
     }
     
     //lengths of all of the ships.
