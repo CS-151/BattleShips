@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.geom.Arc2D;
 import java.util.ArrayList;
 
-class WelcomeScreenTester2 extends JPanel implements ActionListener {
+class WelcomeScreen extends JPanel implements ActionListener {
 	
 	//
 	Timer tm1 = new Timer(200,this);
@@ -92,11 +92,12 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 	
 	public static void main(String args[]) {
 		JFrame frame = new JFrame("GUI");
+		frame.setLayout(new BorderLayout());
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBackground( Color.DARK_GRAY);
 		frame.setSize(1000, 1000);
-		WelcomeScreenTester2 g = new WelcomeScreenTester2();
+		WelcomeScreen g = new WelcomeScreen();
 			
 		JPanel panel = new JPanel();
 		
@@ -108,14 +109,12 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		panel.add(battleShip);
 		panel.add(g);
 		frame.add(panel,BorderLayout.NORTH);
-		//frame.getContentPane().setLayout(null);
-			frame.add(g);
+		frame.add(g);
 //		frame.setSize(1000,1000);
-		frame.setVisible(true);
 		//frame.add(battleShip);
 		
 		JButton loginButton = new JButton("Log in");
-		panel.add(loginButton);
+		panel.add(loginButton, BorderLayout.CENTER);
 		panel.revalidate();
 		panel.repaint();
 		
@@ -123,6 +122,8 @@ class WelcomeScreenTester2 extends JPanel implements ActionListener {
 		panel.add(signUpButton);
 		panel.revalidate();
 		panel.repaint();
+
+		frame.setVisible(true);
 
 	}
 

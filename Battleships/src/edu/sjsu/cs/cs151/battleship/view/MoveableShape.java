@@ -1,4 +1,4 @@
-package edu.sjsu.cs.cs151.battleship.model;
+package edu.sjsu.cs.cs151.battleship.view;
 
 import java.awt.Graphics2D;
 

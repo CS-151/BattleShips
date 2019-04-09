@@ -1,9 +1,10 @@
 package edu.sjsu.cs.cs151.battleship.view;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
-import edu.sjsu.cs.cs151.model.MoveableShape;
+import javax.swing.*;
 
 /**
  * An icon that contains a moveable shape.
@@ -36,4 +37,5 @@ public class ShapeIcon implements Icon
 	private int width;
 	private int height;
 	private MoveableShape shape;
-}
+			
+	}
