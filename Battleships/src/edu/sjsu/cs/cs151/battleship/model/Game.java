@@ -24,7 +24,6 @@ public class Game {
 		p1.playerGrid.printGrid();
 		while(done.equals("no"))
 		{
-
 			
 			System.out.println("Enter size of ship");
 			size = scan.nextInt();
@@ -117,12 +116,6 @@ public class Game {
 
 
 		}
-
-	
-		//p1.chooseShipLocation(5, 2, 4, Ship.HORIZONTAL);
-//		 p2.chooseShipLocation(3, 4, 1, Ship.HORIZONTAL);
-//		 p1.guessOpponentShip(4, 1, p2);
-
 	}
 
 }
