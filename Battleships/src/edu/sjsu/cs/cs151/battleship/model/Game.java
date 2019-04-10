@@ -1,5 +1,5 @@
 package edu.sjsu.cs.cs151.battleship.model;
-
+//
 import java.util.Scanner;
 
 public class Game {
