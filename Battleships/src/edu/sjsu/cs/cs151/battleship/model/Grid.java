@@ -35,10 +35,15 @@ public class Grid {
 	{
 		int r = row;
 		int c = col;
-		if(ship.getAlignment() == Ship.HORIZONTAL)
+		
+		if(alignment == Ship.HORIZONTAL)
 		{
 			for(int i = c; i < c + ship.getShipSize(); i++)
 			{
+				if(grid[r][i].containsShip == true)
+				{
+					throw new IllegalArgumentException("Ship already exists at Cooridnates (" + r + ","  + c + ")");
+				}
 				grid[r][i].setContainsShip(true);
 			}
 		}
@@ -46,11 +51,21 @@ public class Grid {
 		{
 			for(int i = r; i < r + ship.getShipSize(); i++)
 			{
+				if(grid[i][c].containsShip == true)
+				{
+					throw new IllegalArgumentException("Ship already exists at Coordinates (" + r + ","  + c + ")");
+				}
 				grid[i][c].setContainsShip(true);
 			}
 		}
 		
 		
+	}
+	
+	public boolean isValidLocation()
+	{
+		
+		return true;
 	}
 	
 	public void guessShip(int row, int col)
@@ -105,29 +120,13 @@ public class Grid {
 		 System.out.println(" ");
 	}
 	
+	
+	
 	 public static final int GRID_ROW = 10;
 	 public static final int GRID_COLUMN = 10;
 	 
 	 private Coordinates[][] grid;
 	 
-	 
-	 
-	 
-	 ///Testing
-	 public static void main(String[]args)
-	 {
-		 Grid grid = new Grid();
-		 Ship two = new Ship(5);
-		 two.setAlignment(Ship.HORIZONTAL);
-		 
-		 grid.addShip(two,2,4,Ship.VERTICAL);
-		 grid.guessShip(2, 4);
-		 grid.guessShip(3, 4);
-		 grid.guessShip(2, 6);
-		 grid.printGrid();
-		 grid.printOppGrid();
-		 
-	 }
 }
 
 
