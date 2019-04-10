@@ -16,7 +16,12 @@ public class Ship {
 		col = -1;
 		alignment = HORIZONTAL;
 		
-		//this.shipName = name;
+	}
+	public Ship(int row, int col, int layout)
+	{
+		this.row = row;
+		this.col = col;
+		this.alignment = layout;
 	}
 	public int getAlignment()
 	{
