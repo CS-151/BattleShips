@@ -3,7 +3,6 @@ package edu.sjsu.cs.cs151.battleship.model;
 import java.util.Scanner;
 
 public class Game {
-	
 
 	public static void main(String[] args) {
 		
@@ -34,11 +33,11 @@ public class Game {
 			System.out.println("Enter col");
 			col = scan.nextInt();
 			
-			System.out.println("Horizontal or Vertical?");
+			System.out.println("Vertical or Horizontal? (v/h)");
 			alignment = scan.next();
 			alignment = alignment.toLowerCase();
 			
-			if(alignment.equals("horizontal"))
+			if(alignment.equals("h"))
 			{
 				layout = Ship.HORIZONTAL;
 			}
@@ -53,8 +52,7 @@ public class Game {
 			done = scan.next();
 
 		}
-		
-
+	
 		//p1.chooseShipLocation(5, 2, 4, Ship.HORIZONTAL);
 //		 p2.chooseShipLocation(3, 4, 1, Ship.HORIZONTAL);
 //		 p1.guessOpponentShip(4, 1, p2);
