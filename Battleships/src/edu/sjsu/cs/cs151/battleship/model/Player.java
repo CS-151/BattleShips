@@ -8,9 +8,7 @@ The player class holds information regarding the number of ships a player has an
 
 public class Player
 {  
-    public Ship[] ships;
-    public Grid playerGrid;
-    public Grid oppGrid;
+
     /**
     Constructs the player class.
     **/
@@ -30,8 +28,6 @@ public class Player
         playerGrid = new Grid();
         oppGrid = new Grid();
     }
-
-    /**
  
     /**
     Chooses the location of the ship.
@@ -54,10 +50,40 @@ public class Player
     	
     }
     
+    /*
+     * Helper method that returns ships
+     * @return ships
+     */
+    public Ship[] getShips()
+    {
+    	return ships;
+    }
+    
+    /*
+     * Helper method that returns playerGrid
+     * @return playerGrid
+     */
+    public Grid getPlayerGrid()
+    {
+    	return playerGrid;
+    }
+    
+    /*
+     * Helper method that returns oppGrid
+     * @return oppGrid
+     */
+    public Grid getoppGrid()
+    {
+    	return oppGrid;
+    }
+    
     //lengths of all of the ships.
     private static final int[] SHIP_LENGTHS = {2, 3, 3, 4, 5};
     //number of ships 
     private static final int NUM_OF_SHIPS = 5;
     
+    private Ship[] ships;
+    private Grid playerGrid;
+    private Grid oppGrid;
 
 }
