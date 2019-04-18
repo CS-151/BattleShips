@@ -21,7 +21,7 @@ public class Model {
 		
 		String done = "no";
 		System.out.println("Player 1: Place your ships");
-		p1.playerGrid.printGrid();
+		p1.getPlayerGrid().printGrid();
 		while(done.equals("no"))
 		{
 			
@@ -55,7 +55,7 @@ public class Model {
 		
 		done  = "no";
 		System.out.println("Player 2: Place your ships");
-		p2.playerGrid.printGrid();
+		p2.getPlayerGrid().printGrid();
 		while(done.equals("no"))
 		{
 
