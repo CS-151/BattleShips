@@ -2,7 +2,7 @@ package edu.sjsu.cs.cs151.battleship.model;
 
 import java.util.Scanner;
 
-public class Game {
+public class Model {
 
 	public static void main(String[] args) {
 		
