@@ -67,22 +67,22 @@ class Welcome
 
 		JLabel player1 = new JLabel("Player 1");
 		player1.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		player1.setBounds(57, 48, 40, 20);
+		player1.setBounds(120, 48, 41, 20);
 		pnl_Center.add(player1);
 
 		JTextField textField = new JTextField();
-		textField.setBounds(104, 48, 276, 20);
+		textField.setBounds(167, 48, 150, 20);
 		pnl_Center.add(textField);
 		textField.setColumns(10);
 
 		JLabel player2 = new JLabel("Player 2");
 		player2.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		player2.setBounds(57, 79, 41, 20);
+		player2.setBounds(120, 69, 41, 20);
 		pnl_Center.add(player2);
 
 		JTextField textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(104, 79, 276, 20);
+		textField_1.setBounds(167, 70, 150, 20);
 		pnl_Center.add(textField_1);
 
 		JButton btnStartGame = new JButton("Start Game");
