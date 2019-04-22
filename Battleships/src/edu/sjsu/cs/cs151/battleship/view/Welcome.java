@@ -9,7 +9,18 @@ import java.awt.Image;
 
 class Welcome 
 {
+	/**
+	 * Constructor.
+	 */
 	public Welcome()
+	{
+		initialize();
+	}
+	
+	/**
+	 * Creates the frame.
+	 */
+	public void initialize()
 	{
 		frame = new JFrame();
 		frame.setBounds(0, 0, 500, 500);
@@ -111,5 +122,6 @@ class Welcome
 		Welcome window = new Welcome();
 		window.frame.setVisible(true);
 	}
+	
 	private JFrame frame;
 }
