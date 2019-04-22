@@ -88,7 +88,7 @@ class Welcome
 		JButton btnStartGame = new JButton("Start Game");
 		btnStartGame.setForeground(new Color(255, 102, 51));
 		btnStartGame.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
-		btnStartGame.setBounds(173, 110, 137, 23);
+		btnStartGame.setBounds(184, 110, 115, 23);
 		pnl_Center.add(btnStartGame);
 
 		JLabel shipL = new JLabel("");
