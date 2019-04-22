@@ -13,15 +13,18 @@ import javax.swing.SwingConstants;
 
 public class NextTurn 
 {
-	private JFrame frame;
-
-	public static void main(String[] args) 
-	{
-		NextTurn window = new NextTurn();
-		window.frame.setVisible(true);
-	}
-
+	/**
+	 * Constructor.
+	 */
 	public NextTurn()
+	{
+		initialize();
+	}
+	
+	/**
+	 * Creates the frame.
+	 */
+	public void initialize()
 	{
 		frame = new JFrame();
 		frame.setBounds(0, 0, 500, 500);
@@ -61,4 +64,12 @@ public class NextTurn
 		btnStart.setForeground(new Color(255, 102, 51));
 		pnl_Center.add(btnStart);
 	}
+	
+	public static void main(String[] args) 
+	{
+		NextTurn window = new NextTurn();
+		window.frame.setVisible(true);
+	}
+	
+	private JFrame frame;
 }
