@@ -117,5 +117,22 @@ public class Model {
 
 		}
 	}
+	
+	public Player getPlayer1()
+	{
+		return player1;
+	}
+	
+	public Player getPlayer2()
+	{
+		return player2;
+	}
+	private int row = 0;
+	private int col = 0;
+	private int size = 0;
+	private String alignment = "";
+	private int layout = 0;
+	private Player player1;
+	private Player player2;
 
 }
