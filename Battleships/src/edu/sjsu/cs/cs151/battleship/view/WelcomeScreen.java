@@ -119,7 +119,7 @@ class WelcomeScreen extends JPanel implements ActionListener {
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				View view = new View();
+				PlayerScreen view = new PlayerScreen();
 				view.playerFrame.setVisible(true);
 			}
 		});
