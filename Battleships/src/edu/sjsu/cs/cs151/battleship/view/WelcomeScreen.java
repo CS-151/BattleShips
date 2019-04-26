@@ -14,9 +14,9 @@ import java.util.ArrayList;
 class WelcomeScreen extends JPanel implements ActionListener {
 	
 	//
-	Timer tm1 = new Timer(200,this);
+	Timer tm1 = new Timer(200/2,this);
 	//Timer tm2 = new Timer(300,this);
-	int x = 240, velX = 25, waveY = 625, upWave = 20;
+	int x = 240/2, velX = 25/2, waveY = 625/2, upWave = 20/2;
 	
 	public void paintComponent(Graphics g)
 	{
@@ -27,63 +27,64 @@ class WelcomeScreen extends JPanel implements ActionListener {
 		//Ocean
 		
 		g.setColor(Color.BLUE);
-		g.drawArc(0, waveY, 80, 100, 0, -180);
-		g.drawArc(80, waveY, 120, 100, 0, -180);
-		g.drawArc(200, waveY, 130, 100, 0, -180);
-		g.drawArc(330, waveY, 60, 100, 0, -180);
-		g.drawArc(390, waveY, 90, 100, 0, -180);
-		g.drawArc(480, waveY, 50, 100, 0, -180);
-		g.drawArc(530, waveY, 120, 100, 0, -180);
-		g.drawArc(650, waveY, 100, 100, 0, -180);
-		g.drawArc(750, waveY, 50, 100, 0, -180);
-		g.drawArc(800, waveY, 130, 100, 0, -180);
-		g.drawArc(930, waveY, 70, 100, 0, -180);
+		g.drawArc(0, waveY, 80/2, 100/2, 0, -180);
+		g.drawArc(80/2, waveY, 120/2, 100/2, 0, -180);
+		g.drawArc(200/2, waveY, 130/2, 100/2, 0, -180);
+		g.drawArc(330/2, waveY, 60/2, 100/2, 0, -180);
+		g.drawArc(390/2, waveY, 90/2, 100/2, 0, -180);
+		g.drawArc(480/2, waveY, 50/2, 100/2, 0, -180);
+		g.drawArc(530/2, waveY, 120/2, 100/2, 0, -180);
+		g.drawArc(650/2, waveY, 100/2, 100/2, 0, -180);
+		g.drawArc(750/2, waveY, 50/2, 100/2, 0, -180);
+		g.drawArc(800/2, waveY, 130/2, 100/2, 0, -180);
+		g.drawArc(930/2, waveY, 70/2, 100/2, 0, -180);
 		//tm2.start();
 		//g.setColor(Color.BLUE);
 		//g.fillRect(0, 700, 1000, 750);
 		
 		//First Cloud
 		g.setColor(Color.WHITE);
-		g.fillArc(200, 200, 80, 100, 0, -180);
-		g.fillArc(280, 200, 60, 100, 0, -180);
-		g.fillArc(340, 200, 40, 100, 0, -180);
-		g.fillArc(350, 190, 60, 60, -90, 180);
-		g.fillArc(300, 140, 80, 100, 0, 180);
-		g.fillArc(220, 140, 80, 100, 0, 180);
-		g.fillArc(180, 190, 80, 60, 60, 180);
-		g.fillRect(200, 190, 190, 60);
+		g.fillArc(200/2, 200/2, 80/2, 100/2, 0, -180);
+		g.fillArc(280/2, 200/2, 60/2, 100/2, 0, -180);
+		g.fillArc(340/2, 200/2, 40/2, 100/2, 0, -180);
+		g.fillArc(350/2, 190/2, 60/2, 60/2, -90, 180);
+		g.fillArc(300/2, 140/2, 80/2, 100/2, 0, 180);
+		g.fillArc(220/2, 140/2, 80/2, 100/2, 0, 180);
+		g.fillArc(180/2, 190/2, 80/2, 60/2, 60, 180);
+		g.fillRect(200/2, 190/2, 190/2, 60/2);
 		
 		//Second Cloud
-		g.fillArc(600, 200, 80, 100, 0, -180);
-		g.fillArc(680, 200, 60, 100, 0, -180);
-		g.fillArc(740, 200, 40, 100, 0, -180);
-		g.fillArc(750, 190, 60, 60, -90, 180);
-		g.fillArc(700, 140, 80, 100, 0, 180);
-		g.fillArc(620, 140, 80, 100, 0, 180);
-		g.fillArc(580, 190, 80, 60, 60, 180);
-		g.fillRect(600, 190, 190, 60);
+		g.fillArc(600/2, 200/2, 80/2, 100/2, 0, -180);
+		g.fillArc(680/2, 200/2, 60/2, 100/2, 0, -180);
+		g.fillArc(740/2, 200/2, 40/2, 100/2, 0, -180);
+		g.fillArc(750/2, 190/2, 60/2, 60/2, -90, 180);
+		g.fillArc(700/2, 140/2, 80/2, 100/2, 0, 180);
+		g.fillArc(620/2, 140/2, 80/2, 100/2, 0, 180);
+		g.fillArc(580/2, 190/2, 80/2, 60/2, 60, 180);
+		g.fillRect(600/2, 190/2, 190/2, 60/2);
+		
 		//First Ship
 		g.setColor(Color.BLACK);
-		g.drawLine(40, 600, 90, 700); //left base
-		g.drawLine(90, 700, 190, 700); //bottom base
-		g.drawLine(190, 700, 240, 600); // right base 
-		g.drawLine(40, 600, 240, 600); // top base
-		g.drawRect(90, 560, 100, 40); // top rectangle
-		g.drawRect(190, 570, 50, 20); // cannon
+		g.drawLine(40/2, 600/2, 90/2, 700/2); //left base
+		g.drawLine(90/2, 700/2, 190/2, 700/2); //bottom base
+		g.drawLine(190/2, 700/2, 240/2, 600/2); // right base 
+		g.drawLine(40/2, 600/2, 240/2, 600/2); // top base
+		g.drawRect(90/2, 560/2, 100/2, 40/2); // top rectangle
+		g.drawRect(190/2, 570/2, 50/2, 20/2); // cannon
 		//g.drawRect(20, 300, 100, 50);
 		//g.drawRect(405, 300, 75, 50);
 		
 		
 		// Second Ship
-		g.drawLine(760,600,810,700); //left base
-		g.drawLine(810,700,910,700); //bottom base
-		g.drawLine(910,700,960,600); // right base 
-		g.drawLine(760,600,960,600); // top base
-		g.drawRect(820,560, 100, 40); // top rectangle
-		g.drawRect(765, 570, 55, 20); // cannon
+		g.drawLine(760/2,600/2,810/2,700/2); //left base
+		g.drawLine(810/2,700/2,910/2,700/2); //bottom base
+		g.drawLine(910/2,700/2,960/2,600/2); // right base 
+		g.drawLine(760/2,600/2,960/2,600/2); // top base
+		g.drawRect(820/2,560/2, 100/2, 40/2); // top rectangle
+		g.drawRect(765/2, 570/2, 55/2, 20/2); // cannon
 				
 		g.setColor(Color.RED);
-		g.fillOval(x, 570, 20, 20);	//240,570,20,20
+		g.fillOval(x, 570/2, 20/2, 20/2);	//240,570,20,20
 		tm1.start();
 		
 
@@ -110,19 +111,18 @@ class WelcomeScreen extends JPanel implements ActionListener {
 		panel.add(g);
 		frame.add(panel,BorderLayout.NORTH);
 		frame.add(g);
-//		frame.setSize(1000,1000);
+		frame.setSize(500,500);
 		//frame.add(battleShip);
 		
-		JButton loginButton = new JButton("Log in");
+		JButton loginButton = new JButton("Start");
 		panel.add(loginButton, BorderLayout.CENTER);
-		panel.revalidate();
-		panel.repaint();
-		
-		JButton signUpButton = new JButton("Sign Up");
-		panel.add(signUpButton);
-		panel.revalidate();
-		panel.repaint();
-
+		loginButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				View view = new View();
+				view.playerFrame.setVisible(true);
+			}
+		});
 		frame.setVisible(true);
 
 	}
@@ -130,14 +130,14 @@ class WelcomeScreen extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(x < 240 || x > 760)
+		if(x < 240/2 || x > 760/2)
 		{
 			velX = -velX;
 		}
 		x = x + velX;
 		//repaint();
 		
-		if(waveY < 625 || waveY>615 )
+		if(waveY < 625/2 || waveY>615/2 )
 		{
 			upWave = -upWave;
 		}
