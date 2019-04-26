@@ -1,6 +1,8 @@
 package edu.sjsu.cs.cs151.battleship.view;
 
-
+/*
+	PlayerScreen 
+ */
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -101,53 +103,71 @@ public class PlayerScreen {
 
 		
 		//PlayerGrid
-		JPanel West = new JPanel();
+		
+		//Player places ships onto player grid
+		JPanel West = new JPanel(); // West panel of screen
 		West.setPreferredSize(new Dimension(240, 240));
-		West.setLayout(new GridLayout(10, 10));
-		ArrayList<JButton> buttonList = new ArrayList<JButton>();
-		JButton[][] buttonGrid = new JButton[10][10];
+		West.setLayout(new GridLayout(10, 10));// 10 X 10 Grid
+		
+		//List to store buttons
+		buttonList = new ArrayList<JButton>(); 
+		buttonGrid = new JButton[10][10];
+		
 		for (int i = 0; i < 10; i++)
 		{
-			row = i;
 			for (int j = 0; j < 10; j++)
 			{
-				col = j;
-				JButton b = new JButton();				
-				West.add(b);
-				buttonList.add(b);
-				buttonGrid[i][j] = b;
-				System.out.println("alighnment: " + alignment);
+				JButton button = new JButton(); // Instance of Button	
+				
+				//Button object added to West panel of screen
+				West.add(button);
+				
+				//Add button to list
+				buttonList.add(button);
+				buttonGrid[i][j] = button;
 
-				///Listener event that places "X" on grids
-				// that have been clicked
-				b.addActionListener(new ActionListener()
+				///Add ActionListener event that places "X" on grids
+				// on buttons that have been clicked
+				button.addActionListener(new ActionListener()
 				{
 					
 					public void actionPerformed(ActionEvent arg0)
 					{
-						System.out.println("Coordinate: " + buttonList.indexOf(b) );
+						System.out.println("Coordinate: " + buttonList.indexOf(button) );
 						System.out.println("ShipLength: " + shipLength );
-						int temp = buttonList.indexOf(b);
+						
+						//Checks whether the alignment the user clicked was 
+						// Horizontal 
 						if(alignment == HORIZONTAL)
 						{
-							for( int index  = 0 ; index < shipLength; index++)
+							//Checks if there is space for the selected option
+							if(isSpace(shipLength, button) && !isOutOfBounds(shipLength, button))
 							{
-								System.out.println("Index: " +(buttonList.indexOf(b) +index));
-								
-								System.out.println("alighnment: " + alignment);
-
-									buttonList.get(buttonList.indexOf(b) + index);
-									buttonList.get((buttonList.indexOf(b) + index)).setText("X");
+								//Since there is space, the block of buttons would marked
+								// as placed Horizontally
+								for( int index  = 0 ; index < shipLength; index++)
+								{
+									System.out.println("Index: " +(buttonList.indexOf(button) +index));
+										
+										buttonList.get(buttonList.indexOf(button) + index);
+										buttonList.get((buttonList.indexOf(button) + index)).setText("X");
+								}
 							}
 						}
 						else
 						{
-							for( int index  = 0 ; index < shipLength*10; index = index + 10)
+							// User did not select Horizontal, therefore it is 
+							// Vertical
+							if(isSpace(shipLength, button))
 							{
-								System.out.println("Index: " +(buttonList.indexOf(b) +index));
-								System.out.println("alighnment: " + alignment);
-									buttonList.get(buttonList.indexOf(b) + index);
-									buttonList.get((buttonList.indexOf(b) + index)).setText("X");
+								//Adds ships vertically
+								for( int index  = 0 ; index < shipLength*10; index = index + 10)
+								{
+									System.out.println("Index: " +(buttonList.indexOf(button) +index));
+									System.out.println("alighnment: " + alignment);
+										buttonList.get(buttonList.indexOf(button) + index);
+										buttonList.get((buttonList.indexOf(button) + index)).setText("X");
+								}
 							}
 						}
 					System.out.println("========");
@@ -330,6 +350,72 @@ public class PlayerScreen {
 		window.playerFrame.setVisible(true);
 	}
 
+	public ArrayList<JButton> getbuttonList()
+	{
+		return buttonList;
+	}
+	
+	public JButton[][] getJButtonGrid()
+	{
+		return buttonGrid;
+	}
+	
+	/*
+	 * Helper method that check whether the given ship would fit on to the 
+	 * selected JButton 
+	 * @param shipLength the length of the ship
+	 * @param button the first button that is clicked (the head of the ship)
+	 * @result true/false boolean output determining whether there is space
+	 */
+	public boolean isSpace(int shipLength, JButton button)
+	{
+		if(alignment == HORIZONTAL)
+		{
+			for( int index  = 0 ; index < shipLength; index++)
+			{
+					if(buttonList.get((buttonList.indexOf(button) + index)).getText().equals("X"))
+					{
+						return false;
+					}					
+			}
+			return true;
+		}
+		else
+		{
+			for( int index  = 0 ; index < shipLength*10; index = index + 10)
+			{
+					if(buttonList.get((buttonList.indexOf(button) + index)).getText().equals("X"))
+					{
+						return false;
+					}
+			}
+		return true;
+			
+		}
+	}
+	
+	/*
+	 * Helper method that check whether the given ship would go 
+	 * out of bounds from the grid
+	 * @param shipLength the length of the ship
+	 * @param button the first button that is clicked (the head of the ship)
+	 * @result true/false boolean output determining whether the ship would be out of bounds.
+	 */
+	public boolean isOutOfBounds(int shipLength, JButton button)
+	{
+		for( int index  = 0 ; index < shipLength-1; index++)
+		{
+				if(((buttonList.indexOf(button) + index)%10 == 9))
+				{
+					return true;
+				}					
+		}
+		return false;
+	}
+	
+	
+	private ArrayList<Integer> shipCheck;
+	private JButton[][] buttonGrid;
 	public static JFrame playerFrame;
 	private Integer scoreNum = 0;
 	private int row = 0;
@@ -339,4 +425,5 @@ public class PlayerScreen {
 	private int alignment = 0;
 	private static final int HORIZONTAL  = 0;
 	private static final int VERTICAL = -1;
+	private ArrayList<JButton> buttonList;
 }
