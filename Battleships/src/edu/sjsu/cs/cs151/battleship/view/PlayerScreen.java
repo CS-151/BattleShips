@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -331,6 +332,30 @@ public class PlayerScreen {
 		JRadioButton submarineV = new JRadioButton("V");
 		submarineV.setBounds(442, 6, 40, 23);
 		South.add(submarineV);
+		
+		JButton extButton = new JButton("EXIT");
+		extButton.setBounds(377, 40, 117, 29);
+		South.add(extButton);
+		extButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			JDialog dialog = new JDialog(playerFrame,"EXIT" );
+			JLabel extLabel = new JLabel("Are you sure you want to exit the game?");
+			dialog.setBounds(200, 200, 100, 100);
+			dialog.add(extLabel);
+			dialog.setSize(100, 100);
+			dialog.setVisible(true);
+			
+		//	JButton yesBtn = new JButton("Yes");
+			//yesBtn.setBounds(377, 40, 117, 29);
+		//	JButton noBtn = new JButton("No");
+		//	noBtn.setBounds(370, 40, 117, 29);
+		//	dialog.add(yesBtn);
+			
+		//	dialog.add(noBtn);
+			}
+		});
+		
+		
 		submarineV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 3;

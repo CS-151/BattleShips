@@ -36,7 +36,7 @@ public class Grid {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 
-		JDialog exitDialog = new JDialog();
+
 		
 		
 		JPanel North = new JPanel();
@@ -115,7 +115,7 @@ public class Grid {
 		JLabel eastLabel = new JLabel();
 		eastLabel.setBounds(0, 0, 240, 240);
 		East.add(eastLabel);
-		eastLabel.setIcon(img);
+	//	eastLabel.setIcon(img);
 		
 		
 		for (int i = 0; i < 10; i++)
@@ -138,11 +138,11 @@ public class Grid {
 		btnExit.setFont(new Font("Bahnschrift", Font.PLAIN, 11));
 		btnExit.setBounds(364, 11, 112, 23);
 		South.add(btnExit);
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){  
-	            exitMessage.setText("Are you sure you want exit the game? ");  
-			}
-		});
+		//btnExit.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e){  
+	        //    exitMessage.setText("Are you sure you want exit the game? ");  
+		//	}
+	//	});
 		
 		JButton b1 = new JButton("");
 		b1.addActionListener(new ActionListener() {
