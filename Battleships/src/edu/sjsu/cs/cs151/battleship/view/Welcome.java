@@ -1,13 +1,20 @@
 package edu.sjsu.cs.cs151.battleship.view;
 
-import javax.swing.*;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Toolkit;
 
-class Welcome 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
+
+public class Welcome 
 {
 	/**
 	 * Constructor.
@@ -22,106 +29,126 @@ class Welcome
 	 */
 	public void initialize()
 	{
-		frame = new JFrame();
+		frame = new JFrame("Battleships");
+		frame.getContentPane().setLayout(null);
 		frame.setBounds(0, 0, 500, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel pnl_North = new JPanel();
-		pnl_North.setPreferredSize(new Dimension(500, 120));
-		frame.getContentPane().add(pnl_North, BorderLayout.NORTH);
-		pnl_North.setLayout(null);
-
-		JLabel cloud1 = new JLabel("");
-		cloud1.setBounds(45, 24, 128, 69);
-		Image img = new ImageIcon(cloud1.getClass().getResource("/cloud.png")).getImage();
-		cloud1.setIcon(new ImageIcon(img));
-		pnl_North.add(cloud1);
-
-		JLabel cloud2 = new JLabel("");
-		cloud2.setBounds(371, 11, 162, 69);
-		Image img1 = new ImageIcon(cloud2.getClass().getResource("/cloud.png")).getImage();
-		cloud2.setIcon(new ImageIcon(img1));
-		pnl_North.add(cloud2);
-
-		JLabel cloud3 = new JLabel("");
-		cloud3.setBounds(234, 40, 127, 69);
-		Image img2 = new ImageIcon(cloud3.getClass().getResource("/cloud.png")).getImage();
-		cloud3.setIcon(new ImageIcon(img2));
-		pnl_North.add(cloud3);
-
-		JLabel cloud4 = new JLabel("");
-		cloud4.setBounds(-20, -19, 128, 81);
-		Image img3 = new ImageIcon(cloud4.getClass().getResource("/cloud.png")).getImage();
-		cloud4.setIcon(new ImageIcon(img3));
-		pnl_North.add(cloud4);
-
-		JPanel pnl_Center = new JPanel();
-		frame.getContentPane().add(pnl_Center, BorderLayout.CENTER);
-		pnl_Center.setLayout(null);
-
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(frame.getClass().getResource("/cannonball.png")));
+		
+		//Clouds animated
+		JPanel TOP = new JPanel();
+		TOP.setBounds(0, 0, 484, 100);
+		frame.getContentPane().add(TOP);
+		TOP.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		final Moveable cloud= new ImgShape(0, 0, "/cloud.png");
+		ShapeIcon icon1 = new ShapeIcon(cloud, 500, 100);
+		final JLabel l1 = new JLabel(icon1);
+		TOP.add(l1);
+		frame.getContentPane().add(TOP);
+		
+		JPanel CENTER = new JPanel();
+		CENTER.setBounds(0, 99, 484, 208);
+		frame.getContentPane().add(CENTER);
+		CENTER.setLayout(null);
+		
 		JLabel lblWelcomeToBattleship = new JLabel("Welcome to Battleship!");
-		lblWelcomeToBattleship.setBounds(81, 0, 321, 37);
+		lblWelcomeToBattleship.setBounds(84, 5, 315, 31);
 		lblWelcomeToBattleship.setForeground(new Color(0, 102, 204));
 		lblWelcomeToBattleship.setFont(new Font("Magneto", Font.PLAIN, 25));
-		pnl_Center.add(lblWelcomeToBattleship);
+		CENTER.add(lblWelcomeToBattleship);
+		
+		JButton Start = new JButton("Start");
+		Start.setForeground(new Color(255, 102, 51));
+		Start.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		Start.setBounds(192, 45, 100, 25);
+		CENTER.add(Start);
 
-		JLabel player1 = new JLabel("Player 1");
-		player1.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		player1.setBounds(120, 48, 41, 20);
-		pnl_Center.add(player1);
+		JButton About = new JButton("About");
+		About.setForeground(new Color(255, 102, 51));
+		About.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		About.setBounds(192, 75, 100, 25);
+		CENTER.add(About);
 
-		JTextField textField = new JTextField();
-		textField.setBounds(167, 48, 150, 20);
-		pnl_Center.add(textField);
-		textField.setColumns(10);
+		JButton Tutorial = new JButton("Tutorial");
+		Tutorial.setForeground(new Color(255, 102, 51));
+		Tutorial.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		Tutorial.setBounds(192, 105, 100, 25);
+		CENTER.add(Tutorial);
 
-		JLabel player2 = new JLabel("Player 2");
-		player2.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		player2.setBounds(120, 69, 41, 20);
-		pnl_Center.add(player2);
-
-		JTextField textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(167, 70, 150, 20);
-		pnl_Center.add(textField_1);
-
-		JButton btnStartGame = new JButton("Start Game");
-		btnStartGame.setForeground(new Color(255, 102, 51));
-		btnStartGame.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
-		btnStartGame.setBounds(184, 110, 115, 23);
-		pnl_Center.add(btnStartGame);
-
+		JButton Exit = new JButton("Exit");
+		Exit.setForeground(new Color(255, 102, 51));
+		Exit.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		Exit.setBounds(192, 135, 100, 25);
+		CENTER.add(Exit);
+		
+		JPanel LSHIP = new JPanel();
+		LSHIP.setBounds(0, 307, 115, 83);
+		frame.getContentPane().add(LSHIP);
 		JLabel shipL = new JLabel("");
-		shipL.setBounds(10, 175, 100, 66);
-		shipL.setHorizontalAlignment(SwingConstants.RIGHT);
 		Image img4 = new ImageIcon(shipL.getClass().getResource("/shipL.png")).getImage();
 		shipL.setIcon(new ImageIcon(img4));
-		pnl_Center.add(shipL);		
-
+		LSHIP.add(shipL);		
+		
+		//Cannonball animated
+		JPanel CANNONS = new JPanel();
+		CANNONS.setBounds(115, 307, 236, 83);
+		frame.getContentPane().add(CANNONS);
+		CANNONS.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		final Moveable ball = new ImgShape(0, 0, "/cannonball.png");
+		ShapeIcon icon2 = new ShapeIcon(ball, 500, 100);
+		final JLabel l2 = new JLabel(icon2);
+		CANNONS.add(l2);
+		frame.getContentPane().add(CANNONS);
+		
+		JPanel RSHIP = new JPanel();
+		RSHIP.setBounds(351, 307, 133, 83);
+		frame.getContentPane().add(RSHIP);
 		JLabel shipR = new JLabel("");
-		shipR.setBounds(374, 175, 100, 66);
 		shipR.setHorizontalAlignment(SwingConstants.RIGHT);
 		Image img5 = new ImageIcon(shipR.getClass().getResource("/shipR.png")).getImage();
 		shipR.setIcon(new ImageIcon(img5));
-		pnl_Center.add(shipR);		
+		RSHIP.add(shipR);
+		
+		JPanel BOTTOM = new JPanel();
+		BOTTOM.setBounds(0, 391, 484, 70);
+		BOTTOM.setBackground(new Color(0, 102, 204));
+		frame.getContentPane().add(BOTTOM);
 
-		JLabel cannon = new JLabel("");
-		cannon.setBounds(195, 149, 50, 42);
-		Image img6 = new ImageIcon(cannon.getClass().getResource("/cannonball.png")).getImage();
-		cannon.setIcon(new ImageIcon(img6));
-		pnl_Center.add(cannon);
-
-		JPanel pnl_South = new JPanel();
-		pnl_South.setPreferredSize(new Dimension(500, 100));
-		pnl_South.setBackground(new Color(0, 102, 204));
-		frame.getContentPane().add(pnl_South, BorderLayout.SOUTH);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		//Cloud timer
+		final int DELAY = 50;
+		Timer t = new Timer(DELAY, event ->{
+			cloud.move();
+			l1.repaint();
+		});
+		t.start();
+		
+		//Cannonball timer
+		final int DELAY2 = 1;
+		Timer t2 = new Timer(DELAY2, event ->{
+			ball.move();
+			l2.repaint();
+		});
+		t2.start();
 	}
-
-	public static void main(String args[])
+	
+	public static void main(String[] args) 
 	{
 		Welcome window = new Welcome();
 		window.frame.setVisible(true);
 	}
 	
+	public JFrame getFrame()
+	{
+		return frame;
+	}
+	
+	public JButton getStartButton()
+	{
+		return startButton;
+	}
+	
+	public JButton startButton;
 	private JFrame frame;
 }
