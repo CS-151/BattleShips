@@ -56,29 +56,29 @@ public class Welcome
 		lblWelcomeToBattleship.setFont(new Font("Magneto", Font.PLAIN, 25));
 		CENTER.add(lblWelcomeToBattleship);
 		
-		JButton Start = new JButton("Start");
-		Start.setForeground(new Color(255, 102, 51));
-		Start.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
-		Start.setBounds(192, 45, 100, 25);
-		CENTER.add(Start);
+		start = new JButton("start");
+		start.setForeground(new Color(255, 102, 51));
+		start.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		start.setBounds(192, 45, 100, 25);
+		CENTER.add(start);
 
-		JButton About = new JButton("About");
-		About.setForeground(new Color(255, 102, 51));
-		About.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
-		About.setBounds(192, 75, 100, 25);
-		CENTER.add(About);
+		about = new JButton("About");
+		about.setForeground(new Color(255, 102, 51));
+		about.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		about.setBounds(192, 75, 100, 25);
+		CENTER.add(about);
 
-		JButton Tutorial = new JButton("Tutorial");
-		Tutorial.setForeground(new Color(255, 102, 51));
-		Tutorial.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
-		Tutorial.setBounds(192, 105, 100, 25);
-		CENTER.add(Tutorial);
+		tutorial = new JButton("Tutorial");
+		tutorial.setForeground(new Color(255, 102, 51));
+		tutorial.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		tutorial.setBounds(192, 105, 100, 25);
+		CENTER.add(tutorial);
 
-		JButton Exit = new JButton("Exit");
-		Exit.setForeground(new Color(255, 102, 51));
-		Exit.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
-		Exit.setBounds(192, 135, 100, 25);
-		CENTER.add(Exit);
+		exit = new JButton("Exit");
+		exit.setForeground(new Color(255, 102, 51));
+		exit.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		exit.setBounds(192, 135, 100, 25);
+		CENTER.add(exit);
 		
 		JPanel LSHIP = new JPanel();
 		LSHIP.setBounds(0, 307, 115, 83);
@@ -146,9 +146,22 @@ public class Welcome
 	
 	public JButton getStartButton()
 	{
-		return startButton;
+		return start;
+	}
+	public JButton getAboutButton()
+	{
+		return about;
+	}public JButton getTutorialButton()
+	{
+		return tutorial;
+	}public JButton getExitButton()
+	{
+		return exit;
 	}
 	
-	public JButton startButton;
+	public JButton start;
+	public JButton about;
+	public JButton tutorial;
+	public JButton exit;
 	private JFrame frame;
 }
