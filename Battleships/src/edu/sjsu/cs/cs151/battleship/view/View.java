@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ import javax.swing.SwingConstants;
 import edu.sjsu.cs.cs151.battleship.model.Grid;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import java.awt.Color;
 
 public class View extends Thread{
 
@@ -46,6 +48,7 @@ public class View extends Thread{
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 
 		JPanel North = new JPanel();
+		North.setBackground(Color.GRAY);
 		North.setPreferredSize(new Dimension(500, 150));
 		playerFrame.getContentPane().add(North, BorderLayout.NORTH);
 		North.setLayout(null);
@@ -59,30 +62,33 @@ public class View extends Thread{
 		North.add(nextPlayerButton);
 
 		JLabel scoreLabel = new JLabel("Score:");
-		scoreLabel.setFont(new Font("Bahnschrift", Font.PLAIN, 11));
+		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		scoreLabel.setBounds(20, 56, 33, 14);
 		North.add(scoreLabel);
 
 		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
+		playerLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		playerLabel.setBounds(10, 31, 97, 14);
 		North.add(playerLabel);
 
 		JLabel shipsLeftLabel = new JLabel("Ships Left:");
-		shipsLeftLabel.setFont(new Font("Bahnschrift", Font.PLAIN, 11));
+		shipsLeftLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		shipsLeftLabel.setBounds(20, 81, 60, 14);
 		North.add(shipsLeftLabel);
 
 		JLabel lblShipsHit = new JLabel("Ships Hit:");
-		lblShipsHit.setFont(new Font("Bahnschrift", Font.PLAIN, 11));
+		lblShipsHit.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		lblShipsHit.setBounds(124, 81, 55, 14);
 		North.add(lblShipsHit);
 
 		JLabel lblPlayer_1 = new JLabel("PLAYER");
+		lblPlayer_1.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
 		lblPlayer_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlayer_1.setBounds(88, 125, 91, 14);
 		North.add(lblPlayer_1);
 
 		JLabel lblOpponent = new JLabel("OPPONENT");
+		lblOpponent.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
 		lblOpponent.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOpponent.setBounds(339, 125, 106, 14);
 		North.add(lblOpponent);
@@ -157,6 +163,7 @@ public class View extends Thread{
 		playerFrame.getContentPane().add(East, BorderLayout.EAST);
 
 		JPanel South = new JPanel();
+		South.setBackground(Color.GRAY);
 		South.setPreferredSize(new Dimension(500, 70));
 		playerFrame.getContentPane().add(South, BorderLayout.SOUTH);
 		South.setLayout(null);
@@ -217,8 +224,10 @@ public class View extends Thread{
 				isSubmarine = true;
 			}
 		});
-		
+		//ImageIcon ship5 = new ImageIcon(getClass().getResource("/battleship5.png"));
 		JLabel carrierLabel = new JLabel("Carrier(5)");
+		//carrierLabel.setIcon(new ImageIcon("/battleship5.png"));
+		carrierLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		carrierLabel.setBounds(6, 10, 63, 16);
 		South.add(carrierLabel);
 		
@@ -234,6 +243,7 @@ public class View extends Thread{
 		});
 		
 		JLabel battleShipLabel = new JLabel("BattleShip(4)");
+		battleShipLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		battleShipLabel.setBounds(149, 10, 85, 16);
 		South.add(battleShipLabel);
 		
@@ -249,6 +259,7 @@ public class View extends Thread{
 		});
 		
 		JLabel lblCruiser = new JLabel("Cruiser(3)");
+		lblCruiser.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblCruiser.setBounds(6, 45, 61, 16);
 		South.add(lblCruiser);
 		
@@ -264,6 +275,7 @@ public class View extends Thread{
 			}
 		});
 		JLabel lblDestoryer = new JLabel("Destoryer(2)");
+		lblDestoryer.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblDestoryer.setBounds(149, 45, 77, 16);
 		South.add(lblDestoryer);
 		
@@ -279,6 +291,7 @@ public class View extends Thread{
 		});
 		
 		JLabel lblSubmarine = new JLabel("Submarine(3)");
+		lblSubmarine.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblSubmarine.setBounds(318, 10, 85, 16);
 		South.add(lblSubmarine);
 		
@@ -304,7 +317,7 @@ public class View extends Thread{
 		JDialog dialog = new JDialog(playerFrame,"EXIT" );
 		JLabel extLabel = new JLabel("Are you sure you want to exit the game?");
 		dialog.setBounds(200, 200, 100, 100);
-		dialog.add(extLabel);
+		dialog.getContentPane().add(extLabel);
 		dialog.setSize(100, 100);
 		dialog.setVisible(true);
 

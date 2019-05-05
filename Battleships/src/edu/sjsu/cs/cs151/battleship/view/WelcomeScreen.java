@@ -1,6 +1,8 @@
 package edu.sjsu.cs.cs151.battleship.view;
 import javax.swing.*;
 
+import edu.sjsu.cs.cs151.battleship.controller.Controller;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -119,8 +121,8 @@ class WelcomeScreen extends JPanel implements ActionListener {
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				PlayerScreen view = new PlayerScreen();
-				view.playerFrame.setVisible(true);
+				Controller view = new Controller();
+				//view.playerFrame.setVisible(true);
 			}
 		});
 		frame.setVisible(true);
