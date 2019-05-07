@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import edu.sjsu.cs.cs151.battleship.app.Battleships;
+
 public class Welcome 
 {
 	/**
@@ -122,6 +124,11 @@ public class Welcome
 		start.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
 		start.setBounds(192, 54, 100, 25);
 		CENTER.add(start);
+		start.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				Battleships.state = Battleships.STATE.GAME;
+			}
+		});
 
 		JPanel LSHIP = new JPanel();
 		LSHIP.setBounds(0, 259, 115, 85);

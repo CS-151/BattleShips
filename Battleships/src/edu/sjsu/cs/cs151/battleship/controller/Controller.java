@@ -1,20 +1,17 @@
 package edu.sjsu.cs.cs151.battleship.controller;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
 import edu.sjsu.cs.cs151.battleship.view.View;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.Thread.State;
+import java.util.ArrayList;
+import javax.swing.JButton;
 
-public class Controller {
-
+public class Controller 
+{
 	public Controller()
 	{
 		model = new Model();
@@ -36,18 +33,14 @@ public class Controller {
 		//extPlayer( player2,  player1,  nt);
 
 		//player2.playerFrame.setVisible(true);
-
 	}
 
-	
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
 		player.initializeArray(shipCheckArray);
 		buttonGrid = player.getJButtonGrid();
 		
-	 
-
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -215,8 +208,6 @@ public class Controller {
 		}
 	}
 	
-
-
 	private void initializeArray(boolean[] shipCheck2)
 	{
 		for (int i = 0; i <shipCheck2.length; i++)
@@ -292,6 +283,7 @@ public class Controller {
 			}
 		});
 	}
+	
 	public void selectPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.playerFrame.dispose();
@@ -325,21 +317,4 @@ public class Controller {
 	
 	private static final int HORIZONTAL  = 0;
 	private static final int VERTICAL = -1;
-	
-	
-	public static void main(String[]args)
-	{
-		Controller c = new Controller();
-		//c.player2.playerFrame.setVisible(true);
-		//c.player1.playerFrame.setVisible(true);
-//		c.player2.playerFrame.setVisible(true);
-//		c.addShipToPlayerGrid(c.player2);
-//		c.player2.playerFrame.setVisible(true);
-//		c.addShipToPlayerGrid(c.player2);
-
-		
-	}
-
-
-
 }
