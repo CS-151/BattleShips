@@ -31,7 +31,7 @@ public class Controller {
 		addShipToPlayerGrid(player2);
 		guessOponentShip(player2, player1);
 		
-		nextPlayer( player1,  player2,  nt);
+		nextPlayer(player1,  player2,  nt);
 		nextPlayer(player2, player1, nt);
 		//extPlayer( player2,  player1,  nt);
 

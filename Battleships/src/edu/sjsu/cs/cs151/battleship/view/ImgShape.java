@@ -11,22 +11,36 @@ public class ImgShape implements Moveable
 		this.y = y;
 		image= img;
 	}
-	
-	public void move()
+
+	public void move(int n)
 	{
-		x++;
-		if (x == 480)
+		if (n == 1)
 		{
-			x = 0;
+			x++;
+			if (x == 480)
+			{
+				x = 0;
+			}
+		}
+
+		else
+		{
+			--x;
+			if (x == 0)
+			{
+
+				x = 480;
+			}
+
 		}
 	}
-	
+
 	public void draw(Graphics2D g2)
 	{
 		Image img = new ImageIcon(getClass().getResource(image)).getImage();
 		g2.drawImage(img, x, y, null);
 	}
-	
+
 	private int x;
 	private int y;
 	private String image;

@@ -4,6 +4,7 @@ package edu.sjsu.cs.cs151.battleship.view;
 	PlayerScreen 
  */
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -16,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -40,22 +42,21 @@ public class View extends Thread{
 	 */
 	public void initialize()
 	{
-		playerFrame = new JFrame();
+		playerFrame = new JFrame("Battleships");
 		playerFrame.setBounds(0, 0, 500, 500);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
+		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
 
 		JPanel North = new JPanel();
 		North.setPreferredSize(new Dimension(500, 150));
 		playerFrame.getContentPane().add(North, BorderLayout.NORTH);
 		North.setLayout(null);
 
-		nextPlayerButton = new JButton("NEXT PLAYER...");
-	
-		
-		
-		nextPlayerButton.setFont(new Font("Bahnschrift", Font.PLAIN, 11));
+		nextPlayerButton = new JButton("NEXT PLAYER");
 		nextPlayerButton.setBounds(363, 17, 112, 23);
+		nextPlayerButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+		nextPlayerButton.setForeground(new Color(255, 102, 51));
 		North.add(nextPlayerButton);
 
 		JLabel scoreLabel = new JLabel("Score:");
@@ -86,68 +87,66 @@ public class View extends Thread{
 		lblOpponent.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOpponent.setBounds(339, 125, 106, 14);
 		North.add(lblOpponent);
-		
+
 		scoreCount = new JLabel("0");
 		scoreCount.setBounds(60, 54, 21, 16);
 		North.add(scoreCount);
-		
-		
+
+
 		shipLeftCount = new JLabel("0");
 		shipLeftCount.setBounds(86, 79, 21, 16);
 		North.add(shipLeftCount);
-		
-		
-		
+
 		JLabel shipsHitCount = new JLabel("0");
 		shipsHitCount.setBounds(182, 79, 21, 16);
 		North.add(shipsHitCount);
 
-		
+
 		//-----------------------------PlayerGrid-------------------------//
-		
+
 		//Player places ships onto player grid
 		this.West = new JPanel(); // West panel of screen
 		West.setPreferredSize(new Dimension(240, 240));
 		West.setLayout(new GridLayout(10, 10));// 10 X 10 Grid
-		
-	
-		
+
+
+
 		//List to store buttons
 		buttonList = new ArrayList<JButton>(); 
 		buttonGrid = new JButton[10][10];
-		
+
 		for (int i = 0; i < 10; i++)
 		{
 			for (int j = 0; j < 10; j++)
 			{
 				JButton button = new JButton(); // Instance of Button	
-				
+
 				//Button object added to West panel of screen
 				West.add(button);	
 				//Add button to list
 				buttonList.add(button);
 				buttonGrid[i][j] = button;
-				
-				
+
+
 			}
 		}
 		playerFrame.getContentPane().add(West, BorderLayout.WEST);
 
-		
+
 		//-----------------------------OpponentGrid-------------------------//
 
 		//Opponent Grid 
 		JPanel East = new JPanel();
 		East.setPreferredSize(new Dimension(240, 240));
 		East.setLayout(new GridLayout(10, 10));
-		
+
 		opponentButtonList = new ArrayList<JButton>();
 		opponentButtonGrid = new JButton[10][10];
 		for (int i = 0; i < 10; i++)
 		{
 			for (int j = 0; j < 10; j++)
 			{
-			
+
 				JButton b = new JButton();
 				East.add(b);
 				opponentButtonList.add(b);
@@ -160,8 +159,8 @@ public class View extends Thread{
 		South.setPreferredSize(new Dimension(500, 70));
 		playerFrame.getContentPane().add(South, BorderLayout.SOUTH);
 		South.setLayout(null);
-		
-		
+
+
 		JRadioButton carrierH = new JRadioButton("H");		
 		carrierH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,10 +169,10 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		carrierH.setBounds(64, 6, 47, 23);
 		South.add(carrierH);
-		
+
 		JRadioButton battleshipH = new JRadioButton("H");
 		battleshipH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -184,7 +183,7 @@ public class View extends Thread{
 		});
 		battleshipH.setBounds(229, 6, 47, 23);
 		South.add(battleshipH);
-		
+
 		JRadioButton cruiserH = new JRadioButton("H");
 		cruiserH.setBounds(64, 41, 47, 23);
 		South.add(cruiserH);
@@ -195,7 +194,7 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		JRadioButton destroyerH = new JRadioButton("H");
 		destroyerH.setBounds(229, 41, 42, 23);
 		South.add(destroyerH);
@@ -206,7 +205,7 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		JRadioButton submarineH = new JRadioButton("H");
 		submarineH.setBounds(404, 6, 47, 23);
 		South.add(submarineH);
@@ -217,11 +216,11 @@ public class View extends Thread{
 				isSubmarine = true;
 			}
 		});
-		
+
 		JLabel carrierLabel = new JLabel("Carrier(5)");
 		carrierLabel.setBounds(6, 10, 63, 16);
 		South.add(carrierLabel);
-		
+
 		JRadioButton carrierV = new JRadioButton("V");
 		carrierV.setBounds(101, 6, 47, 23);
 		South.add(carrierV);
@@ -232,11 +231,11 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		JLabel battleShipLabel = new JLabel("BattleShip(4)");
 		battleShipLabel.setBounds(149, 10, 85, 16);
 		South.add(battleShipLabel);
-		
+
 		JRadioButton battleShipV = new JRadioButton("V");
 		battleShipV.setBounds(268, 6, 47, 23);
 		South.add(battleShipV);
@@ -247,12 +246,12 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		JLabel lblCruiser = new JLabel("Cruiser(3)");
 		lblCruiser.setBounds(6, 45, 61, 16);
 		South.add(lblCruiser);
-		
-		
+
+
 		JRadioButton cruiserV = new JRadioButton("V");
 		cruiserV.setBounds(101, 41, 47, 23);
 		South.add(cruiserV);
@@ -266,7 +265,7 @@ public class View extends Thread{
 		JLabel lblDestoryer = new JLabel("Destoryer(2)");
 		lblDestoryer.setBounds(149, 45, 77, 16);
 		South.add(lblDestoryer);
-		
+
 		JRadioButton destroyerV = new JRadioButton("V");
 		destroyerV.setBounds(268, 41, 43, 23);
 		South.add(destroyerV);
@@ -277,11 +276,11 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		JLabel lblSubmarine = new JLabel("Submarine(3)");
 		lblSubmarine.setBounds(318, 10, 85, 16);
 		South.add(lblSubmarine);
-		
+
 		JRadioButton submarineV = new JRadioButton("V");
 		submarineV.setBounds(442, 6, 40, 23);
 		South.add(submarineV);
@@ -292,103 +291,98 @@ public class View extends Thread{
 				isSubmarine = true;
 			}
 		});
-		
 
-	
-
-	JButton extButton = new JButton("EXIT");
-	extButton.setBounds(377, 40, 117, 29);
-	South.add(extButton);
-	extButton.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-		JDialog dialog = new JDialog(playerFrame,"EXIT" );
-		JLabel extLabel = new JLabel("Are you sure you want to exit the game?");
-		dialog.setBounds(200, 200, 100, 100);
-		dialog.add(extLabel);
-		dialog.setSize(100, 100);
-		dialog.setVisible(true);
-
-	//	JButton yesBtn = new JButton("Yes");
-		//yesBtn.setBounds(377, 40, 117, 29);
-	//	JButton noBtn = new JButton("No");
-	//	noBtn.setBounds(370, 40, 117, 29);
-	//	dialog.add(yesBtn);
-
-	//	dialog.add(noBtn);
-		}
-	});
-	
-	}
-
-
+		//Button gives player the option to exit the game.
+		JButton extButton = new JButton("EXIT");
+		extButton.setBounds(363, 35, 112, 23);
+		extButton.setForeground(Color.RED);
+		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+		South.add(extButton);
+		extButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
+				if (n == 0)
+				{
+					try
+					{
+						//Exits the game entirely.
+						System.exit(0);
+					} catch(Exception e)
+					{
+						JOptionPane.showMessageDialog(null, e);
+					}
+				}
+			}
+		});
+	};
 
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
 	}
-	
+
 	public JButton[][] getJButtonGrid()
 	{
 		return buttonGrid;
 	}
-	
+
 
 	public JPanel getWestPanel()
 	{
 		return West;
 	}
-	
+
 	public JPanel getPlayerGrid()
 	{
 		return this.West;
 	}
-	
-	
+
+
 	public JButton[][] getButtonGrid()
 	{
 		return buttonGrid;
 	}
-	
+
 	public ArrayList<JButton> getJButtonList()
 	{
 		return buttonList;
 	}
 	private static void makeFrameFullSize(JFrame aFrame)
 	{
-	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	    aFrame.setSize(screenSize.width, screenSize.height);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		aFrame.setSize(screenSize.width, screenSize.height);
 	}
-	
+
 	public int getAlignment()
 	{
 		return alignment;
 	}
-	
+
 	public boolean getIsSubmarine()
 	{
 		return isSubmarine;
 	}
-	
+
 	public int getShipLength()
 	{
 		return shipLength;
 	}
-	
+
 	public JLabel getShipLeftCount()
 	{
 		return shipLeftCount;
 	}
-	
+
 	public JButton getNextPlayerButton()
 	{
 		return nextPlayerButton;
 	}
-	
+
 	public boolean[] getshipCheck()
 	{
 		return shipCheck;
 	}
-	
+
 	public boolean isShipThere(int i)
 	{
 		return shipCheck[i]== true;
@@ -400,37 +394,37 @@ public class View extends Thread{
 			shipCheck2[i] = false;
 		}
 	}
-	
+
 	public void updateShipCounter()
 	{
-		 shipLeftCounter++;
+		shipLeftCounter++;
 	}
-	
+
 	public Integer getShipCounter()
 	{
 		return shipLeftCounter;
 	}
-	
+
 	public int getPlayerNumber()
 	{
 		return playerNumber;
 	}
-	
+
 	public int getRow()
 	{
 		return row;
 	}
-	
+
 	public int getCol()
 	{
 		return col;
 	}
-	
+
 	public void setShipCheck(boolean[] newShipCheck)
 	{
 		shipCheck = newShipCheck;
 	}
-	
+
 	public ArrayList<JButton> getOpponentButtonList()
 	{
 		return opponentButtonList;
@@ -439,21 +433,21 @@ public class View extends Thread{
 	{
 		return opponentButtonGrid;
 	}
-	
+
 	public Integer getScoreNum()
 	{
 		return scoreNum;
 	}
-	
+
 	public void updateScoreNum()
 	{
-		 scoreNum++;
+		scoreNum++;
 	}
 	public JLabel getScoreCount()
 	{
 		return scoreCount;
 	}
-	
+
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
 	private Integer  shipLeftCounter = 0;;
@@ -471,7 +465,7 @@ public class View extends Thread{
 	private JPanel West;
 	private JLabel shipLeftCount;
 	private JButton nextPlayerButton;
-    public View player2;	
+	public View player2;	
 	private boolean [] shipCheck = new boolean[8];
 	private int row = 0; 
 	private int col = 0;
@@ -487,6 +481,6 @@ public class View extends Thread{
 		System.out.print(player1.playerNumber);
 		player1.playerFrame.setVisible(true);
 		View player2 = new View(2);
-		
+
 	}
 }
