@@ -63,7 +63,7 @@ public class NextTurn
 		//Timer for cannonball
 		final int DELAY = 10;
 		Timer t = new Timer(DELAY, event ->{
-			shape.move();
+			shape.move(1);
 			label.repaint();
 		});
 
