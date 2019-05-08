@@ -5,14 +5,10 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
 import edu.sjsu.cs.cs151.battleship.view.View;
@@ -25,7 +21,6 @@ public class Controller {
 		model = new Model();
 		this.player1 = new View(1);
 		this.player2  = new View(2);
-		this.player2.playerFrame.setBounds(750, 0, 500, 500);
 		nt = new NextTurn();
 		nt2 = new NextTurn();	
 		welcome = new Welcome();
@@ -50,7 +45,6 @@ public class Controller {
 		reset();
 	}
 	
-
 	public void welcomeToGame()
 	{
 		welcome.getFrame().setVisible(true);
