@@ -224,6 +224,7 @@ public class View extends Thread{
 		JRadioButton carrierH = new JRadioButton("H");	
 		carrierH.setBounds(64, 6, 40, 23);
 		carrierH.setOpaque(false);
+		South.add(carrierH);
 		carrierH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 5;
@@ -231,18 +232,12 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-<<<<<<< HEAD
 
-=======
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
-
-		carrierH.setBounds(76, 6, 50, 23);
-
-		South.add(carrierH);
 
 		JRadioButton battleshipH = new JRadioButton("H");
 		battleshipH.setBounds(229, 6, 40, 23);
 		battleshipH.setOpaque(false);
+		South.add(battleshipH);
 		battleshipH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 4;
@@ -250,25 +245,24 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-<<<<<<< HEAD
+
 
 		battleshipH.setBounds(242, 6, 50, 23);
 
 
 		South.add(battleshipH);
-		JRadioButton cruiserH = new JRadioButton("H");
+		
+		
 
-=======
 		battleshipH.setBounds(242, 6, 50, 23);
 		
 		South.add(battleshipH);
-		JRadioButton cruiserH = new JRadioButton("H");
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
-		cruiserH.setBounds(76, 41, 50, 23);
 
+
+		
+		JRadioButton cruiserH = new JRadioButton("H");
 		cruiserH.setBounds(64, 41, 40, 23);
 		cruiserH.setOpaque(false);
-
 		South.add(cruiserH);
 		cruiserH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -279,12 +273,8 @@ public class View extends Thread{
 		});
 
 		JRadioButton destroyerH = new JRadioButton("H");
-
-		destroyerH.setBounds(242, 41, 50, 23);
-
 		destroyerH.setBounds(229, 41, 40, 23);
 		destroyerH.setOpaque(false);
-
 		South.add(destroyerH);
 		destroyerH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -295,12 +285,8 @@ public class View extends Thread{
 		});
 
 		JRadioButton submarineH = new JRadioButton("H");
-
-		submarineH.setBounds(413, 6, 50, 23);
-
 		submarineH.setBounds(404, 6, 40, 23);
 		submarineH.setOpaque(false);
-
 		South.add(submarineH);
 		submarineH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -318,12 +304,9 @@ public class View extends Thread{
 		South.add(carrierLabel);
 
 		JRadioButton carrierV = new JRadioButton("V");
-
 		carrierV.setBounds(118, 6, 47, 23);
-
-		carrierV.setBounds(101, 6, 47, 23);
+		//carrierV.setBounds(101, 6, 47, 23);
 		carrierV.setOpaque(false);
-
 		South.add(carrierV);
 		carrierV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -339,15 +322,10 @@ public class View extends Thread{
 		South.add(battleShipLabel);
 
 		JRadioButton battleShipV = new JRadioButton("V");
-
 		battleShipV.setBounds(293, 6, 47, 23);
-
-		battleShipV.setBounds(268, 6, 47, 23);
+		//battleShipV.setBounds(268, 6, 47, 23);
 		battleShipV.setOpaque(false);
-<<<<<<< HEAD
-=======
 
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(battleShipV);
 		battleShipV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -361,15 +339,11 @@ public class View extends Thread{
 		lblCruiser.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon2.png")));
 		lblCruiser.setBounds(6, 45, 77, 16);
 		South.add(lblCruiser);
-
-
+		
 		JRadioButton cruiserV = new JRadioButton("V");
-
 		cruiserV.setBounds(118, 41, 47, 23);
-
-		cruiserV.setBounds(101, 41, 47, 23);
+		//cruiserV.setBounds(101, 41, 47, 23);
 		cruiserV.setOpaque(false);
-
 		South.add(cruiserV);
 		cruiserV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -378,21 +352,17 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
+		
 		JLabel lblDestoryer = new JLabel("2");
 		lblDestoryer.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon3.png")));
 		lblDestoryer.setBounds(170, 45, 77, 16);
 		South.add(lblDestoryer);
 
 		JRadioButton destroyerV = new JRadioButton("V");
-
 		destroyerV.setBounds(293, 41, 43, 23);
-
-		destroyerV.setBounds(268, 41, 43, 23);
+		//destroyerV.setBounds(268, 41, 43, 23);
 		destroyerV.setOpaque(false);
-<<<<<<< HEAD
-=======
 
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(destroyerV);
 		destroyerV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -408,18 +378,11 @@ public class View extends Thread{
 		South.add(lblSubmarine);
 
 		JRadioButton submarineV = new JRadioButton("V");
-<<<<<<< HEAD
-=======
 
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		submarineV.setBounds(454, 6, 40, 23);
-
-		submarineV.setBounds(442, 6, 40, 23);
+		//submarineV.setBounds(442, 6, 40, 23);
 		submarineV.setOpaque(false);
-<<<<<<< HEAD
-=======
 
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(submarineV);
 		submarineV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -431,12 +394,6 @@ public class View extends Thread{
 
 		//Button gives player the option to exit the game.
 
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		JButton extButton = new JButton("EXIT");
 		extButton.setBounds(363, 35, 112, 23);
 		extButton.setForeground(Color.RED);
@@ -469,104 +426,154 @@ public class View extends Thread{
 			}
 		});
 
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		exitButton = new JButton("EXIT");
 		exitButton.setBounds(363, 35, 112, 23);
 		exitButton.setForeground(Color.RED);
 		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-<<<<<<< HEAD
-=======
 
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(exitButton);
-	
-
-
-		South.add(exitButton);	
-
 	};
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton getExitButton()
 	{
 		return exitButton;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton[][] getJButtonGrid()
 	{
 		return buttonGrid;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	public JPanel getWestPanel()
 	{
 		return West;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JPanel getPlayerGrid()
 	{
 		return this.West;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton[][] getButtonGrid()
 	{
 		return buttonGrid;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<JButton> getJButtonList()
 	{
 		return buttonList;
 	}
+
+	/**
+	 * 
+	 * @param aFrame
+	 */
 	private static void makeFrameFullSize(JFrame aFrame)
 	{
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		aFrame.setSize(screenSize.width, screenSize.height);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getAlignment()
 	{
 		return alignment;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean getIsSubmarine()
 	{
 		return isSubmarine;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getShipLength()
 	{
 		return shipLength;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JLabel getShipLeftCount()
 	{
 		return shipLeftCount;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton getNextPlayerButton()
 	{
 		return nextPlayerButton;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean[] getshipCheck()
 	{
 		return shipCheck;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isShipThere(int i)
 	{
 		return shipCheck[i]== true;
 	}
+
+	/**
+	 * 
+	 * @param shipCheck2
+	 */
 	public void initializeArray(boolean[] shipCheck2)
 	{
 		for (int i = 0; i <shipCheck2.length; i++)
@@ -575,64 +582,116 @@ public class View extends Thread{
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void updateShipCounter()
 	{
 		shipLeftCounter++;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Integer getShipCounter()
 	{
 		return shipLeftCounter;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getPlayerNumber()
 	{
 		return playerNumber;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getRow()
 	{
 		return row;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getCol()
 	{
 		return col;
 	}
 
+	/**
+	 * 
+	 * @param newShipCheck
+	 */
 	public void setShipCheck(boolean[] newShipCheck)
 	{
 		shipCheck = newShipCheck;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<JButton> getOpponentButtonList()
 	{
 		return opponentButtonList;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton[][] getOpponentGrid()
 	{
 		return opponentButtonGrid;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Integer getScoreNum()
 	{
 		return scoreNum;
 	}
 
+	/**
+	 * 
+	 */
 	public void updateScoreNum()
 	{
 		scoreNum++;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public JLabel getScoreCount()
 	{
 		return scoreCount;
 	}
-	
+
+	/**
+	 * 
+	 * @return
+	 */
 	public int getScreenWidth1()
 	{
 		return screenWidth;
 	}
-	
+
+	/**
+	 * 
+	 * @return
+	 */
 	public int getScreenHeight()
 	{
 		return screenHeight;
