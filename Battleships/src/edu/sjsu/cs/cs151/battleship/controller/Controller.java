@@ -68,8 +68,6 @@ public class Controller {
 		player.initializeArray(shipCheckArray);
 		buttonGrid = player.getJButtonGrid();
 		
-	 
-
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -101,6 +99,22 @@ public class Controller {
 								{
 									isReadyToGuess = true;
 								}
+								
+								//Checks if it is player1
+								println("Row is " + convertToRow(player.getJButtonList().indexOf(button)));
+								println("Col is " + convertToCol(player.getJButtonList().indexOf(button)));
+								int row = convertToRow(player.getJButtonList().indexOf(button));
+								int col = convertToCol(player.getJButtonList().indexOf(button));
+								
+								if(player.getPlayerNumber() == 1)
+								{
+									model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+								}
+								else
+								{
+									model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+								}
+								
 								//Since there is space, the block of buttons would marked
 								// as placed Horizontally
 								for( int index  = 0 ; index < player.getShipLength(); index++)
@@ -475,6 +489,31 @@ public class Controller {
 		});
 }
 
+	public int convertToRow(Integer fullNumber)
+	{
+		if(fullNumber > 9)
+		{
+			int temp = fullNumber/10;
+			return temp;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	public int convertToCol(Integer fullNumber)
+	{
+		if(fullNumber > 9)
+		{
+			int temp = fullNumber%10;
+			return temp;
+		}
+		else
+		{
+			return fullNumber;
+		}
+	}
 	
 	public void reset()
 	{
@@ -487,7 +526,6 @@ public class Controller {
 	    System.out.println(line);
 	}
 	private int counter = 0;
-	
 	private Model model;
 	private View player1;
 	private View player2;
