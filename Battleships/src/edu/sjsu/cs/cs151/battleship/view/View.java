@@ -317,7 +317,8 @@ public class View extends Thread{
 			}
 		});
 
-		//Button gives player the option to exit the game
+		//Button gives player the option to exit the game.
+<<<<<<< HEAD
 		JButton extButton = new JButton("EXIT");
 		extButton.setBounds(363, 35, 112, 23);
 		extButton.setForeground(Color.RED);
@@ -352,12 +353,14 @@ public class View extends Thread{
 				}
 			}
 		});
+=======
 		exitButton = new JButton("EXIT");
 		exitButton.setBounds(363, 35, 112, 23);
 		exitButton.setForeground(Color.RED);
 		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		South.add(exitButton);
 	
+>>>>>>> 20bd2a6eb1653b73e42111fb4633f220b7dc9667
 	};
 
 	public JButton getExitButton()

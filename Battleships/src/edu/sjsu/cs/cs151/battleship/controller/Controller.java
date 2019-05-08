@@ -61,6 +61,10 @@ public class Controller {
 		});
 	}
 	
+	public void endGame()
+	{
+		
+	}
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
@@ -100,22 +104,6 @@ public class Controller {
 								{
 									isReadyToGuess = true;
 								}
-								
-								//Checks if it is player1
-								println("Row is " + convertToRow(player.getJButtonList().indexOf(button)));
-								println("Col is " + convertToCol(player.getJButtonList().indexOf(button)));
-								int row = convertToRow(player.getJButtonList().indexOf(button));
-								int col = convertToCol(player.getJButtonList().indexOf(button));
-								
-								if(player.getPlayerNumber() == 1)
-								{
-									model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
-								}
-								else
-								{
-									model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
-								}
-								
 								//Since there is space, the block of buttons would marked
 								// as placed Horizontally
 								for( int index  = 0 ; index < player.getShipLength(); index++)
@@ -125,7 +113,15 @@ public class Controller {
 									//int row = buttonList.indexOf(button);
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
 										
-										
+										//Checks if it is player1
+//										if(player.getPlayerNumber() == 1)
+//										{
+//											model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+//										}
+//										else
+//										{
+//											model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+//										}
 										String shipLeftCounterString = player.getShipCounter().toString();
 										player.getShipLeftCount().setText(shipLeftCounterString);
 										
@@ -478,31 +474,6 @@ public class Controller {
 		});
 }
 
-	public int convertToRow(Integer fullNumber)
-	{
-		if(fullNumber > 9)
-		{
-			int temp = fullNumber/10;
-			return temp;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	
-	public int convertToCol(Integer fullNumber)
-	{
-		if(fullNumber > 9)
-		{
-			int temp = fullNumber%10;
-			return temp;
-		}
-		else
-		{
-			return fullNumber;
-		}
-	}
 	
 	public void reset()
 	{
