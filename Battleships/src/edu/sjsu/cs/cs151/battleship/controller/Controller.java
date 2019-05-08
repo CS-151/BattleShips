@@ -5,10 +5,15 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+<<<<<<< HEAD
 
 
 import javax.swing.ImageIcon;
 
+=======
+
+import javax.swing.ImageIcon;
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -317,28 +322,10 @@ public class Controller {
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
 									if(player1.getScoreNum() == 17)
 									{
-										JDialog endOfGame = new JDialog();
-										JLabel endOfGameLabel = new JLabel("Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!");
-										JButton exit = new JButton("Exit");
-										endOfGame.setBounds((player1.getScreenWidth1()/2)-150, (player1.getScreenHeight()/2), 300, 100);
-										endOfGame.add(endOfGameLabel);
-										endOfGame.setSize(300, 100);
-										exit.addActionListener(new ActionListener() {
-											public void actionPerformed(ActionEvent e) {
-												endOfGame.dispose();
-												player1.playerFrame.dispose();
-												player2.playerFrame.dispose();
-												nt.getFrame().dispose();
-												new Controller();
-												
-												
-											}
-										});
-										endOfGame.getContentPane().add(endOfGameLabel, BorderLayout.NORTH);
-										endOfGame.getContentPane().add(exit);
-										endOfGame.add(exit,BorderLayout.CENTER);
-										endOfGame.setVisible(true);
-												
+										endOfGame = new JOptionPane();
+										endOfGame = new JOptionPane();
+										JOptionPane.showMessageDialog(player1OpponentButton.getParent(), 
+												"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", JOptionPane.INFORMATION_MESSAGE);
 									}
 
 								}
@@ -537,6 +524,7 @@ public class Controller {
 	private JButton transitionButton = new JButton();
 	private JButton[][] buttonGrid;
 	private JButton nextPlayerButton;
+	private JOptionPane endOfGame;
 	private NextTurn nt ;
 	private NextTurn nt2;
 	private JButton[][] opponentButtonGrid;

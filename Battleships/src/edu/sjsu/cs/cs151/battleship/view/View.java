@@ -231,7 +231,10 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
+<<<<<<< HEAD
 
+=======
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 
 		carrierH.setBounds(76, 6, 50, 23);
 
@@ -247,6 +250,7 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
+<<<<<<< HEAD
 
 		battleshipH.setBounds(242, 6, 50, 23);
 
@@ -254,6 +258,12 @@ public class View extends Thread{
 		South.add(battleshipH);
 		JRadioButton cruiserH = new JRadioButton("H");
 
+=======
+		battleshipH.setBounds(242, 6, 50, 23);
+		
+		South.add(battleshipH);
+		JRadioButton cruiserH = new JRadioButton("H");
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		cruiserH.setBounds(76, 41, 50, 23);
 
 		cruiserH.setBounds(64, 41, 40, 23);
@@ -334,6 +344,10 @@ public class View extends Thread{
 
 		battleShipV.setBounds(268, 6, 47, 23);
 		battleShipV.setOpaque(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(battleShipV);
 		battleShipV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -375,6 +389,10 @@ public class View extends Thread{
 
 		destroyerV.setBounds(268, 41, 43, 23);
 		destroyerV.setOpaque(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(destroyerV);
 		destroyerV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -390,10 +408,18 @@ public class View extends Thread{
 		South.add(lblSubmarine);
 
 		JRadioButton submarineV = new JRadioButton("V");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		submarineV.setBounds(454, 6, 40, 23);
 
 		submarineV.setBounds(442, 6, 40, 23);
 		submarineV.setOpaque(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(submarineV);
 		submarineV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -407,6 +433,10 @@ public class View extends Thread{
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		JButton extButton = new JButton("EXIT");
 		extButton.setBounds(363, 35, 112, 23);
 		extButton.setForeground(Color.RED);
@@ -440,10 +470,19 @@ public class View extends Thread{
 		});
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		exitButton = new JButton("EXIT");
 		exitButton.setBounds(363, 35, 112, 23);
 		exitButton.setForeground(Color.RED);
 		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 		South.add(exitButton);
 	
 
