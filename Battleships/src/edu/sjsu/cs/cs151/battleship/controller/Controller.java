@@ -16,6 +16,9 @@ import edu.sjsu.cs.cs151.battleship.view.Welcome;
 
 public class Controller {
 
+	/**
+	 * Constructor for Controller
+	 */
 	public Controller()
 	{
 		model = new Model();
@@ -27,6 +30,10 @@ public class Controller {
 		welcomeToGame();
 	}
 
+	/**
+	 * 
+	 * @param welcome the Welcome Screen
+	 */
 	public void startGame(Welcome welcome)
 	{
 		welcome.getFrame().dispose();
