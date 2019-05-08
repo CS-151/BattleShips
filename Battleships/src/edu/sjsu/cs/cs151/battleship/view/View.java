@@ -608,7 +608,10 @@ public class View extends Thread{
 	{
 		return screenHeight;
 	}
-
+	public static void player1Screen(View player1)
+	{
+		player1.playerFrame.setBounds(0, 0, 500, 500);
+	}
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
 	private Integer  shipLeftCounter = 0;;
