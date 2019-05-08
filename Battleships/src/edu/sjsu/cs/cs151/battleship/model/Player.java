@@ -14,7 +14,8 @@ public class Player
     **/
     public Player()
     {
-        if (NUM_OF_SHIPS != 5) {
+        if (NUM_OF_SHIPS != 5) 
+        {
 			throw new IllegalArgumentException("ERROR! Num of ships must be 5");
 		}
         

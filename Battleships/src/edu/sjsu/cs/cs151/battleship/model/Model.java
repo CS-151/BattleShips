@@ -14,7 +14,6 @@ public class Model {
 		System.out.println("Welcome to BattleShip");
 		Scanner scan = new Scanner(System.in);
 
-
 		Player p1 = new Player();
 		Player p2 = new Player();
 

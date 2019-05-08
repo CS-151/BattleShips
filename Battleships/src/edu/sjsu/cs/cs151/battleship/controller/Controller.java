@@ -291,7 +291,6 @@ public class Controller {
 		JButton[][] player2PlayerGrid = player2.getButtonGrid();
 		ArrayList<JButton> player2ButtonList = player2.getbuttonList();
 		
-		
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -327,7 +326,6 @@ public class Controller {
 										JOptionPane.showMessageDialog(player1OpponentButton.getParent(), 
 												"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", JOptionPane.INFORMATION_MESSAGE);
 									}
-
 								}
 								else
 								{
@@ -545,7 +543,4 @@ public class Controller {
 //		c.addShipToPlayerGrid(c.player2);
 		
 	}
-
-
-
 }

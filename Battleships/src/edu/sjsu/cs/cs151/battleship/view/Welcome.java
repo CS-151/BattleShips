@@ -194,26 +194,46 @@ public class Welcome
 		window.frame.setVisible(true);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JFrame getFrame()
 	{
 		return frame;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton getStartButton()
 	{
 		return start;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton getAboutButton()
 	{
 		return about;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton getTutorialButton()
 	{
 		return tutorial;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JButton getExitButton()
 	{
 		return exit;
