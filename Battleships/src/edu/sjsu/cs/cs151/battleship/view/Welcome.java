@@ -40,6 +40,7 @@ public class Welcome
 		frame = new JFrame("Battleships");
 		frame.getContentPane().setLayout(null);
 		frame.setBounds(0, 0, 500, 500);
+		frame.setLocationRelativeTo(null);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(frame.getClass().getResource("/cannonball.png")));
 
 		JMenu menu = new JMenu("Menu");
@@ -124,11 +125,6 @@ public class Welcome
 		start.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
 		start.setBounds(192, 54, 100, 25);
 		CENTER.add(start);
-		start.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				Battleships.state = Battleships.STATE.GAME;
-			}
-		});
 
 		JPanel LSHIP = new JPanel();
 		LSHIP.setBounds(0, 259, 115, 85);

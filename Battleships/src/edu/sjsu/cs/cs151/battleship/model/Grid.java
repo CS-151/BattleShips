@@ -38,14 +38,24 @@ public class Grid {
 		
 		if(alignment == Ship.HORIZONTAL)
 		{
-			for(int i = c; i < c + ship.getShipSize(); i++)
+//			for(int i = c; i < c + ship.getShipSize(); i++)
+//			{
+//				if(grid[r][i].containsShip == true)
+//				{
+//					throw new IllegalArgumentException("Ship already exists at Cooridnates (" + r + ","  + c + ")");
+//				}
+//				grid[r][i].setContainsShip(true);
+//			}
+			
+			for(int i = r; i < r + ship.getShipSize(); i++)
 			{
-				if(grid[r][i].containsShip == true)
+				if(grid[i][c].containsShip == true)
 				{
-					throw new IllegalArgumentException("Ship already exists at Cooridnates (" + r + ","  + c + ")");
+					throw new IllegalArgumentException("Ship already exists at Coordinates (" + r + ","  + c + ")");
 				}
-				grid[r][i].setContainsShip(true);
+				grid[i][c].setContainsShip(true);
 			}
+		
 		}
 		else
 		{

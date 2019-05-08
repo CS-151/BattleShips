@@ -12,18 +12,12 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.Timer;
-
-import edu.sjsu.cs.cs151.battleship.model.Grid;
-import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
 
@@ -44,70 +38,111 @@ public class View extends Thread{
 	 */
 	public void initialize()
 	{
+		/**
+		 * Creates the frame.
+		 */
 		playerFrame = new JFrame("Battleships");
 		playerFrame.setBounds(0, 0, 500, 500);
+		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
-		playerFrame.setBackground(Color.BLUE);
 		
+		/**
+		 * Creates the North Panel.
+		 */
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
 		North.setPreferredSize(new Dimension(500, 150));
 		playerFrame.getContentPane().add(North, BorderLayout.NORTH);
 		North.setLayout(null);
 
+		/**
+		 * Creates a button for the Next Player.
+		 */
 		nextPlayerButton = new JButton("NEXT PLAYER");
 		nextPlayerButton.setBounds(363, 17, 112, 23);
 		nextPlayerButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		nextPlayerButton.setForeground(new Color(255, 102, 51));
 		North.add(nextPlayerButton);
 
+		/**
+		 * Creates a label for Score. 
+		 * Will display score stats.
+		 */
 		JLabel scoreLabel = new JLabel("Score:");
 		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		scoreLabel.setBounds(20, 56, 33, 14);
 		North.add(scoreLabel);
 
+		/**
+		 * Creates a label for Player.
+		 */
 		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
 		playerLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		playerLabel.setBounds(10, 31, 97, 14);
 		North.add(playerLabel);
 
+		/**
+		 * Creates a label for Ships Left.
+		 * Will display the number of ships left.
+		 */
 		JLabel shipsLeftLabel = new JLabel("Ships Left:");
 		shipsLeftLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		shipsLeftLabel.setBounds(20, 81, 60, 14);
 		North.add(shipsLeftLabel);
 
+		/**
+		 * Creates a label for Ships Hit.
+		 * Will display the number of ships hit.
+		 */
 		JLabel lblShipsHit = new JLabel("Ships Hit:");
 		lblShipsHit.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		lblShipsHit.setBounds(124, 81, 55, 14);
 		North.add(lblShipsHit);
 
+		/**
+		 * Creates a label for the Player's grid.
+		 */
 		JLabel lblPlayer_1 = new JLabel("PLAYER");
 		lblPlayer_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblPlayer_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlayer_1.setBounds(88, 125, 91, 14);
 		North.add(lblPlayer_1);
 
+		/**
+		 * Creates a label for the Opponent's grid.
+		 */
 		JLabel lblOpponent = new JLabel("OPPONENT");
 		lblOpponent.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblOpponent.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOpponent.setBounds(339, 125, 106, 14);
 		North.add(lblOpponent);
 
+		/**
+		 * Creates a label for the score count.
+		 */
 		scoreCount = new JLabel("0");
 		scoreCount.setBounds(60, 54, 21, 16);
 		North.add(scoreCount);
 
-
+		/**
+		 * Creates a label for the ship left count.
+		 */
 		shipLeftCount = new JLabel("0");
 		shipLeftCount.setBounds(86, 79, 21, 16);
 		North.add(shipLeftCount);
 
+		/**
+		 * Creates a label for the ships hit count.
+		 */
 		JLabel shipsHitCount = new JLabel("0");
 		shipsHitCount.setBounds(182, 79, 21, 16);
 		North.add(shipsHitCount);
 		
+		/**
+		 * Creates a label for the image of the sky.
+		 */
 		JLabel skyLabel = new JLabel("");
 		skyLabel.setBounds(0, 0, 500, 150);
 		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
@@ -172,6 +207,9 @@ public class View extends Thread{
 		}
 		playerFrame.getContentPane().add(East, BorderLayout.EAST);
 
+		/**
+		 * Creates the South panel.
+		 */
 		JPanel South = new JPanel();
 		South.setBackground(new Color(70, 130, 180));
 		South.setPreferredSize(new Dimension(500, 70));
@@ -180,8 +218,12 @@ public class View extends Thread{
 		
 		//JLabel seaLabel = new JLabel("");
 		
-	
-		JRadioButton carrierH = new JRadioButton("H");		
+		/**
+		 * H and V radio buttons for ship placement.
+		 */
+		JRadioButton carrierH = new JRadioButton("H");	
+		carrierH.setBounds(64, 6, 40, 23);
+		carrierH.setOpaque(false);
 		carrierH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 5;
@@ -189,11 +231,16 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
+<<<<<<< HEAD
 
 		carrierH.setBounds(76, 6, 50, 23);
+=======
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(carrierH);
 
 		JRadioButton battleshipH = new JRadioButton("H");
+		battleshipH.setBounds(229, 6, 40, 23);
+		battleshipH.setOpaque(false);
 		battleshipH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 4;
@@ -201,11 +248,19 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
+<<<<<<< HEAD
 		battleshipH.setBounds(242, 6, 50, 23);
+=======
+		
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(battleshipH);
-
 		JRadioButton cruiserH = new JRadioButton("H");
+<<<<<<< HEAD
 		cruiserH.setBounds(76, 41, 50, 23);
+=======
+		cruiserH.setBounds(64, 41, 40, 23);
+		cruiserH.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(cruiserH);
 		cruiserH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -216,7 +271,12 @@ public class View extends Thread{
 		});
 
 		JRadioButton destroyerH = new JRadioButton("H");
+<<<<<<< HEAD
 		destroyerH.setBounds(242, 41, 50, 23);
+=======
+		destroyerH.setBounds(229, 41, 40, 23);
+		destroyerH.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(destroyerH);
 		destroyerH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -227,7 +287,12 @@ public class View extends Thread{
 		});
 
 		JRadioButton submarineH = new JRadioButton("H");
+<<<<<<< HEAD
 		submarineH.setBounds(413, 6, 50, 23);
+=======
+		submarineH.setBounds(404, 6, 40, 23);
+		submarineH.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(submarineH);
 		submarineH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -245,7 +310,12 @@ public class View extends Thread{
 		South.add(carrierLabel);
 
 		JRadioButton carrierV = new JRadioButton("V");
+<<<<<<< HEAD
 		carrierV.setBounds(118, 6, 47, 23);
+=======
+		carrierV.setBounds(101, 6, 47, 23);
+		carrierV.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(carrierV);
 		carrierV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -261,7 +331,12 @@ public class View extends Thread{
 		South.add(battleShipLabel);
 
 		JRadioButton battleShipV = new JRadioButton("V");
+<<<<<<< HEAD
 		battleShipV.setBounds(293, 6, 47, 23);
+=======
+		battleShipV.setBounds(268, 6, 47, 23);
+		battleShipV.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(battleShipV);
 		battleShipV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -278,7 +353,12 @@ public class View extends Thread{
 
 
 		JRadioButton cruiserV = new JRadioButton("V");
+<<<<<<< HEAD
 		cruiserV.setBounds(118, 41, 47, 23);
+=======
+		cruiserV.setBounds(101, 41, 47, 23);
+		cruiserV.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(cruiserV);
 		cruiserV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -293,7 +373,12 @@ public class View extends Thread{
 		South.add(lblDestoryer);
 
 		JRadioButton destroyerV = new JRadioButton("V");
+<<<<<<< HEAD
 		destroyerV.setBounds(293, 41, 43, 23);
+=======
+		destroyerV.setBounds(268, 41, 43, 23);
+		destroyerV.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(destroyerV);
 		destroyerV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -309,7 +394,12 @@ public class View extends Thread{
 		South.add(lblSubmarine);
 
 		JRadioButton submarineV = new JRadioButton("V");
+<<<<<<< HEAD
 		submarineV.setBounds(454, 6, 40, 23);
+=======
+		submarineV.setBounds(442, 6, 40, 23);
+		submarineV.setOpaque(false);
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		South.add(submarineV);
 		submarineV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -320,7 +410,10 @@ public class View extends Thread{
 		});
 
 		//Button gives player the option to exit the game.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		JButton extButton = new JButton("EXIT");
 		extButton.setBounds(363, 35, 112, 23);
 		extButton.setForeground(Color.RED);
@@ -331,9 +424,6 @@ public class View extends Thread{
 		seaLabel.setBounds(-11, 0, 511, 81);
 		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		South.add(seaLabel);
-		
-		
-		
 		
 		JLabel middleSea = new JLabel("");
 		middleSea.setIcon(null);
@@ -355,14 +445,21 @@ public class View extends Thread{
 				}
 			}
 		});
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 		exitButton = new JButton("EXIT");
 		exitButton.setBounds(363, 35, 112, 23);
 		exitButton.setForeground(Color.RED);
 		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+<<<<<<< HEAD
 		South.add(exitButton);
 	
 
+=======
+		South.add(exitButton);	
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 	};
 
 	public JButton getExitButton()

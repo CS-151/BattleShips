@@ -5,15 +5,15 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+<<<<<<< HEAD
 
 import javax.swing.ImageIcon;
+=======
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
 import edu.sjsu.cs.cs151.battleship.view.View;
@@ -21,18 +21,24 @@ import edu.sjsu.cs.cs151.battleship.view.Welcome;
 
 public class Controller {
 
+	/**
+	 * Constructor for Controller
+	 */
 	public Controller()
 	{
 		model = new Model();
 		this.player1 = new View(1);
 		this.player2  = new View(2);
-		this.player2.playerFrame.setBounds(750, 0, 500, 500);
 		nt = new NextTurn();
 		nt2 = new NextTurn();	
 		welcome = new Welcome();
 		welcomeToGame();
 	}
 
+	/**
+	 * 
+	 * @param welcome the Welcome Screen
+	 */
 	public void startGame(Welcome welcome)
 	{
 		welcome.getFrame().dispose();
@@ -51,7 +57,6 @@ public class Controller {
 		reset();
 	}
 	
-
 	public void welcomeToGame()
 	{
 		welcome.getFrame().setVisible(true);
@@ -62,18 +67,12 @@ public class Controller {
 		});
 	}
 	
-	public void endGame()
-	{
-		
-	}
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
 		player.initializeArray(shipCheckArray);
 		buttonGrid = player.getJButtonGrid();
 		
-	 
-
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -105,6 +104,22 @@ public class Controller {
 								{
 									isReadyToGuess = true;
 								}
+								
+								//Checks if it is player1
+								println("Row is " + convertToRow(player.getJButtonList().indexOf(button)));
+								println("Col is " + convertToCol(player.getJButtonList().indexOf(button)));
+								int row = convertToRow(player.getJButtonList().indexOf(button));
+								int col = convertToCol(player.getJButtonList().indexOf(button));
+								
+								if(player.getPlayerNumber() == 1)
+								{
+									model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+								}
+								else
+								{
+									model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+								}
+								
 								//Since there is space, the block of buttons would marked
 								// as placed Horizontally
 								for( int index  = 0 ; index < player.getShipLength(); index++)
@@ -288,54 +303,58 @@ public class Controller {
 						{
 							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
 							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-							
-							if(x.equals("X"))
+							if(isReadyToGuess)
 							{
-								if(!button.getBackground().equals(Color.GREEN))
+								if(x.equals("X"))
 								{
-									player1.updateScoreNum();
-								}
-								button.setBackground(Color.GREEN);
-								//button.setText("H");
-								button.setOpaque(true);
-								button.setBorderPainted(false);
-								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
-								if(player1.getScoreNum() == 17)
-								{
-									JDialog endOfGame = new JDialog();
-									JLabel endOfGameLabel = new JLabel("Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!");
-									JButton exit = new JButton("Exit");
-									endOfGame.setBounds((player1.getScreenWidth1()/2)-150, (player1.getScreenHeight()/2), 300, 100);
-									endOfGame.add(endOfGameLabel);
-									endOfGame.setSize(300, 100);
-									exit.addActionListener(new ActionListener() {
-										public void actionPerformed(ActionEvent e) {
-											endOfGame.dispose();
-											player1.playerFrame.dispose();
-											player2.playerFrame.dispose();
-											nt.getFrame().dispose();
-											new Controller();
-											
-											
-										}
-									});
-									endOfGame.getContentPane().add(endOfGameLabel, BorderLayout.NORTH);
-									endOfGame.getContentPane().add(exit);
-									endOfGame.add(exit,BorderLayout.CENTER);
-									endOfGame.setVisible(true);
-											
-								}
+									if(!button.getBackground().equals(Color.GREEN))
+									{
+										player1.updateScoreNum();
+									}
+									button.setBackground(Color.GREEN);
+									//button.setText("H");
+									button.setOpaque(true);
+									button.setBorderPainted(false);
+									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
+									if(player1.getScoreNum() == 17)
+									{
+										JDialog endOfGame = new JDialog();
+										JLabel endOfGameLabel = new JLabel("Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!");
+										JButton exit = new JButton("Exit");
+										endOfGame.setBounds((player1.getScreenWidth1()/2)-150, (player1.getScreenHeight()/2), 300, 100);
+										endOfGame.add(endOfGameLabel);
+										endOfGame.setSize(300, 100);
+										exit.addActionListener(new ActionListener() {
+											public void actionPerformed(ActionEvent e) {
+												endOfGame.dispose();
+												player1.playerFrame.dispose();
+												player2.playerFrame.dispose();
+												nt.getFrame().dispose();
+												new Controller();
+												
+												
+											}
+										});
+										endOfGame.getContentPane().add(endOfGameLabel, BorderLayout.NORTH);
+										endOfGame.getContentPane().add(exit);
+										endOfGame.add(exit,BorderLayout.CENTER);
+										endOfGame.setVisible(true);
+												
+									}
 
+								}
+								else
+								{
+									button.setBackground(Color.RED);
+									
+									//button.setText("M");
+									button.setOpaque(true);
+									button.setBorderPainted(false);
+									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
+								}
 							}
-							else
-							{
-								button.setBackground(Color.RED);
-								
-								//button.setText("M");
-								button.setOpaque(true);
-								button.setBorderPainted(false);
-								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
-							}
+							
+							
 							
 							
 							
@@ -475,6 +494,31 @@ public class Controller {
 		});
 }
 
+	public int convertToRow(Integer fullNumber)
+	{
+		if(fullNumber > 9)
+		{
+			int temp = fullNumber/10;
+			return temp;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	public int convertToCol(Integer fullNumber)
+	{
+		if(fullNumber > 9)
+		{
+			int temp = fullNumber%10;
+			return temp;
+		}
+		else
+		{
+			return fullNumber;
+		}
+	}
 	
 	public void reset()
 	{
@@ -487,7 +531,6 @@ public class Controller {
 	    System.out.println(line);
 	}
 	private int counter = 0;
-	
 	private Model model;
 	private View player1;
 	private View player2;

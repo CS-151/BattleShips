@@ -28,9 +28,6 @@ public class Coordinates {
 	}
 
 
-	
-
-
 
 	public boolean isContainsShip() {
 		return containsShip;

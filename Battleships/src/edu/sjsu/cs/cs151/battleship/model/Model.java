@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class Model {
 
+	public Model() {
+		player1 = new Player();
+		player2 = new Player();
+	}
+	
 	public static void main(String[] args) {
 
 		System.out.println("Welcome to BattleShip");
