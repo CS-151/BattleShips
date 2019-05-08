@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+
+import javax.swing.ImageIcon;
+
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -39,7 +44,7 @@ public class Controller {
 	{
 		welcome.getFrame().dispose();
 		nt2.getFrame().setBounds(750, 0, 500, 500);
-		
+		View.player1Screen(player1);
 		addShipToPlayerGrid(player1);
 		guessOponentShip(this.player1, this.player2);
 		player1.playerFrame.setVisible(true);
