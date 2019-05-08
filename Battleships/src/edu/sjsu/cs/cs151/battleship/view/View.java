@@ -706,11 +706,9 @@ public class View extends Thread{
 	 */
 	public static void main(String args[])
 	{
-
 		View player1 = new View(1);
 		System.out.print(player1.playerNumber);
 		player1.playerFrame.setVisible(true);
 		View player2 = new View(2);
-
 	}
 }
