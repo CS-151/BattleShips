@@ -88,6 +88,7 @@ public class View extends Thread{
 		North.add(lblPlayer_1);
 
 		JLabel lblOpponent = new JLabel("OPPONENT");
+		lblOpponent.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblOpponent.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOpponent.setBounds(339, 125, 106, 14);
 		North.add(lblOpponent);
@@ -223,7 +224,7 @@ public class View extends Thread{
 		});
 
 		JLabel carrierLabel = new JLabel("5");
-		carrierLabel.setIcon(new ImageIcon("/Users/maryammostafavi/Downloads/Webp.net-resizeimage (2).png"));
+		carrierLabel.setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));
 		//carrierLabel.setIcon(new ImageIcon("/Users/maryammostafavi/Downloads/battleship (1).png"));
 		carrierLabel.setSize(10, 10);
 		carrierLabel.setBounds(6, 10, 63, 16);
@@ -240,7 +241,8 @@ public class View extends Thread{
 			}
 		});
 
-		JLabel battleShipLabel = new JLabel("BattleShip(4)");
+		JLabel battleShipLabel = new JLabel("4");
+		battleShipLabel.setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));
 		battleShipLabel.setBounds(149, 10, 85, 16);
 		South.add(battleShipLabel);
 
@@ -255,7 +257,8 @@ public class View extends Thread{
 			}
 		});
 
-		JLabel lblCruiser = new JLabel("Cruiser(3)");
+		JLabel lblCruiser = new JLabel("3");
+		lblCruiser.setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));
 		lblCruiser.setBounds(6, 45, 61, 16);
 		South.add(lblCruiser);
 
@@ -270,7 +273,8 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		JLabel lblDestoryer = new JLabel("Destoryer(2)");
+		JLabel lblDestoryer = new JLabel("2");
+		lblDestoryer.setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));
 		lblDestoryer.setBounds(149, 45, 77, 16);
 		South.add(lblDestoryer);
 
@@ -285,7 +289,8 @@ public class View extends Thread{
 			}
 		});
 
-		JLabel lblSubmarine = new JLabel("Submarine(3)");
+		JLabel lblSubmarine = new JLabel("3");
+		lblSubmarine.setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));
 		lblSubmarine.setBounds(318, 10, 85, 16);
 		South.add(lblSubmarine);
 
