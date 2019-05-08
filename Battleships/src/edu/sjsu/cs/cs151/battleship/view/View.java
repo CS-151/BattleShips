@@ -44,70 +44,111 @@ public class View extends Thread{
 	 */
 	public void initialize()
 	{
+		/**
+		 * Creates the frame.
+		 */
 		playerFrame = new JFrame("Battleships");
 		playerFrame.setBounds(0, 0, 500, 500);
+		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
-		playerFrame.setBackground(Color.BLUE);
 		
+		/**
+		 * Creates the North Panel.
+		 */
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
 		North.setPreferredSize(new Dimension(500, 150));
 		playerFrame.getContentPane().add(North, BorderLayout.NORTH);
 		North.setLayout(null);
 
+		/**
+		 * Creates a button for the Next Player.
+		 */
 		nextPlayerButton = new JButton("NEXT PLAYER");
 		nextPlayerButton.setBounds(363, 17, 112, 23);
 		nextPlayerButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		nextPlayerButton.setForeground(new Color(255, 102, 51));
 		North.add(nextPlayerButton);
 
+		/**
+		 * Creates a label for Score. 
+		 * Will display score stats.
+		 */
 		JLabel scoreLabel = new JLabel("Score:");
 		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		scoreLabel.setBounds(20, 56, 33, 14);
 		North.add(scoreLabel);
 
+		/**
+		 * Creates a label for Player.
+		 */
 		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
 		playerLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		playerLabel.setBounds(10, 31, 97, 14);
 		North.add(playerLabel);
 
+		/**
+		 * Creates a label for Ships Left.
+		 * Will display the number of ships left.
+		 */
 		JLabel shipsLeftLabel = new JLabel("Ships Left:");
 		shipsLeftLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		shipsLeftLabel.setBounds(20, 81, 60, 14);
 		North.add(shipsLeftLabel);
 
+		/**
+		 * Creates a label for Ships Hit.
+		 * Will display the number of ships hit.
+		 */
 		JLabel lblShipsHit = new JLabel("Ships Hit:");
 		lblShipsHit.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
 		lblShipsHit.setBounds(124, 81, 55, 14);
 		North.add(lblShipsHit);
 
+		/**
+		 * Creates a label for the Player's grid.
+		 */
 		JLabel lblPlayer_1 = new JLabel("PLAYER");
 		lblPlayer_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblPlayer_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlayer_1.setBounds(88, 125, 91, 14);
 		North.add(lblPlayer_1);
 
+		/**
+		 * Creates a label for the Opponent's grid.
+		 */
 		JLabel lblOpponent = new JLabel("OPPONENT");
 		lblOpponent.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
 		lblOpponent.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOpponent.setBounds(339, 125, 106, 14);
 		North.add(lblOpponent);
 
+		/**
+		 * Creates a label for the score count.
+		 */
 		scoreCount = new JLabel("0");
 		scoreCount.setBounds(60, 54, 21, 16);
 		North.add(scoreCount);
 
-
+		/**
+		 * Creates a label for the ship left count.
+		 */
 		shipLeftCount = new JLabel("0");
 		shipLeftCount.setBounds(86, 79, 21, 16);
 		North.add(shipLeftCount);
 
+		/**
+		 * Creates a label for the ships hit count.
+		 */
 		JLabel shipsHitCount = new JLabel("0");
 		shipsHitCount.setBounds(182, 79, 21, 16);
 		North.add(shipsHitCount);
 		
+		/**
+		 * Creates a label for the image of the sky.
+		 */
 		JLabel skyLabel = new JLabel("");
 		skyLabel.setBounds(0, 0, 500, 150);
 		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
@@ -170,6 +211,9 @@ public class View extends Thread{
 		}
 		playerFrame.getContentPane().add(East, BorderLayout.EAST);
 
+		/**
+		 * Creates the South panel.
+		 */
 		JPanel South = new JPanel();
 		South.setBackground(new Color(70, 130, 180));
 		South.setPreferredSize(new Dimension(500, 70));
@@ -178,7 +222,9 @@ public class View extends Thread{
 		
 		//JLabel seaLabel = new JLabel("");
 		
-	
+		/**
+		 * H and V radio buttons for ship placement.
+		 */
 		JRadioButton carrierH = new JRadioButton("H");		
 		carrierH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -318,7 +364,6 @@ public class View extends Thread{
 		});
 
 		//Button gives player the option to exit the game.
-<<<<<<< HEAD
 		JButton extButton = new JButton("EXIT");
 		extButton.setBounds(363, 35, 112, 23);
 		extButton.setForeground(Color.RED);
@@ -353,14 +398,11 @@ public class View extends Thread{
 				}
 			}
 		});
-=======
 		exitButton = new JButton("EXIT");
 		exitButton.setBounds(363, 35, 112, 23);
 		exitButton.setForeground(Color.RED);
 		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		South.add(exitButton);
-	
->>>>>>> 20bd2a6eb1653b73e42111fb4633f220b7dc9667
+		South.add(exitButton);	
 	};
 
 	public JButton getExitButton()
