@@ -32,8 +32,9 @@ public class Controller {
 		welcomeToGame();
 	}
 
-	public void startGame()
+	public void startGame(Welcome welcome)
 	{
+		welcome.getFrame().dispose();
 		nt2.getFrame().setBounds(750, 0, 500, 500);
 		
 		addShipToPlayerGrid(player1);
@@ -55,7 +56,7 @@ public class Controller {
 		welcome.getFrame().setVisible(true);
 		welcome.getStartButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				startGame();
+				startGame(welcome);
 			}
 		});
 	}

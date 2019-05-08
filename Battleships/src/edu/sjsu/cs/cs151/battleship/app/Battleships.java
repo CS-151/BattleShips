@@ -13,14 +13,14 @@ public class Battleships
 	public static void main(String[] args)
 	{
 		Controller game = new Controller();	
-		if(state == STATE.GAME)
-		{
-
-		}
-		else if (state == STATE.MENU)
-		{
-			Welcome screen = new Welcome();
-			screen.initialize();
-		}
+//		if(state == STATE.GAME)
+//		{
+//
+//		}
+//		else if (state == STATE.MENU)
+//		{
+//			Welcome screen = new Welcome();
+//			screen.initialize();
+//		}
 	}
 }
