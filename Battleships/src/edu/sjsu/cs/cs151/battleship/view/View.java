@@ -46,10 +46,10 @@ public class View extends Thread{
 	{
 		playerFrame = new JFrame("Battleships");
 		playerFrame.setBounds(0, 0, 500, 500);
+		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
-		playerFrame.setBackground(Color.BLUE);
 		
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
