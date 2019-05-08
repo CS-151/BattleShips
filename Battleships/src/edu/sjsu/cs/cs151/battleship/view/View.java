@@ -643,7 +643,7 @@ public class View extends Thread{
 	}
 	public static void player1Screen(View player1)
 	{
-		player1.playerFrame.setBounds(0, 0, 500, 500);
+		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
