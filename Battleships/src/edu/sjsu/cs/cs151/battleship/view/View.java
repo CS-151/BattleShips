@@ -238,7 +238,7 @@ public class View extends Thread{
 		South.add(carrierH);
 
 		JRadioButton battleshipH = new JRadioButton("H");
-		battleshipH.setBounds(252, 6, 47, 23);
+		battleshipH.setBounds(253, 6, 47, 23);
 		battleshipH.setOpaque(false);
 		battleshipH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -249,25 +249,25 @@ public class View extends Thread{
 		});
 
 
-		battleshipH.setBounds(242, 6, 50, 23);
+		battleshipH.setBounds(254, 6, 50, 23);
 
 
 		South.add(battleshipH);
 		JRadioButton cruiserH = new JRadioButton("H");
 
-		battleshipH.setBounds(242, 6, 50, 23);
+		//battleshipH.setBounds(242, 6, 50, 23);
 		
 		South.add(battleshipH);
 
-		cruiserH.setBounds(76, 41, 50, 23);
+		//cruiserH.setBounds(64, 41, 62, 23);
 
-<<<<<<< HEAD
+
 		
-		JRadioButton cruiserH = new JRadioButton("H");
-		cruiserH.setBounds(96, 41, 50, 23);
-=======
-		cruiserH.setBounds(64, 41, 40, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+		JRadioButton cruiser = new JRadioButton("H");
+		//cruiserH.setBounds(96, 41, 50, 23);
+
+		cruiserH.setBounds(86, 41, 50, 23);
+
 		cruiserH.setOpaque(false);
 
 		South.add(cruiserH);
@@ -280,14 +280,14 @@ public class View extends Thread{
 		});
 
 		JRadioButton destroyerH = new JRadioButton("H");
-<<<<<<< HEAD
-		destroyerH.setBounds(280, 41, 50, 23);
-=======
 
-		destroyerH.setBounds(242, 41, 50, 23);
+		//destroyerH.setBounds(229, 41, 63, 23);
 
-		destroyerH.setBounds(229, 41, 40, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+
+		//destroyerH.setBounds(242, 41, 50, 23);
+
+		destroyerH.setBounds(265, 41, 50, 23);
+
 		destroyerH.setOpaque(false);
 
 		South.add(destroyerH);
@@ -300,14 +300,14 @@ public class View extends Thread{
 		});
 
 		JRadioButton submarineH = new JRadioButton("H");
-<<<<<<< HEAD
+
 		submarineH.setBounds(442, 6, 50, 23);
-=======
 
-		submarineH.setBounds(413, 6, 50, 23);
 
-		submarineH.setBounds(404, 6, 40, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+		//submarineH.setBounds(413, 6, 50, 23);
+
+		//submarineH.setBounds(404, 6, 40, 23);
+
 		submarineH.setOpaque(false);
 
 		South.add(submarineH);
@@ -330,7 +330,7 @@ public class View extends Thread{
 
 		carrierV.setBounds(118, 6, 47, 23);
 
-		carrierV.setBounds(101, 6, 47, 23);
+		//carrierV.setBounds(101, 6, 47, 23);
 		carrierV.setOpaque(false);
 
 		South.add(carrierV);
@@ -348,15 +348,15 @@ public class View extends Thread{
 		South.add(battleShipLabel);
 
 		JRadioButton battleShipV = new JRadioButton("V");
-<<<<<<< HEAD
-		battleShipV.setBounds(292, 6, 47, 23);
+
+		battleShipV.setBounds(304, 6, 47, 23);
 		//battleShipV.setBounds(268, 6, 47, 23);
-=======
 
-		battleShipV.setBounds(293, 6, 47, 23);
 
-		battleShipV.setBounds(268, 6, 47, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+		//battleShipV.setBounds(293, 6, 47, 23);
+
+	//	battleShipV.setBounds(268, 6, 47, 23);
+
 		battleShipV.setOpaque(false);
 
 		South.add(battleShipV);
@@ -375,15 +375,15 @@ public class View extends Thread{
 
 
 		JRadioButton cruiserV = new JRadioButton("V");
-<<<<<<< HEAD
-		cruiserV.setBounds(139, 41, 47, 23);
+
+		cruiserV.setBounds(128, 41, 47, 23);
 		//cruiserV.setBounds(101, 41, 47, 23);
-=======
 
-		cruiserV.setBounds(118, 41, 47, 23);
 
-		cruiserV.setBounds(101, 41, 47, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+		//cruiserV.setBounds(118, 41, 47, 23);
+
+	//	cruiserV.setBounds(101, 41, 47, 23);
+
 		cruiserV.setOpaque(false);
 
 		South.add(cruiserV);
@@ -396,19 +396,18 @@ public class View extends Thread{
 		});
 		JLabel lblDestoryer = new JLabel("2");
 		lblDestoryer.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon3.png")));
-		lblDestoryer.setBounds(198, 45, 77, 16);
+		lblDestoryer.setBounds(180, 45, 77, 16);
 		South.add(lblDestoryer);
 
 		JRadioButton destroyerV = new JRadioButton("V");
-<<<<<<< HEAD
-		destroyerV.setBounds(329, 41, 50, 23);
+		//destroyerV.setBounds(292, 41, 50, 23);
 		//destroyerV.setBounds(268, 41, 43, 23);
-=======
 
-		destroyerV.setBounds(293, 41, 43, 23);
 
-		destroyerV.setBounds(268, 41, 43, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+		//destroyerV.setBounds(293, 41, 43, 23);
+
+		destroyerV.setBounds(314, 41, 43, 23);
+
 		destroyerV.setOpaque(false);
 
 		South.add(destroyerV);
@@ -427,15 +426,15 @@ public class View extends Thread{
 
 		JRadioButton submarineV = new JRadioButton("V");
 
-<<<<<<< HEAD
-		submarineV.setBounds(504, 6, 40, 23);
+
+		submarineV.setBounds(486, 6, 40, 23);
 		//submarineV.setBounds(442, 6, 40, 23);
-=======
 
-		submarineV.setBounds(454, 6, 40, 23);
 
-		submarineV.setBounds(442, 6, 40, 23);
->>>>>>> ee300e4fe630b912f079f2cdb53f596ca342d362
+		//submarineV.setBounds(454, 6, 40, 23);
+
+		//submarineV.setBounds(442, 6, 40, 23);
+
 		submarineV.setOpaque(false);
 
 		South.add(submarineV);
