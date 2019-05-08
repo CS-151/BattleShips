@@ -329,6 +329,8 @@ public class View extends Thread{
 		});
 	};
 
+
+	
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
@@ -460,6 +462,16 @@ public class View extends Thread{
 	{
 		return scoreCount;
 	}
+	
+	public int getScreenWidth1()
+	{
+		return screenWidth;
+	}
+	
+	public int getScreenHeight()
+	{
+		return screenHeight;
+	}
 
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
@@ -483,6 +495,9 @@ public class View extends Thread{
 	private int row = 0; 
 	private int col = 0;
 	private JLabel scoreCount;
+	
+	private int screenWidth;
+	private int screenHeight;
 
 	/**
 	 * Launch the application.
