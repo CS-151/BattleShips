@@ -48,7 +48,8 @@ public class View extends Thread{
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
-
+		playerFrame.setBackground(Color.BLUE);
+		
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
 		North.setPreferredSize(new Dimension(500, 150));
@@ -176,7 +177,7 @@ public class View extends Thread{
 			}
 		});
 
-		carrierH.setBounds(64, 6, 47, 23);
+		carrierH.setBounds(64, 6, 40, 23);
 		South.add(carrierH);
 
 		JRadioButton battleshipH = new JRadioButton("H");
@@ -187,11 +188,11 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		battleshipH.setBounds(229, 6, 47, 23);
+		battleshipH.setBounds(229, 6, 40, 23);
 		South.add(battleshipH);
 
 		JRadioButton cruiserH = new JRadioButton("H");
-		cruiserH.setBounds(64, 41, 47, 23);
+		cruiserH.setBounds(64, 41, 40, 23);
 		South.add(cruiserH);
 		cruiserH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -202,7 +203,7 @@ public class View extends Thread{
 		});
 
 		JRadioButton destroyerH = new JRadioButton("H");
-		destroyerH.setBounds(229, 41, 42, 23);
+		destroyerH.setBounds(229, 41, 40, 23);
 		South.add(destroyerH);
 		destroyerH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -213,7 +214,7 @@ public class View extends Thread{
 		});
 
 		JRadioButton submarineH = new JRadioButton("H");
-		submarineH.setBounds(404, 6, 47, 23);
+		submarineH.setBounds(404, 6, 40, 23);
 		South.add(submarineH);
 		submarineH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
