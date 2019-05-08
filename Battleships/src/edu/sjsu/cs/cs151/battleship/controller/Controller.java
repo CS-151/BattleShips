@@ -5,15 +5,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-<<<<<<< HEAD
 
 
 import javax.swing.ImageIcon;
 
-=======
 
 import javax.swing.ImageIcon;
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
