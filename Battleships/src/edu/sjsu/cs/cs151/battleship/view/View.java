@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 import edu.sjsu.cs.cs151.battleship.model.Grid;
 import javax.swing.JTextField;
@@ -105,8 +106,13 @@ public class View extends Thread{
 		JLabel shipsHitCount = new JLabel("0");
 		shipsHitCount.setBounds(182, 79, 21, 16);
 		North.add(shipsHitCount);
-
-
+		
+		JLabel skyLabel = new JLabel("");
+		skyLabel.setBounds(0, 0, 500, 150);
+		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
+		North.add(skyLabel);
+		
+		
 		//-----------------------------PlayerGrid-------------------------//
 
 		//Player places ships onto player grid
@@ -136,6 +142,9 @@ public class View extends Thread{
 			}
 		}
 		playerFrame.getContentPane().add(West, BorderLayout.WEST);
+		
+
+	
 
 
 		//-----------------------------OpponentGrid-------------------------//
@@ -161,12 +170,14 @@ public class View extends Thread{
 		playerFrame.getContentPane().add(East, BorderLayout.EAST);
 
 		JPanel South = new JPanel();
-		South.setBackground(Color.GRAY);
+		South.setBackground(new Color(70, 130, 180));
 		South.setPreferredSize(new Dimension(500, 70));
 		playerFrame.getContentPane().add(South, BorderLayout.SOUTH);
 		South.setLayout(null);
-
-
+		
+		//JLabel seaLabel = new JLabel("");
+		
+	
 		JRadioButton carrierH = new JRadioButton("H");		
 		carrierH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -311,6 +322,19 @@ public class View extends Thread{
 		extButton.setForeground(Color.RED);
 		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		South.add(extButton);
+		
+		JLabel seaLabel = new JLabel("");
+		seaLabel.setBounds(-11, 0, 511, 81);
+		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
+		South.add(seaLabel);
+		
+		
+		
+		
+		JLabel middleSea = new JLabel("");
+		middleSea.setIcon(null);
+		middleSea.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
+		playerFrame.getContentPane().add(middleSea, BorderLayout.CENTER);
 		extButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
