@@ -225,7 +225,9 @@ public class View extends Thread{
 		/**
 		 * H and V radio buttons for ship placement.
 		 */
-		JRadioButton carrierH = new JRadioButton("H");		
+		JRadioButton carrierH = new JRadioButton("H");	
+		carrierH.setBounds(64, 6, 40, 23);
+		carrierH.setOpaque(false);
 		carrierH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 5;
@@ -233,11 +235,11 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-
-		carrierH.setBounds(64, 6, 40, 23);
 		South.add(carrierH);
 
 		JRadioButton battleshipH = new JRadioButton("H");
+		battleshipH.setBounds(229, 6, 40, 23);
+		battleshipH.setOpaque(false);
 		battleshipH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 4;
@@ -245,11 +247,11 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		battleshipH.setBounds(229, 6, 40, 23);
+		
 		South.add(battleshipH);
-
 		JRadioButton cruiserH = new JRadioButton("H");
 		cruiserH.setBounds(64, 41, 40, 23);
+		cruiserH.setOpaque(false);
 		South.add(cruiserH);
 		cruiserH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -261,6 +263,7 @@ public class View extends Thread{
 
 		JRadioButton destroyerH = new JRadioButton("H");
 		destroyerH.setBounds(229, 41, 40, 23);
+		destroyerH.setOpaque(false);
 		South.add(destroyerH);
 		destroyerH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -272,6 +275,7 @@ public class View extends Thread{
 
 		JRadioButton submarineH = new JRadioButton("H");
 		submarineH.setBounds(404, 6, 40, 23);
+		submarineH.setOpaque(false);
 		South.add(submarineH);
 		submarineH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -290,6 +294,7 @@ public class View extends Thread{
 
 		JRadioButton carrierV = new JRadioButton("V");
 		carrierV.setBounds(101, 6, 47, 23);
+		carrierV.setOpaque(false);
 		South.add(carrierV);
 		carrierV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -306,6 +311,7 @@ public class View extends Thread{
 
 		JRadioButton battleShipV = new JRadioButton("V");
 		battleShipV.setBounds(268, 6, 47, 23);
+		battleShipV.setOpaque(false);
 		South.add(battleShipV);
 		battleShipV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -323,6 +329,7 @@ public class View extends Thread{
 
 		JRadioButton cruiserV = new JRadioButton("V");
 		cruiserV.setBounds(101, 41, 47, 23);
+		cruiserV.setOpaque(false);
 		South.add(cruiserV);
 		cruiserV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -338,6 +345,7 @@ public class View extends Thread{
 
 		JRadioButton destroyerV = new JRadioButton("V");
 		destroyerV.setBounds(268, 41, 43, 23);
+		destroyerV.setOpaque(false);
 		South.add(destroyerV);
 		destroyerV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -354,6 +362,7 @@ public class View extends Thread{
 
 		JRadioButton submarineV = new JRadioButton("V");
 		submarineV.setBounds(442, 6, 40, 23);
+		submarineV.setOpaque(false);
 		South.add(submarineV);
 		submarineV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -374,9 +383,6 @@ public class View extends Thread{
 		seaLabel.setBounds(-11, 0, 511, 81);
 		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		South.add(seaLabel);
-		
-		
-		
 		
 		JLabel middleSea = new JLabel("");
 		middleSea.setIcon(null);
