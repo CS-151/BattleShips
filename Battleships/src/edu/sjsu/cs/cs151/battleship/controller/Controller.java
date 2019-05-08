@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+<<<<<<< HEAD
+
+import javax.swing.ImageIcon;
+=======
+>>>>>>> 6831bba4f0852033b27937b73f94ae55ff801c60
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -123,7 +128,7 @@ public class Controller {
 										
 									//int row = buttonList.indexOf(button);
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
-										
+									//player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));;
 										//Checks if it is player1
 //										if(player.getPlayerNumber() == 1)
 //										{
