@@ -10,31 +10,30 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
 import edu.sjsu.cs.cs151.battleship.view.View;
+import edu.sjsu.cs.cs151.battleship.view.Welcome;
 
 public class Controller {
 
 	public Controller()
 	{
-		
-		
 		model = new Model();
-		
 		this.player1 = new View(1);
 		this.player2  = new View(2);
 		this.player2.playerFrame.setBounds(750, 0, 500, 500);
 		nt = new NextTurn();
 		nt2 = new NextTurn();	
-		startGame();
+		welcome = new Welcome();
+		welcomeToGame();
 	}
 
 	public void startGame()
 	{
-		
 		nt2.getFrame().setBounds(750, 0, 500, 500);
 		
 		addShipToPlayerGrid(player1);
@@ -47,10 +46,24 @@ public class Controller {
 		
 		player1Screen();
 		player2Screen();
-		//reset();
+		reset();
 	}
 	
 
+	public void welcomeToGame()
+	{
+		welcome.getFrame().setVisible(true);
+		welcome.getStartButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startGame();
+			}
+		});
+	}
+	
+	public void endGame()
+	{
+		
+	}
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
@@ -412,39 +425,60 @@ public class Controller {
 			}
 		});
 	}
-//	public void reset1()
-//	{
-//			player1.exitButton().addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				player2.playerFrame.dispose();
-//				player1.playerFrame.dispose();
-//				nt.getFrame().dispose();
-//				nt2.getFrame().dispose();
-//				new Controller();
-//			}
-//		});
-//	}
-//	
-//	public void reset2()
-//	{
-//		player2.exitButton().addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				player2.playerFrame.dispose();
-//				player1.playerFrame.dispose();
-//				nt.getFrame().dispose();
-//				nt2.getFrame().dispose();
-//				new Controller();
-//			}
-//		});
-//	}
-//	
-//	public void reset()
-//	{
-//		reset1();
-//		reset2();
-//	}
+	public void reset1()
+	{
+			player1.getExitButton().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent event) {
+					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
+					if (n == 0)
+					{
+						try
+						{
+							//Exits the game entirely.
+							player2.playerFrame.dispose();
+							player1.playerFrame.dispose();
+							nt.getFrame().dispose();
+							nt2.getFrame().dispose();
+							new Controller();
+						} catch(Exception e)
+						{
+							JOptionPane.showMessageDialog(null, e);
+						}
+					}
+				}
+			});
+	}
+	
+	public void reset2()
+	{
+		player2.getExitButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
+				if (n == 0)
+				{
+					try
+					{
+						//Exits the game entirely.
+						player2.playerFrame.dispose();
+						player1.playerFrame.dispose();
+						nt.getFrame().dispose();
+						nt2.getFrame().dispose();
+						new Controller();
+					} catch(Exception e)
+					{
+						JOptionPane.showMessageDialog(null, e);
+					}
+				}
+			}
+		});
+}
+
+	
+	public void reset()
+	{
+		reset1();
+		reset2();
+	}
 	
 	//System.out.printn shortcut
 	static void println(Object line) {
@@ -463,7 +497,7 @@ public class Controller {
 	private NextTurn nt2;
 	private JButton[][] opponentButtonGrid;
 	private boolean isReadyToGuess = false;
-	
+	private Welcome welcome;
 	private static final int HORIZONTAL  = 0;
 	private static final int VERTICAL = -1;
 	

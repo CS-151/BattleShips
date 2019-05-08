@@ -306,30 +306,18 @@ public class View extends Thread{
 		});
 
 		//Button gives player the option to exit the game.
-		JButton extButton = new JButton("EXIT");
-		extButton.setBounds(363, 35, 112, 23);
-		extButton.setForeground(Color.RED);
-		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		South.add(extButton);
-		extButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
-				if (n == 0)
-				{
-					try
-					{
-						//Exits the game entirely.
-						System.exit(0);
-					} catch(Exception e)
-					{
-						JOptionPane.showMessageDialog(null, e);
-					}
-				}
-			}
-		});
+		exitButton = new JButton("EXIT");
+		exitButton.setBounds(363, 35, 112, 23);
+		exitButton.setForeground(Color.RED);
+		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+		South.add(exitButton);
+	
 	};
 
-
+	public JButton getExitButton()
+	{
+		return exitButton;
+	}
 	
 	public ArrayList<JButton> getbuttonList()
 	{
@@ -495,6 +483,7 @@ public class View extends Thread{
 	private int row = 0; 
 	private int col = 0;
 	private JLabel scoreCount;
+	private JButton exitButton;
 	
 	private int screenWidth;
 	private int screenHeight;
