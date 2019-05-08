@@ -1,46 +1,78 @@
 package edu.sjsu.cs.cs151.battleship.controller;
 
-import edu.sjsu.cs.cs151.battleship.model.Model;
-import edu.sjsu.cs.cs151.battleship.view.NextTurn;
-import edu.sjsu.cs.cs151.battleship.view.View;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.Thread.State;
 import java.util.ArrayList;
-import javax.swing.JButton;
 
-public class Controller 
-{
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import edu.sjsu.cs.cs151.battleship.model.Model;
+import edu.sjsu.cs.cs151.battleship.view.NextTurn;
+import edu.sjsu.cs.cs151.battleship.view.View;
+import edu.sjsu.cs.cs151.battleship.view.Welcome;
+
+public class Controller {
+
 	public Controller()
 	{
 		model = new Model();
-		
 		this.player1 = new View(1);
 		this.player2  = new View(2);
-		 nt = new NextTurn();
+		this.player2.playerFrame.setBounds(750, 0, 500, 500);
+		nt = new NextTurn();
+		nt2 = new NextTurn();	
+		welcome = new Welcome();
+		welcomeToGame();
+	}
+
+	public void startGame(Welcome welcome)
+	{
+		welcome.getFrame().dispose();
+		nt2.getFrame().setBounds(750, 0, 500, 500);
 		
 		addShipToPlayerGrid(player1);
 		guessOponentShip(this.player1, this.player2);
 		player1.playerFrame.setVisible(true);
-
-
+		
+		nt2.getFrame().setVisible(true);
 		addShipToPlayerGrid(player2);
 		guessOponentShip(player2, player1);
 		
-		nextPlayer( player1,  player2,  nt);
-		nextPlayer(player2, player1, nt);
-		//extPlayer( player2,  player1,  nt);
-
-		//player2.playerFrame.setVisible(true);
+		player1Screen();
+		player2Screen();
+		reset();
 	}
+	
 
+	public void welcomeToGame()
+	{
+		welcome.getFrame().setVisible(true);
+		welcome.getStartButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startGame(welcome);
+			}
+		});
+	}
+	
+	public void endGame()
+	{
+		
+	}
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
 		player.initializeArray(shipCheckArray);
 		buttonGrid = player.getJButtonGrid();
 		
+	 
+
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -65,6 +97,13 @@ public class Controller
 							if((isSpace(player.getShipLength(), button,player) && !isOutOfBounds(player.getShipLength(), button,player)) && !doesShipExist(shipCheckArray,player.getShipLength(),player))
 							{
 								player.updateShipCounter();
+								int temp = player.getShipCounter();
+								println(temp);
+								println(isReadyToGuess);
+								if(player.getShipCounter() == 4)
+								{
+									isReadyToGuess = true;
+								}
 								//Since there is space, the block of buttons would marked
 								// as placed Horizontally
 								for( int index  = 0 ; index < player.getShipLength(); index++)
@@ -77,7 +116,11 @@ public class Controller
 										//Checks if it is player1
 //										if(player.getPlayerNumber() == 1)
 //										{
-//											model.getPlayer1().chooseShipLocation(player.shi, row, col, alignment);
+//											model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
+//										}
+//										else
+//										{
+//											model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
 //										}
 										String shipLeftCounterString = player.getShipCounter().toString();
 										player.getShipLeftCount().setText(shipLeftCounterString);
@@ -208,6 +251,8 @@ public class Controller
 		}
 	}
 	
+
+
 	private void initializeArray(boolean[] shipCheck2)
 	{
 		for (int i = 0; i <shipCheck2.length; i++)
@@ -216,7 +261,7 @@ public class Controller
 		}
 	}
 
-	
+
 	public void guessOponentShip(View player1, View player2)
 	{
 		Integer scoreNum = player1.getScoreNum();
@@ -235,43 +280,75 @@ public class Controller
 				JButton player2PlayerButton = player2PlayerGrid[i][j];
 				///Listener event that places "X" on grids
 				// that have been clicked
-				player1OpponentButton.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent arg0)
+				
+					player1OpponentButton.addActionListener(new ActionListener()
 					{
-						String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
-						JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-						
-						if(x.equals("X"))
+						public void actionPerformed(ActionEvent arg0)
 						{
-							if(!button.getBackground().equals(Color.GREEN))
+							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
+							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
+							
+							if(x.equals("X"))
 							{
-								player1.updateScoreNum();
-							}
-							button.setBackground(Color.GREEN);
-							//button.setText("H");
-							button.setOpaque(true);
-							button.setBorderPainted(false);
-							player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
+								if(!button.getBackground().equals(Color.GREEN))
+								{
+									player1.updateScoreNum();
+								}
+								button.setBackground(Color.GREEN);
+								//button.setText("H");
+								button.setOpaque(true);
+								button.setBorderPainted(false);
+								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
+								if(player1.getScoreNum() == 17)
+								{
+									JDialog endOfGame = new JDialog();
+									JLabel endOfGameLabel = new JLabel("Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!");
+									JButton exit = new JButton("Exit");
+									endOfGame.setBounds((player1.getScreenWidth1()/2)-150, (player1.getScreenHeight()/2), 300, 100);
+									endOfGame.add(endOfGameLabel);
+									endOfGame.setSize(300, 100);
+									exit.addActionListener(new ActionListener() {
+										public void actionPerformed(ActionEvent e) {
+											endOfGame.dispose();
+											player1.playerFrame.dispose();
+											player2.playerFrame.dispose();
+											nt.getFrame().dispose();
+											new Controller();
+											
+											
+										}
+									});
+									endOfGame.getContentPane().add(endOfGameLabel, BorderLayout.NORTH);
+									endOfGame.getContentPane().add(exit);
+									endOfGame.add(exit,BorderLayout.CENTER);
+									endOfGame.setVisible(true);
+											
+								}
 
+							}
+							else
+							{
+								button.setBackground(Color.RED);
+								
+								//button.setText("M");
+								button.setOpaque(true);
+								button.setBorderPainted(false);
+								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
+							}
+							
+							
+							
+							//buttonList.get((buttonList.indexOf(button))).setText("X");
+													
+							String score = player1.getScoreNum().toString();
+							player1.getScoreCount().setText(score);
 						}
-						else
-						{
-							button.setBackground(Color.RED);
-							//button.setText("M");
-							button.setOpaque(true);
-							button.setBorderPainted(false);
-						}
-						
-						//buttonList.get((buttonList.indexOf(button))).setText("X");
-												
-						String score = player1.getScoreNum().toString();
-						player1.getScoreCount().setText(score);
-					}
-				});
-			}
+					});
+
+
 		}
 
+	}
 	}
 	
 	public void nextPlayer(View player1, View player2, NextTurn nt)
@@ -283,7 +360,6 @@ public class Controller
 			}
 		});
 	}
-	
 	public void selectPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.playerFrame.dispose();
@@ -298,7 +374,113 @@ public class Controller
 			}
 		});
 	}
+	
+	public void coverScreen(View player, NextTurn nt)
+	{
+		player.getNextPlayerButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.playerFrame.dispose();
+				nt.getFrame().setVisible(true);
+			}
+		});
+	}
+	
+	public void uncoverScreen(View player, NextTurn nt)
+	{
+		nt.startButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nt.getFrame().dispose();
+				player.playerFrame.dispose();
+			}
+		});
+	}
+	
+	public void player1Screen()
+	{
+		player1.getNextPlayerButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player1.playerFrame.dispose();
+				nt.getFrame().setVisible(true);
+				nt.startButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						nt.getFrame().dispose();
+						player1.playerFrame.setVisible(true);
+					}
+				});
+			}
+		});
+	}
+	
+	public void player2Screen()
+	{
+		nt2.getStartButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nt2.getFrame().dispose();
+				player2.playerFrame.setVisible(true);
+				player2.getNextPlayerButton().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						player2.playerFrame.dispose();
+						nt2.getFrame().setVisible(true);
+					}
+				});
+			}
+		});
+	}
+	public void reset1()
+	{
+			player1.getExitButton().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent event) {
+					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
+					if (n == 0)
+					{
+						try
+						{
+							//Exits the game entirely.
+							player2.playerFrame.dispose();
+							player1.playerFrame.dispose();
+							nt.getFrame().dispose();
+							nt2.getFrame().dispose();
+							new Controller();
+						} catch(Exception e)
+						{
+							JOptionPane.showMessageDialog(null, e);
+						}
+					}
+				}
+			});
+	}
+	
+	public void reset2()
+	{
+		player2.getExitButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
+				if (n == 0)
+				{
+					try
+					{
+						//Exits the game entirely.
+						player2.playerFrame.dispose();
+						player1.playerFrame.dispose();
+						nt.getFrame().dispose();
+						nt2.getFrame().dispose();
+						new Controller();
+					} catch(Exception e)
+					{
+						JOptionPane.showMessageDialog(null, e);
+					}
+				}
+			}
+		});
+}
 
+	
+	public void reset()
+	{
+		reset1();
+		reset2();
+	}
+	
 	//System.out.printn shortcut
 	static void println(Object line) {
 	    System.out.println(line);
@@ -313,8 +495,26 @@ public class Controller
 	private JButton[][] buttonGrid;
 	private JButton nextPlayerButton;
 	private NextTurn nt ;
+	private NextTurn nt2;
 	private JButton[][] opponentButtonGrid;
-	
+	private boolean isReadyToGuess = false;
+	private Welcome welcome;
 	private static final int HORIZONTAL  = 0;
 	private static final int VERTICAL = -1;
+	
+	
+	public static void main(String[]args)
+	{
+		Controller c = new Controller();
+		//c.player2.playerFrame.setVisible(true);
+		//c.player1.playerFrame.setVisible(true);
+//		c.player2.playerFrame.setVisible(true);
+//		c.addShipToPlayerGrid(c.player2);
+//		c.player2.playerFrame.setVisible(true);
+//		c.addShipToPlayerGrid(c.player2);
+		
+	}
+
+
+
 }
