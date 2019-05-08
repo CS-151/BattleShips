@@ -61,10 +61,6 @@ public class Controller {
 		});
 	}
 	
-	public void endGame()
-	{
-		
-	}
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
@@ -287,54 +283,58 @@ public class Controller {
 						{
 							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
 							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-							
-							if(x.equals("X"))
+							if(isReadyToGuess)
 							{
-								if(!button.getBackground().equals(Color.GREEN))
+								if(x.equals("X"))
 								{
-									player1.updateScoreNum();
-								}
-								button.setBackground(Color.GREEN);
-								//button.setText("H");
-								button.setOpaque(true);
-								button.setBorderPainted(false);
-								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
-								if(player1.getScoreNum() == 17)
-								{
-									JDialog endOfGame = new JDialog();
-									JLabel endOfGameLabel = new JLabel("Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!");
-									JButton exit = new JButton("Exit");
-									endOfGame.setBounds((player1.getScreenWidth1()/2)-150, (player1.getScreenHeight()/2), 300, 100);
-									endOfGame.add(endOfGameLabel);
-									endOfGame.setSize(300, 100);
-									exit.addActionListener(new ActionListener() {
-										public void actionPerformed(ActionEvent e) {
-											endOfGame.dispose();
-											player1.playerFrame.dispose();
-											player2.playerFrame.dispose();
-											nt.getFrame().dispose();
-											new Controller();
-											
-											
-										}
-									});
-									endOfGame.getContentPane().add(endOfGameLabel, BorderLayout.NORTH);
-									endOfGame.getContentPane().add(exit);
-									endOfGame.add(exit,BorderLayout.CENTER);
-									endOfGame.setVisible(true);
-											
-								}
+									if(!button.getBackground().equals(Color.GREEN))
+									{
+										player1.updateScoreNum();
+									}
+									button.setBackground(Color.GREEN);
+									//button.setText("H");
+									button.setOpaque(true);
+									button.setBorderPainted(false);
+									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
+									if(player1.getScoreNum() == 17)
+									{
+										JDialog endOfGame = new JDialog();
+										JLabel endOfGameLabel = new JLabel("Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!");
+										JButton exit = new JButton("Exit");
+										endOfGame.setBounds((player1.getScreenWidth1()/2)-150, (player1.getScreenHeight()/2), 300, 100);
+										endOfGame.add(endOfGameLabel);
+										endOfGame.setSize(300, 100);
+										exit.addActionListener(new ActionListener() {
+											public void actionPerformed(ActionEvent e) {
+												endOfGame.dispose();
+												player1.playerFrame.dispose();
+												player2.playerFrame.dispose();
+												nt.getFrame().dispose();
+												new Controller();
+												
+												
+											}
+										});
+										endOfGame.getContentPane().add(endOfGameLabel, BorderLayout.NORTH);
+										endOfGame.getContentPane().add(exit);
+										endOfGame.add(exit,BorderLayout.CENTER);
+										endOfGame.setVisible(true);
+												
+									}
 
+								}
+								else
+								{
+									button.setBackground(Color.RED);
+									
+									//button.setText("M");
+									button.setOpaque(true);
+									button.setBorderPainted(false);
+									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
+								}
 							}
-							else
-							{
-								button.setBackground(Color.RED);
-								
-								//button.setText("M");
-								button.setOpaque(true);
-								button.setBorderPainted(false);
-								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
-							}
+							
+							
 							
 							
 							
