@@ -1,9 +1,6 @@
 package edu.sjsu.cs.cs151.battleship.tests;
-
 import edu.sjsu.cs.cs151.battleship.model.Grid;
-
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class GridTest {

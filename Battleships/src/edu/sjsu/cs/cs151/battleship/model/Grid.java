@@ -54,7 +54,6 @@ public class Grid {
 				}
 				grid[r][i].setContainsShip(true);
 			}
-
 		}
 		else
 		{

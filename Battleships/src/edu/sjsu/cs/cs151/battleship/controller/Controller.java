@@ -5,15 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-<<<<<<< HEAD
-
-
 import javax.swing.ImageIcon;
-
-=======
-
-import javax.swing.ImageIcon;
->>>>>>> 10b4558346faaeb0ff36904508deb4b58250f63e
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -291,6 +283,7 @@ public class Controller {
 		JButton[][] player2PlayerGrid = player2.getButtonGrid();
 		ArrayList<JButton> player2ButtonList = player2.getbuttonList();
 		
+		
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -326,6 +319,7 @@ public class Controller {
 										JOptionPane.showMessageDialog(player1OpponentButton.getParent(), 
 												"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", JOptionPane.INFORMATION_MESSAGE);
 									}
+
 								}
 								else
 								{
@@ -543,4 +537,7 @@ public class Controller {
 //		c.addShipToPlayerGrid(c.player2);
 		
 	}
+
+
+
 }

@@ -161,6 +161,6 @@ public class Ship
 	private boolean isMiss;
 	private int alignment;
 
-	final static int  HORIZONTAL = 0;
+	final static int  HORIZONTAL = 0;	
 	final static int  VERTICAL = -1;
 }
