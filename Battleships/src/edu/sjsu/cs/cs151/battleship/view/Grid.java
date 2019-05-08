@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import java.awt.Panel;
-import java.awt.Toolkit;
 
 public class Grid {
 
@@ -32,13 +31,14 @@ public class Grid {
 	 */
 	public void initialize()
 	{
-		frame = new JFrame("Battleships");
+		frame = new JFrame();
 		frame.setBounds(0, 0, 500, 500);
-		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(frame.getClass().getResource("/cannonball.png")));
-	
+
+
+		
+		
 		JPanel North = new JPanel();
 		North.setPreferredSize(new Dimension(500, 150));
 		frame.getContentPane().add(North, BorderLayout.NORTH);
@@ -138,7 +138,12 @@ public class Grid {
 		btnExit.setFont(new Font("Bahnschrift", Font.PLAIN, 11));
 		btnExit.setBounds(364, 11, 112, 23);
 		South.add(btnExit);
-			
+		//btnExit.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e){  
+	        //    exitMessage.setText("Are you sure you want exit the game? ");  
+		//	}
+	//	});
+		
 		JButton b1 = new JButton("");
 		b1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

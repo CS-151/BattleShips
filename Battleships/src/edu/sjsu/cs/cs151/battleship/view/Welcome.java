@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import edu.sjsu.cs.cs151.battleship.app.Battleships;
+
 public class Welcome 
 {
 	/**
@@ -51,7 +53,7 @@ public class Welcome
 			public void actionPerformed(ActionEvent event) {
 				try
 				{
-					JOptionPane.showMessageDialog(frame, new ImageIcon("image/About.PNG"),"About", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(frame, new ImageIcon("image/About.png"),"About", JOptionPane.INFORMATION_MESSAGE);
 				} catch(Exception e)
 				{
 					JOptionPane.showMessageDialog(null, e);
@@ -64,7 +66,7 @@ public class Welcome
 			public void actionPerformed(ActionEvent event) {
 				try
 				{
-					JOptionPane.showMessageDialog(frame, new ImageIcon("image/Tutorial.PNG"),"Tutorial", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(frame, new ImageIcon("image/Tutorial.png"),"Tutorial", JOptionPane.INFORMATION_MESSAGE);
 				} catch(Exception e)
 				{
 					JOptionPane.showMessageDialog(null, e);
@@ -179,7 +181,7 @@ public class Welcome
 
 		//Cannonball timer
 		final int DELAY2 = 1;
-		Timer t2 = new Timer(DELAY2, event ->{			
+		Timer t2 = new Timer(DELAY2, event ->{
 			ball.move(1);
 			l2.repaint();
 		});
@@ -192,46 +194,26 @@ public class Welcome
 		window.frame.setVisible(true);
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JFrame getFrame()
 	{
 		return frame;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JButton getStartButton()
 	{
 		return start;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JButton getAboutButton()
 	{
 		return about;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JButton getTutorialButton()
 	{
 		return tutorial;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JButton getExitButton()
 	{
 		return exit;
