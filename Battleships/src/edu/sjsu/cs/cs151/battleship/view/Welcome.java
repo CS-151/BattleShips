@@ -38,6 +38,7 @@ public class Welcome
 		frame = new JFrame("Battleships");
 		frame.getContentPane().setLayout(null);
 		frame.setBounds(0, 0, 500, 500);
+		frame.setLocationRelativeTo(null);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(frame.getClass().getResource("/cannonball.png")));
 
 		JMenu menu = new JMenu("Menu");
@@ -50,7 +51,7 @@ public class Welcome
 			public void actionPerformed(ActionEvent event) {
 				try
 				{
-					JOptionPane.showMessageDialog(frame, new ImageIcon("image/About.gif"),"About", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(frame, new ImageIcon("image/About.PNG"),"About", JOptionPane.INFORMATION_MESSAGE);
 				} catch(Exception e)
 				{
 					JOptionPane.showMessageDialog(null, e);
@@ -63,7 +64,7 @@ public class Welcome
 			public void actionPerformed(ActionEvent event) {
 				try
 				{
-					JOptionPane.showMessageDialog(frame, "Tutorial");
+					JOptionPane.showMessageDialog(frame, new ImageIcon("image/Tutorial.PNG"),"Tutorial", JOptionPane.INFORMATION_MESSAGE);
 				} catch(Exception e)
 				{
 					JOptionPane.showMessageDialog(null, e);

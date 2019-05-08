@@ -34,6 +34,7 @@ public class Grid {
 	{
 		frame = new JFrame("Battleships");
 		frame.setBounds(0, 0, 500, 500);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(frame.getClass().getResource("/cannonball.png")));

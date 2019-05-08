@@ -30,6 +30,7 @@ public class GameOver {
 	 */
 	public void finish() {
 		f = new JFrame("Game Over");
+		f.setLocationRelativeTo(null);
 		f.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
