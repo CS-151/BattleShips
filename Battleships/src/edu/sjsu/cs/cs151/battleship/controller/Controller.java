@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -112,7 +113,7 @@ public class Controller {
 										
 									//int row = buttonList.indexOf(button);
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
-										
+									//player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));;
 										//Checks if it is player1
 //										if(player.getPlayerNumber() == 1)
 //										{
