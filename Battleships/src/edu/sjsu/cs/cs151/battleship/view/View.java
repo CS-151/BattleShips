@@ -47,8 +47,8 @@ public class View extends Thread{
 		playerFrame.setBounds(0, 0, 500, 500);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
-		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
+		playerFrame.setBackground(Color.BLUE);
 		
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
@@ -98,6 +98,7 @@ public class View extends Thread{
 		scoreCount.setBounds(60, 54, 21, 16);
 		North.add(scoreCount);
 
+
 		shipLeftCount = new JLabel("0");
 		shipLeftCount.setBounds(86, 79, 21, 16);
 		North.add(shipLeftCount);
@@ -105,6 +106,7 @@ public class View extends Thread{
 		JLabel shipsHitCount = new JLabel("0");
 		shipsHitCount.setBounds(182, 79, 21, 16);
 		North.add(shipsHitCount);
+
 
 		//-----------------------------PlayerGrid-------------------------//
 
@@ -130,6 +132,8 @@ public class View extends Thread{
 				//Add button to list
 				buttonList.add(button);
 				buttonGrid[i][j] = button;
+
+
 			}
 		}
 		playerFrame.getContentPane().add(West, BorderLayout.WEST);
@@ -162,6 +166,7 @@ public class View extends Thread{
 		South.setPreferredSize(new Dimension(500, 70));
 		playerFrame.getContentPane().add(South, BorderLayout.SOUTH);
 		South.setLayout(null);
+
 
 		JRadioButton carrierH = new JRadioButton("H");		
 		carrierH.addActionListener(new ActionListener() {
@@ -269,7 +274,6 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
 		JLabel lblDestoryer = new JLabel("2");
 		lblDestoryer.setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));
 		lblDestoryer.setBounds(149, 45, 77, 16);
@@ -327,101 +331,59 @@ public class View extends Thread{
 	};
 
 
-	/**
-	 * 
-	 * @return
-	 */
+	
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JButton[][] getJButtonGrid()
 	{
 		return buttonGrid;
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public JPanel getWestPanel()
 	{
 		return West;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JPanel getPlayerGrid()
 	{
 		return this.West;
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public JButton[][] getButtonGrid()
 	{
 		return buttonGrid;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public ArrayList<JButton> getJButtonList()
 	{
 		return buttonList;
 	}
-	
-	/**
-	 * 
-	 * @param aFrame
-	 */
 	private static void makeFrameFullSize(JFrame aFrame)
 	{
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		aFrame.setSize(screenSize.width, screenSize.height);
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public int getAlignment()
 	{
 		return alignment;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public boolean getIsSubmarine()
 	{
 		return isSubmarine;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public int getShipLength()
 	{
 		return shipLength;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public JLabel getShipLeftCount()
 	{
 		return shipLeftCount;
