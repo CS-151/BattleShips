@@ -129,7 +129,7 @@ public class Controller {
 										
 									//int row = buttonList.indexOf(button);
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
-									//player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setIcon(new ImageIcon(getClass().getResource("/shiplabel.png")));;
+									//player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setIcon(new ImageIcon(getClass().getResource("/battleshipIcon.png")));;
 										//Checks if it is player1
 //										if(player.getPlayerNumber() == 1)
 //										{
