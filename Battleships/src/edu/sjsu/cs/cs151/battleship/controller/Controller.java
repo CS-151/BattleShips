@@ -35,7 +35,39 @@ public class Controller {
 		welcome = new Welcome();
 		welcomeToGame();
 	}
+	
+	public void player1ToPlayer2()
+	{
+		player1.getNextPlayerButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player1.playerFrame.setVisible(false);
+				nt.getFrame().setVisible(true);
+				nt.getStartButton().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						nt.getFrame().setVisible(false);
+						player2.playerFrame.setVisible(true);
+					}
+				});
+			}
+		});
 
+	}
+	
+	public void player2ToPlayer1()
+	{
+		player2.getNextPlayerButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player2.playerFrame.setVisible(false);
+				nt2.getFrame().setVisible(true);
+				nt2.getStartButton().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						nt2.getFrame().setVisible(false);
+						player1.playerFrame.setVisible(true);
+					}
+				});
+			}
+		});
+	}
 	/**
 	 * 
 	 * @param welcome the Welcome Screen
@@ -43,18 +75,21 @@ public class Controller {
 	public void startGame(Welcome welcome)
 	{
 		welcome.getFrame().dispose();
-		nt2.getFrame().setBounds(750, 0, 500, 500);
-		View.player1Screen(player1);
+		//nt2.getFrame().setBounds(750, 0, 500, 500);
+		//View.player1Screen(player1);
 		addShipToPlayerGrid(player1);
 		guessOponentShip(this.player1, this.player2);
 		player1.playerFrame.setVisible(true);
 		
-		nt2.getFrame().setVisible(true);
+		//nt2.getFrame().setVisible(true);
 		addShipToPlayerGrid(player2);
 		guessOponentShip(player2, player1);
+
+		player1ToPlayer2();
+		player2ToPlayer1();
 		
-		player1Screen();
-		player2Screen();
+		//player1Screen();
+		//player2Screen();
 		reset();
 	}
 	
