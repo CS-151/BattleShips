@@ -115,7 +115,7 @@ public class View extends Thread{
 		 * Creates a label for the image of the sky.
 		 */
 		JLabel skyLabel = new JLabel("");
-		skyLabel.setBounds(0, 0, screenWidth, 150);
+		skyLabel.setBounds(0, 0, 500, 150);
 		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
 		North.add(skyLabel);
 
@@ -125,10 +125,8 @@ public class View extends Thread{
 		//Player places ships onto player grid
 		this.West = new JPanel(); // West panel of screen
 		West.setBackground(new Color(70, 130, 180));
-		West.setPreferredSize(new Dimension((int) (0.7 * screenWidth), 240));
+		West.setPreferredSize(new Dimension(400, 240));
 		West.setLayout(new GridLayout(10, 10));// 10 X 10 Grid
-
-
 
 		//List to store buttons
 		buttonList = new ArrayList<JButton>(); 
@@ -160,7 +158,7 @@ public class View extends Thread{
 		//Opponent Grid 
 		JPanel East = new JPanel();
 		East.setBackground(new Color(70, 130, 180));
-		East.setPreferredSize(new Dimension((int) (0.7 * screenWidth), 240));
+		East.setPreferredSize(new Dimension(400, 240));
 		East.setLayout(new GridLayout(10, 10));
 
 		opponentButtonList = new ArrayList<JButton>();
