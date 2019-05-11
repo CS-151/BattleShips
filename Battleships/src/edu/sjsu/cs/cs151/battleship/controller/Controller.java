@@ -388,15 +388,14 @@ public class Controller {
 								}
 								else
 								{
-									button.setBackground(Color.RED);
-									
+									button.setBackground(Color.RED);		
 									//button.setText("M");
 									button.setOpaque(true);
 									button.setBorderPainted(false);
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
 								}
 								
-								
+								switchAfterGuess( player1,  player2);
 							
 							}
 
@@ -413,7 +412,38 @@ public class Controller {
 
 	}
 	}
-		/**
+	
+	public void switchAfterGuess(View player1, View player2)
+	{
+		
+		player1.playerFrame.dispose();
+		if(player1.getPlayerNumber() ==1)
+		{
+			nt.getFrame().setVisible(true);
+			nt.getStartButton().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					nt.getFrame().setVisible(false);
+					player2.playerFrame.setVisible(true);
+				}
+			});								
+		}
+		
+		else
+		{
+			nt2.getFrame().setVisible(true);
+			nt2.getStartButton().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+							nt2.getFrame().setVisible(false);
+							player2.playerFrame.setVisible(true);
+			         
+					
+				}
+			});
+		}
+		
+	}
+	
+	/**
 	 * Switches screens after user guesses on opponent ship from player 1 to player2
 	 * @param player1 screen
 	 * @param player2 screen
