@@ -427,10 +427,20 @@ public class View extends Thread{
 
 		//Button gives player the option to exit the game.
 		JButton extButton = new JButton("EXIT");
-		extButton.setBounds(438, 43, 112, 23);
+		extButton.setBounds(413, 43, 112, 23);
 		extButton.setForeground(Color.RED);
 		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		South.add(extButton);
+		
+		JLabel seaLabel = new JLabel("");
+		seaLabel.setBounds(0, 0, 550, 70);
+		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
+		South.add(seaLabel);
+		
+		JLabel middleSea = new JLabel("");
+		middleSea.setIcon(null);
+		middleSea.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
+		playerFrame.getContentPane().add(middleSea, BorderLayout.CENTER);
 		extButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
