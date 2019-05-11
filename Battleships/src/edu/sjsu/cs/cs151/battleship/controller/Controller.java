@@ -170,9 +170,21 @@ public class Controller {
 								int temp = player.getShipCounter();
 								println(temp);
 								println(isReadyToGuess);
-								if(player.getShipCounter() == 4)
+								if(player.getShipCounter() == 5)
 								{
 									isReadyToGuess = true;
+									donePlacingShips = new JOptionPane();
+									donePlacingShips.showMessageDialog(null, 
+											"Next player turn","Winner", donePlacingShips.INFORMATION_MESSAGE);
+									if(donePlacingShips.OK_CANCEL_OPTION == 0 || donePlacingShips.OK_CANCEL_OPTION == 2)
+									{
+										switchAfterGuess(player1,  player2);
+										if(player.getPlayerNumber() == 2)
+										{
+											switchAfterGuess(player2,player1);
+										}
+									}
+									
 								}
 								
 								//Checks if it is player1
@@ -380,11 +392,23 @@ public class Controller {
 									if(player1.getScoreNum() == 17)
 									{
 										endOfGame = new JOptionPane();
-										endOfGame = new JOptionPane();
-										JOptionPane.showMessageDialog(player1OpponentButton.getParent(), 
-												"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", JOptionPane.INFORMATION_MESSAGE);
+										endOfGame.showMessageDialog(player1OpponentButton.getParent(), 
+												"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", endOfGame.INFORMATION_MESSAGE);
+										if(endOfGame.OK_CANCEL_OPTION == 0 || endOfGame.OK_CANCEL_OPTION == 2)
+										{
+											println("EXITTTT");
+											player2.playerFrame.dispose();
+											player1.playerFrame.dispose();
+											nt.getFrame().dispose();
+											nt2.getFrame().dispose();
+											new Controller();
+										}
+										else
+										{
+											switchAfterGuess(player1,  player2);
+										}
 									}
-
+									switchAfterGuess(player1,  player2);
 								}
 								else
 								{
@@ -393,9 +417,10 @@ public class Controller {
 									button.setOpaque(true);
 									button.setBorderPainted(false);
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
+									switchAfterGuess(player1,  player2);
+
 								}
 								
-								switchAfterGuess( player1,  player2);
 							
 							}
 
@@ -645,6 +670,7 @@ public class Controller {
 	private JButton[][] buttonGrid;
 	private JButton nextPlayerButton;
 	private JOptionPane endOfGame;
+	private JOptionPane donePlacingShips;
 	private NextTurn nt ;
 	private NextTurn nt2;
 	private JButton[][] opponentButtonGrid;
