@@ -136,7 +136,10 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * Allows user to place ships on player grid
+	 * @param player view
+	 */
 	public void addShipToPlayerGrid(View player)
 	{
 		boolean[] shipCheckArray = player.getshipCheck();
@@ -153,7 +156,6 @@ public class Controller {
 				// on buttons that have been clicked
 				button.addActionListener(new ActionListener()
 				{
-					
 					public void actionPerformed(ActionEvent arg0)
 					{
 						System.out.println("Coordinate: " + player.getJButtonList().indexOf(button) );
@@ -176,8 +178,10 @@ public class Controller {
 								}
 								
 								//Checks if it is player1
+								
 								println("Row is " + convertToRow(player.getJButtonList().indexOf(button)));
 								println("Col is " + convertToCol(player.getJButtonList().indexOf(button)));
+								
 								int row = convertToRow(player.getJButtonList().indexOf(button));
 								int col = convertToCol(player.getJButtonList().indexOf(button));
 								
@@ -196,18 +200,8 @@ public class Controller {
 								{
 									System.out.println("Index: " +(player.getJButtonList().indexOf(button) +index));
 										
-									//int row = buttonList.indexOf(button);
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
-									//player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setIcon(new ImageIcon(getClass().getResource("/battleshipIcon.png")));;
-										//Checks if it is player1
-//										if(player.getPlayerNumber() == 1)
-//										{
-//											model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
-//										}
-//										else
-//										{
-//											model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
-//										}
+
 										String shipLeftCounterString = player.getShipCounter().toString();
 										player.getShipLeftCount().setText(shipLeftCounterString);
 										
@@ -259,6 +253,13 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * Checks whether the user has already placed the same type of ship on the player grid.
+	 * @param shipCheck2
+	 * @param shipLength
+	 * @param player
+	 * @return boolean true/false 
+	 */
 	public boolean doesShipExist(boolean[] shipCheck2, int shipLength, View player)
 	{
 		int temp = shipLength;
@@ -284,7 +285,7 @@ public class Controller {
 		}
 	}
 
-	/*
+	/**
 	 * Helper method that check whether the given ship would go 
 	 * out of bounds from the grid
 	 * @param shipLength the length of the ship
@@ -303,7 +304,7 @@ public class Controller {
 		return false;
 	}
 	
-	/*
+	/**
 	 * Helper method that check whether the given ship would fit on to the 
 	 * selected JButton 
 	 * @param shipLength the length of the ship
@@ -334,14 +335,6 @@ public class Controller {
 			}
 		return true;
 			
-		}
-	}
-
-	private void initializeArray(boolean[] shipCheck2)
-	{
-		for (int i = 0; i <shipCheck2.length; i++)
-		{
-			shipCheck2[i] = false;
 		}
 	}
 
@@ -402,8 +395,15 @@ public class Controller {
 									button.setBorderPainted(false);
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
 								}
-								
-									switchAfterGuess(player1, player2);	
+									player1.playerFrame.dispose();
+									if(player1.getPlayerNumber() ==1)
+									{
+										switchAfterGuessPlayer1(player1, player2);	
+									}
+									else
+									{
+										switchAfterGuessPlayer2(player2,player1);
+									}
 							}						
 													
 							String score = player1.getScoreNum().toString();
@@ -415,17 +415,14 @@ public class Controller {
 	}
 	}
 	
-	/*
-	 * Switches screens after user guesses on opponent ship
+	/**
+	 * Switches screens after user guesses on opponent ship from player 1 to player2
 	 * @param player1 screen
 	 * @param player2 screen
 	 */
-	public void switchAfterGuess(View player1, View player2)
+	public void switchAfterGuessPlayer1(View player1, View player2)
 	{
 		
-		player1.playerFrame.dispose();
-		if(player1.getPlayerNumber() ==1)
-		{
 			nt.getFrame().setVisible(true);
 			nt.getStartButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -433,22 +430,27 @@ public class Controller {
 					player2.playerFrame.setVisible(true);
 				}
 			});								
-		}
+	}
+	
+	/**
+	 * Switches screens after user guesses on opponent ship from player 1 to player2
+	 * @param player1 screen
+	 * @param player2 screen
+	 */
+	public void switchAfterGuessPlayer2(View player1, View player2)
+	{
 		
-		else
-		{
 			nt2.getFrame().setVisible(true);
 			nt2.getStartButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-							nt2.getFrame().setVisible(false);
-							player2.playerFrame.setVisible(true);
-			         
-					
+					nt2.getFrame().setVisible(false);
+					player2.playerFrame.setVisible(true);
 				}
 			});
-		}
 		
-	}
+		}
+	
+	
 	public void nextPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
@@ -604,7 +606,6 @@ public class Controller {
 		reset2();
 	}
 	
-	//System.out.printn shortcut
 	static void println(Object line) {
 	    System.out.println(line);
 	}
@@ -620,21 +621,5 @@ public class Controller {
 	private boolean isReadyToGuess = false;
 	private Welcome welcome;
 	private static final int HORIZONTAL  = 0;
-	private static final int VERTICAL = -1;
 	
-	
-	public static void main(String[]args)
-	{
-		Controller c = new Controller();
-		//c.player2.playerFrame.setVisible(true);
-		//c.player1.playerFrame.setVisible(true);
-//		c.player2.playerFrame.setVisible(true);
-//		c.addShipToPlayerGrid(c.player2);
-//		c.player2.playerFrame.setVisible(true);
-//		c.addShipToPlayerGrid(c.player2);
-		
-	}
-
-
-
 }
