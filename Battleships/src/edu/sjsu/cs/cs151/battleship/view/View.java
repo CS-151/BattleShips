@@ -42,11 +42,17 @@ public class View extends Thread{
 		 * Creates the frame.
 		 */
 		playerFrame = new JFrame("Battleships");
-		playerFrame.setBounds(0, 0, 550, 550);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		playerFrame.setSize((int) (0.8 * screenSize.width), (int) (0.8 * screenSize.height));
+		screenWidth = playerFrame.getHeight();
+		screenHeight = playerFrame.getWidth();
 		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
+		
+		
+		
 		
 		/**
 		 * Creates the North Panel.
@@ -139,7 +145,7 @@ public class View extends Thread{
 		JLabel shipsHitCount = new JLabel("0");
 		shipsHitCount.setBounds(182, 79, 21, 16);
 		North.add(shipsHitCount);
-		
+
 		/**
 		 * Creates a label for the image of the sky.
 		 */
@@ -147,14 +153,14 @@ public class View extends Thread{
 		skyLabel.setBounds(0, 0, 550, 150);
 		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
 		North.add(skyLabel);
-		
-		
+
+
 		//-----------------------------PlayerGrid-------------------------//
 
 		//Player places ships onto player grid
 		this.West = new JPanel(); // West panel of screen
 		West.setBackground(new Color(70, 130, 180));
-		West.setPreferredSize(new Dimension(240, 240));
+		West.setPreferredSize(new Dimension((int) (0.7 * screenWidth), 240));
 		West.setLayout(new GridLayout(10, 10));// 10 X 10 Grid
 
 
@@ -179,9 +185,9 @@ public class View extends Thread{
 			}
 		}
 		playerFrame.getContentPane().add(West, BorderLayout.WEST);
-		
 
-	
+
+
 
 
 		//-----------------------------OpponentGrid-------------------------//
@@ -189,7 +195,7 @@ public class View extends Thread{
 		//Opponent Grid 
 		JPanel East = new JPanel();
 		East.setBackground(new Color(70, 130, 180));
-		East.setPreferredSize(new Dimension(240, 240));
+		East.setPreferredSize(new Dimension((int) (0.7 * screenWidth), 240));
 		East.setLayout(new GridLayout(10, 10));
 
 		opponentButtonList = new ArrayList<JButton>();
@@ -215,9 +221,9 @@ public class View extends Thread{
 		South.setPreferredSize(new Dimension(500, 70));
 		playerFrame.getContentPane().add(South, BorderLayout.SOUTH);
 		South.setLayout(null);
-		
+
 		//JLabel seaLabel = new JLabel("");
-		
+
 		/**
 		 * H and V radio buttons for ship placement.
 		 */
@@ -256,13 +262,13 @@ public class View extends Thread{
 		JRadioButton cruiserH = new JRadioButton("H");
 
 		//battleshipH.setBounds(242, 6, 50, 23);
-		
+
 		South.add(battleshipH);
 
 		//cruiserH.setBounds(64, 41, 62, 23);
 
 
-		
+
 		JRadioButton cruiser = new JRadioButton("H");
 		//cruiserH.setBounds(96, 41, 50, 23);
 
@@ -355,7 +361,7 @@ public class View extends Thread{
 
 		//battleShipV.setBounds(293, 6, 47, 23);
 
-	//	battleShipV.setBounds(268, 6, 47, 23);
+		//	battleShipV.setBounds(268, 6, 47, 23);
 
 		battleShipV.setOpaque(false);
 
@@ -382,7 +388,7 @@ public class View extends Thread{
 
 		//cruiserV.setBounds(118, 41, 47, 23);
 
-	//	cruiserV.setBounds(101, 41, 47, 23);
+		//	cruiserV.setBounds(101, 41, 47, 23);
 
 		cruiserV.setOpaque(false);
 
@@ -446,24 +452,22 @@ public class View extends Thread{
 			}
 		});
 
+		JLabel seaLabel = new JLabel("");
+		seaLabel.setBounds(0, 0, 550, 70);
+		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
+		South.add(seaLabel);
+
+		JLabel middleSea = new JLabel("");
+		middleSea.setIcon(null);
+		middleSea.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
+		playerFrame.getContentPane().add(middleSea, BorderLayout.CENTER);
+
 		//Button gives player the option to exit the game.
-
-
 		JButton extButton = new JButton("EXIT");
 		extButton.setBounds(438, 43, 112, 23);
 		extButton.setForeground(Color.RED);
 		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		South.add(extButton);
-		
-		JLabel seaLabel = new JLabel("");
-		seaLabel.setBounds(0, 0, 550, 70);
-		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
-		South.add(seaLabel);
-		
-		JLabel middleSea = new JLabel("");
-		middleSea.setIcon(null);
-		middleSea.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
-		playerFrame.getContentPane().add(middleSea, BorderLayout.CENTER);
 		extButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
@@ -480,26 +484,13 @@ public class View extends Thread{
 				}
 			}
 		});
-
-		exitButton = new JButton("EXIT");
-		exitButton.setBounds(363, 35, 112, 23);
-		exitButton.setForeground(Color.RED);
-		exitButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-
-
-		South.add(exitButton);
-	
-
-
-		South.add(exitButton);	
-
 	};
 
 	public JButton getExitButton()
 	{
 		return exitButton;
 	}
-	
+
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
@@ -531,11 +522,11 @@ public class View extends Thread{
 	{
 		return buttonList;
 	}
-	private static void makeFrameFullSize(JFrame aFrame)
-	{
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		aFrame.setSize(screenSize.width, screenSize.height);
-	}
+//	private static void makeFrameFullSize(JFrame aFrame)
+//	{
+//		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//		aFrame.setSize(screenSize.width, screenSize.height);
+//	}
 
 	public int getAlignment()
 	{
@@ -631,12 +622,12 @@ public class View extends Thread{
 	{
 		return scoreCount;
 	}
-	
+
 	public int getScreenWidth1()
 	{
 		return screenWidth;
 	}
-	
+
 	public int getScreenHeight()
 	{
 		return screenHeight;
@@ -645,12 +636,12 @@ public class View extends Thread{
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
-	
+
 	public boolean getIsReadyToGuess()
 	{
 		return isReadyToGuess;
 	}
-	
+
 	public void setToGuess(boolean isReady)
 	{
 		isReadyToGuess = isReady;
