@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+
 
 import javax.swing.ImageIcon;
 
@@ -15,8 +15,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
-
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
 import edu.sjsu.cs.cs151.battleship.view.View;
@@ -172,9 +170,9 @@ public class Controller {
 								int temp = player.getShipCounter();
 								println(temp);
 								println(isReadyToGuess);
-								if(player.getShipCounter() == 5)
+								if(player.getShipCounter() == 4)
 								{
-									player.setToGuess(true);
+									isReadyToGuess = true;
 								}
 								
 								//Checks if it is player1
@@ -337,6 +335,8 @@ public class Controller {
 			
 		}
 	}
+	
+
 
 
 	public void guessOponentShip(View player1, View player2)
@@ -364,7 +364,7 @@ public class Controller {
 						{
 							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
 							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-							if(player1.getIsReadyToGuess())
+							if(isReadyToGuess)
 							{
 								if(x.equals("X"))
 								{
@@ -395,6 +395,7 @@ public class Controller {
 									button.setBorderPainted(false);
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
 								}
+<<<<<<< HEAD
 									player1.playerFrame.dispose();
 									if(player1.getPlayerNumber() ==1)
 									{
@@ -405,16 +406,28 @@ public class Controller {
 										switchAfterGuessPlayer2(player2,player1);
 									}
 							}						
+=======
+							}
+							
+							
+							
+							
+							
+							//buttonList.get((buttonList.indexOf(button))).setText("X");
+>>>>>>> parent of fd87394... Player can guess only once
 													
 							String score = player1.getScoreNum().toString();
 							player1.getScoreCount().setText(score);
 						}
 					});
+
+
 		}
 
 	}
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Switches screens after user guesses on opponent ship from player 1 to player2
 	 * @param player1 screen
@@ -451,6 +464,8 @@ public class Controller {
 		}
 	
 	
+=======
+>>>>>>> parent of fd87394... Player can guess only once
 	public void nextPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
@@ -609,11 +624,14 @@ public class Controller {
 	static void println(Object line) {
 	    System.out.println(line);
 	}
+	private int counter = 0;
 	private Model model;
 	private View player1;
 	private View player2;
 	
+	private JButton transitionButton = new JButton();
 	private JButton[][] buttonGrid;
+	private JButton nextPlayerButton;
 	private JOptionPane endOfGame;
 	private NextTurn nt ;
 	private NextTurn nt2;
