@@ -201,7 +201,7 @@ public class Controller {
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
 
 										String shipLeftCounterString = player.getShipCounter().toString();
-										player.getShipLeftCount().setText(shipLeftCounterString);
+										//player.getShipLeftCount().setText(shipLeftCounterString);
 										
 										if(player.getIsSubmarine())
 										{
@@ -231,7 +231,7 @@ public class Controller {
 										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
 										
 										String shipLeftCounterString = player.getShipCounter().toString();
-										player.getShipLeftCount().setText(shipLeftCounterString);
+										//player.getShipLeftCount().setText(shipLeftCounterString);
 										if(player.getIsSubmarine())
 										{
 											shipCheckArray[7] = true;
@@ -395,40 +395,25 @@ public class Controller {
 									button.setBorderPainted(false);
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
 								}
-<<<<<<< HEAD
-									player1.playerFrame.dispose();
-									if(player1.getPlayerNumber() ==1)
-									{
-										switchAfterGuessPlayer1(player1, player2);	
-									}
-									else
-									{
-										switchAfterGuessPlayer2(player2,player1);
-									}
-							}						
-=======
+								
+								
+							
 							}
-							
-							
-							
-							
+
 							
 							//buttonList.get((buttonList.indexOf(button))).setText("X");
->>>>>>> parent of fd87394... Player can guess only once
 													
 							String score = player1.getScoreNum().toString();
 							player1.getScoreCount().setText(score);
 						}
 					});
-
+		
 
 		}
 
 	}
 	}
-	
-<<<<<<< HEAD
-	/**
+		/**
 	 * Switches screens after user guesses on opponent ship from player 1 to player2
 	 * @param player1 screen
 	 * @param player2 screen
@@ -463,10 +448,7 @@ public class Controller {
 		
 		}
 	
-	
-=======
->>>>>>> parent of fd87394... Player can guess only once
-	public void nextPlayer(View player1, View player2, NextTurn nt)
+		public void nextPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

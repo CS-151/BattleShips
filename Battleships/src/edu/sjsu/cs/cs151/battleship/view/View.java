@@ -508,10 +508,6 @@ public class View extends Thread{
 		return shipLength;
 	}
 
-	public JLabel getShipLeftCount()
-	{
-		return shipLeftCount;
-	}
 
 	public JButton getNextPlayerButton()
 	{
@@ -601,8 +597,6 @@ public class View extends Thread{
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
-<<<<<<< HEAD
-=======
 
 	public boolean getIsReadyToGuess()
 	{
@@ -613,7 +607,6 @@ public class View extends Thread{
 	{
 		isReadyToGuess = isReady;
 	}
->>>>>>> ce3bb3e343948d9bc15f4945f168de21a0bb0a7c
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
 	private Integer shipLeftCounter = 0;
@@ -636,13 +629,10 @@ public class View extends Thread{
 	private int col = 0;
 	private JLabel scoreCount;
 	private JButton exitButton;
-<<<<<<< HEAD
 	
 	private int screenWidth;
 	private int screenHeight;
-=======
 	private boolean isReadyToGuess = false;
->>>>>>> ce3bb3e343948d9bc15f4945f168de21a0bb0a7c
 
 	/**
 	 * Launch the application.
