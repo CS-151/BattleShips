@@ -38,15 +38,29 @@ public class Controller {
 		welcomeToGame();
 	}
 	
+	/**
+	 * Handles the event when player1 switches to player 2
+	 */
 	public void player1ToPlayer2()
 	{
+		//Retrieve player1's next player button
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//Once clicked, set hide player1's screen
 				player1.playerFrame.setVisible(false);
+				
+				//Make next player screen visible
 				nt.getFrame().setVisible(true);
+				
+				//Retrieve next player's start button 
 				nt.getStartButton().addActionListener(new ActionListener() {
+					
 					public void actionPerformed(ActionEvent e) {
+						//Once clicked, hide next player's screen
 						nt.getFrame().setVisible(false);
+						
+						//Make player2 screen visible
 						player2.playerFrame.setVisible(true);
 					}
 				});
@@ -55,46 +69,62 @@ public class Controller {
 
 	}
 	
+	
+	/**
+	 * Handles the event when player2 switches to player1
+	 */
 	public void player2ToPlayer1()
 	{
+		//Retrieve player2's next player button
 		player2.getNextPlayerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//Once clicked, set hide player2's screen
 				player2.playerFrame.setVisible(false);
+				
+				//Make next player screen visible
 				nt2.getFrame().setVisible(true);
+				
+				//Retrieve next player's start button
 				nt2.getStartButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						//Once clicked, hide next player's screen
 						nt2.getFrame().setVisible(false);
+						
+						//Make player1 screen visible
 						player1.playerFrame.setVisible(true);
 					}
 				});
 			}
 		});
 	}
+	
+	
 	/**
-	 * 
+	 * Collection of methods needed to start the game
 	 * @param welcome the Welcome Screen
 	 */
 	public void startGame(Welcome welcome)
 	{
 		welcome.getFrame().dispose();
-		//nt2.getFrame().setBounds(750, 0, 500, 500);
-		//View.player1Screen(player1);
+
 		addShipToPlayerGrid(player1);
 		guessOponentShip(this.player1, this.player2);
 		player1.playerFrame.setVisible(true);
 		
-		//nt2.getFrame().setVisible(true);
 		addShipToPlayerGrid(player2);
 		guessOponentShip(player2, player1);
 
 		player1ToPlayer2();
 		player2ToPlayer1();
 		
-		//player1Screen();
-		//player2Screen();
 		reset();
 	}
-	
+
+	/**
+	 * Adds action listener to welcome screen to transition from the welcome
+	 * page to player 1 screen.
+	 */
 	public void welcomeToGame()
 	{
 		welcome.getFrame().setVisible(true);
@@ -104,6 +134,8 @@ public class Controller {
 			}
 		});
 	}
+	
+	
 	
 	public void addShipToPlayerGrid(View player)
 	{
