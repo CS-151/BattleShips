@@ -645,6 +645,16 @@ public class View extends Thread{
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
+	
+	public boolean getIsReadyToGuess()
+	{
+		return isReadyToGuess;
+	}
+	
+	public void setToGuess(boolean isReady)
+	{
+		isReadyToGuess = isReady;
+	}
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
 	private Integer  shipLeftCounter = 0;;
@@ -668,7 +678,7 @@ public class View extends Thread{
 	private int col = 0;
 	private JLabel scoreCount;
 	private JButton exitButton;
-	
+	private boolean isReadyToGuess = false;
 	private int screenWidth;
 	private int screenHeight;
 

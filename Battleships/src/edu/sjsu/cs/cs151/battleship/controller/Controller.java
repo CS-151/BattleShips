@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 
@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
 import edu.sjsu.cs.cs151.battleship.view.View;
@@ -136,9 +138,9 @@ public class Controller {
 								int temp = player.getShipCounter();
 								println(temp);
 								println(isReadyToGuess);
-								if(player.getShipCounter() == 4)
+								if(player.getShipCounter() == 5)
 								{
-									isReadyToGuess = true;
+									player.setToGuess(true);
 								}
 								
 								//Checks if it is player1
@@ -302,8 +304,6 @@ public class Controller {
 			
 		}
 	}
-	
-
 
 	private void initializeArray(boolean[] shipCheck2)
 	{
@@ -339,7 +339,7 @@ public class Controller {
 						{
 							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
 							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-							if(isReadyToGuess)
+							if(player1.getIsReadyToGuess())
 							{
 								if(x.equals("X"))
 								{
@@ -370,25 +370,53 @@ public class Controller {
 									button.setBorderPainted(false);
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
 								}
-							}
-							
-							
-							
-							
-							
-							//buttonList.get((buttonList.indexOf(button))).setText("X");
+								
+									switchAfterGuess(player1, player2);	
+							}						
 													
 							String score = player1.getScoreNum().toString();
 							player1.getScoreCount().setText(score);
 						}
 					});
-
-
 		}
 
 	}
 	}
 	
+	/*
+	 * Switches screens after user guesses on opponent ship
+	 * @param player1 screen
+	 * @param player2 screen
+	 */
+	public void switchAfterGuess(View player1, View player2)
+	{
+		
+		player1.playerFrame.dispose();
+		if(player1.getPlayerNumber() ==1)
+		{
+			nt.getFrame().setVisible(true);
+			nt.getStartButton().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					nt.getFrame().setVisible(false);
+					player2.playerFrame.setVisible(true);
+				}
+			});								
+		}
+		
+		else
+		{
+			nt2.getFrame().setVisible(true);
+			nt2.getStartButton().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+							nt2.getFrame().setVisible(false);
+							player2.playerFrame.setVisible(true);
+			         
+					
+				}
+			});
+		}
+		
+	}
 	public void nextPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
@@ -548,14 +576,11 @@ public class Controller {
 	static void println(Object line) {
 	    System.out.println(line);
 	}
-	private int counter = 0;
 	private Model model;
 	private View player1;
 	private View player2;
 	
-	private JButton transitionButton = new JButton();
 	private JButton[][] buttonGrid;
-	private JButton nextPlayerButton;
 	private JOptionPane endOfGame;
 	private NextTurn nt ;
 	private NextTurn nt2;
