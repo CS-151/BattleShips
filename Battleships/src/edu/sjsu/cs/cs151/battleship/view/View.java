@@ -43,15 +43,11 @@ public class View extends Thread{
 		 */
 		playerFrame = new JFrame("Battleships");
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		playerFrame.setSize((int) (0.8 * screenSize.width), (int) (0.8 * screenSize.height));
-		screenWidth = playerFrame.getHeight();
-		screenHeight = playerFrame.getWidth();
+		playerFrame.setSize((int) (0.65 * screenSize.width), (int) (0.8 * screenSize.height));
 		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
-		
-		
 		
 		
 		/**
@@ -59,7 +55,7 @@ public class View extends Thread{
 		 */
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
-		North.setPreferredSize(new Dimension(500, 150));
+		North.setPreferredSize(new Dimension(screenWidth, 150));
 		playerFrame.getContentPane().add(North, BorderLayout.NORTH);
 		North.setLayout(null);
 
@@ -89,23 +85,6 @@ public class View extends Thread{
 		playerLabel.setBounds(10, 31, 97, 14);
 		North.add(playerLabel);
 
-		/**
-		 * Creates a label for Ships Left.
-		 * Will display the number of ships left.
-		 */
-		JLabel shipsLeftLabel = new JLabel("Ships Left:");
-		shipsLeftLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
-		shipsLeftLabel.setBounds(20, 81, 60, 14);
-		North.add(shipsLeftLabel);
-
-		/**
-		 * Creates a label for Ships Hit.
-		 * Will display the number of ships hit.
-		 */
-		JLabel lblShipsHit = new JLabel("Ships Hit:");
-		lblShipsHit.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
-		lblShipsHit.setBounds(124, 81, 55, 14);
-		North.add(lblShipsHit);
 
 		/**
 		 * Creates a label for the Player's grid.
@@ -133,24 +112,10 @@ public class View extends Thread{
 		North.add(scoreCount);
 
 		/**
-		 * Creates a label for the ship left count.
-		 */
-		shipLeftCount = new JLabel("0");
-		shipLeftCount.setBounds(86, 79, 21, 16);
-		North.add(shipLeftCount);
-
-		/**
-		 * Creates a label for the ships hit count.
-		 */
-		JLabel shipsHitCount = new JLabel("0");
-		shipsHitCount.setBounds(182, 79, 21, 16);
-		North.add(shipsHitCount);
-
-		/**
 		 * Creates a label for the image of the sky.
 		 */
 		JLabel skyLabel = new JLabel("");
-		skyLabel.setBounds(0, 0, 550, 150);
+		skyLabel.setBounds(0, 0, screenWidth, 150);
 		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
 		North.add(skyLabel);
 
@@ -648,7 +613,7 @@ public class View extends Thread{
 	}
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
-	private Integer  shipLeftCounter = 0;;
+	private Integer shipLeftCounter = 0;
 	private JButton[][] buttonGrid;
 	public  JFrame playerFrame;
 	private Integer scoreNum = 0;
@@ -661,7 +626,6 @@ public class View extends Thread{
 	private boolean isSubmarine  = false;
 	private int playerNumber;
 	private JPanel West;
-	private JLabel shipLeftCount;
 	private JButton nextPlayerButton;
 	public View player2;	
 	private boolean [] shipCheck = new boolean[8];
@@ -670,8 +634,6 @@ public class View extends Thread{
 	private JLabel scoreCount;
 	private JButton exitButton;
 	private boolean isReadyToGuess = false;
-	private int screenWidth;
-	private int screenHeight;
 
 	/**
 	 * Launch the application.
