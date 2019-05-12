@@ -432,12 +432,10 @@ public class View extends Thread{
 		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		South.add(extButton);
 		
-		JLabel seaLabel = new JLabel("");
 		seaLabel.setBounds(0, 0, 550, 70);
 		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		South.add(seaLabel);
 		
-		JLabel middleSea = new JLabel("");
 		middleSea.setIcon(null);
 		middleSea.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		playerFrame.getContentPane().add(middleSea, BorderLayout.CENTER);

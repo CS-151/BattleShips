@@ -172,7 +172,7 @@ public class Controller {
 								println(isReadyToGuess);
 								if(player.getShipCounter() == 5)
 								{
-									isReadyToGuess = true;
+									player.setToGuess(true);
 									donePlacingShips = new JOptionPane();
 									donePlacingShips.showMessageDialog(null, 
 											"Next player turn","Winner", donePlacingShips.INFORMATION_MESSAGE);
@@ -376,7 +376,7 @@ public class Controller {
 						{
 							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
 							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-							if(isReadyToGuess)
+							if(player1.getIsReadyToGuess())
 							{
 								if(x.equals("X"))
 								{
@@ -437,10 +437,17 @@ public class Controller {
 
 	}
 	}
-	
+	public void delay()
+	{
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void switchAfterGuess(View player1, View player2)
 	{
-		
 		player1.playerFrame.dispose();
 		if(player1.getPlayerNumber() ==1)
 		{
