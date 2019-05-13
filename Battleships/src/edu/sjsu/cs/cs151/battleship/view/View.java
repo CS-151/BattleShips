@@ -175,6 +175,7 @@ public class View extends Thread{
 		 * H and V radio buttons for ship placement.
 		 */
 		JRadioButton carrierH = new JRadioButton("H");	
+		carrierH.setForeground(Color.WHITE);
 		carrierH.setBounds(74, 6, 50, 23);
 		carrierH.setOpaque(false);
 		carrierH.addActionListener(new ActionListener() {
@@ -191,6 +192,7 @@ public class View extends Thread{
 		South.add(carrierH);
 
 		JRadioButton battleshipH = new JRadioButton("H");
+		battleshipH.setForeground(Color.WHITE);
 		battleshipH.setBounds(253, 6, 47, 23);
 		battleshipH.setOpaque(false);
 		battleshipH.addActionListener(new ActionListener() {
@@ -206,7 +208,8 @@ public class View extends Thread{
 		South.add(battleshipH);
 		
 		JRadioButton cruiserH = new JRadioButton("H");
-		cruiserH.setBounds(86, 41, 50, 23);
+		cruiserH.setForeground(Color.WHITE);
+		cruiserH.setBounds(76, 38, 50, 23);
 		cruiserH.setOpaque(false);
 		South.add(cruiserH);
 		cruiserH.addActionListener(new ActionListener() {
@@ -218,7 +221,8 @@ public class View extends Thread{
 		});
 
 		JRadioButton destroyerH = new JRadioButton("H");
-		destroyerH.setBounds(265, 41, 50, 23);
+		destroyerH.setForeground(Color.WHITE);
+		destroyerH.setBounds(76, 69, 50, 23);
 		destroyerH.setOpaque(false);
 		South.add(destroyerH);
 		destroyerH.addActionListener(new ActionListener() {
@@ -230,7 +234,8 @@ public class View extends Thread{
 		});
 
 		JRadioButton submarineH = new JRadioButton("H");
-		submarineH.setBounds(442, 6, 50, 23);
+		submarineH.setForeground(Color.WHITE);
+		submarineH.setBounds(254, 38, 50, 23);
 		submarineH.setOpaque(false);
 		South.add(submarineH);
 		submarineH.addActionListener(new ActionListener() {
@@ -242,6 +247,7 @@ public class View extends Thread{
 		});
 
 		JLabel carrierLabel = new JLabel("5");
+		carrierLabel.setForeground(Color.WHITE);
 		carrierLabel.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon.png")));
 		//carrierLabel.setIcon(new ImageIcon("/Users/maryammostafavi/Downloads/battleship (1).png"));
 		carrierLabel.setSize(10, 10);
@@ -249,6 +255,7 @@ public class View extends Thread{
 		South.add(carrierLabel);
 
 		JRadioButton carrierV = new JRadioButton("V");
+		carrierV.setForeground(Color.WHITE);
 
 		carrierV.setBounds(118, 6, 47, 23);
 
@@ -265,11 +272,13 @@ public class View extends Thread{
 		});
 
 		JLabel battleShipLabel = new JLabel("4");
+		battleShipLabel.setForeground(Color.WHITE);
 		battleShipLabel.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon4.png")));
 		battleShipLabel.setBounds(170, 10, 85, 16);
 		South.add(battleShipLabel);
 
 		JRadioButton battleShipV = new JRadioButton("V");
+		battleShipV.setForeground(Color.WHITE);
 
 		battleShipV.setBounds(304, 6, 47, 23);
 		battleShipV.setOpaque(false);
@@ -284,13 +293,15 @@ public class View extends Thread{
 		});
 
 		JLabel lblCruiser = new JLabel("3");
+		lblCruiser.setForeground(Color.WHITE);
 		lblCruiser.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon2.png")));
-		lblCruiser.setBounds(6, 45, 85, 16);
+		lblCruiser.setBounds(6, 41, 85, 16);
 		South.add(lblCruiser);
 
 
 		JRadioButton cruiserV = new JRadioButton("V");
-		cruiserV.setBounds(128, 41, 47, 23);
+		cruiserV.setForeground(Color.WHITE);
+		cruiserV.setBounds(118, 38, 47, 23);
 		cruiserV.setOpaque(false);
 		South.add(cruiserV);
 		cruiserV.addActionListener(new ActionListener() {
@@ -301,12 +312,14 @@ public class View extends Thread{
 			}
 		});
 		JLabel lblDestoryer = new JLabel("2");
+		lblDestoryer.setForeground(Color.WHITE);
 		lblDestoryer.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon3.png")));
-		lblDestoryer.setBounds(180, 45, 77, 16);
+		lblDestoryer.setBounds(6, 73, 77, 16);
 		South.add(lblDestoryer);
 
 		JRadioButton destroyerV = new JRadioButton("V");
-		destroyerV.setBounds(314, 41, 43, 23);
+		destroyerV.setForeground(Color.WHITE);
+		destroyerV.setBounds(118, 69, 43, 23);
 		destroyerV.setOpaque(false);
 		South.add(destroyerV);
 		destroyerV.addActionListener(new ActionListener() {
@@ -318,12 +331,14 @@ public class View extends Thread{
 		});
 
 		JLabel lblSubmarine = new JLabel("3");
+		lblSubmarine.setForeground(Color.WHITE);
 		lblSubmarine.setIcon(new ImageIcon(getClass().getResource("/battleshipIcon2.png")));
-		lblSubmarine.setBounds(363, 10, 77, 16);
+		lblSubmarine.setBounds(170, 42, 77, 16);
 		South.add(lblSubmarine);
 
 		JRadioButton submarineV = new JRadioButton("V");
-		submarineV.setBounds(486, 6, 40, 23);
+		submarineV.setForeground(Color.WHITE);
+		submarineV.setBounds(304, 38, 40, 23);
 		submarineV.setOpaque(false);
 		South.add(submarineV);
 		submarineV.addActionListener(new ActionListener() {
