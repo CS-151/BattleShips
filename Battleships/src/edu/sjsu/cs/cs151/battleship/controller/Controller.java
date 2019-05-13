@@ -408,7 +408,6 @@ public class Controller {
 											switchAfterGuess(player1,  player2);
 										}
 									}
-									switchAfterGuess(player1,  player2);
 								}
 								else
 								{
