@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,31 +43,29 @@ public class View extends Thread{
 		 * Creates the frame.
 		 */
 		playerFrame = new JFrame("Battleships");
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		playerFrame.setSize((int) (0.65 * screenSize.width), (int) (0.8 * screenSize.height));
+		playerFrame.setSize(500, 500);
 		playerFrame.setLocationRelativeTo(null);
 		playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playerFrame.getContentPane().setLayout(new BorderLayout(0, 0));
 		playerFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(playerFrame.getClass().getResource("/cannonball.png")));
-		
 		
 		/**
 		 * Creates the North Panel.
 		 */
 		JPanel North = new JPanel();
 		North.setBackground(Color.GRAY);
-		North.setPreferredSize(new Dimension(screenWidth, 150));
+		North.setPreferredSize(new Dimension(500, 120));
 		playerFrame.getContentPane().add(North, BorderLayout.NORTH);
 		North.setLayout(null);
 
 		/**
-		 * Creates a button for the Next Player.
+		 * Creates a label for Player.
 		 */
-		nextPlayerButton = new JButton("NEXT PLAYER");
-		nextPlayerButton.setBounds(413, 22, 112, 23);
-		nextPlayerButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		nextPlayerButton.setForeground(new Color(255, 102, 51));
-		North.add(nextPlayerButton);
+		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
+		playerLabel.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		playerLabel.setForeground(new Color(246, 214, 124));
+		playerLabel.setBounds(20, 20, 95, 15);
+		North.add(playerLabel);
 
 		/**
 		 * Creates a label for Score. 
@@ -74,41 +73,36 @@ public class View extends Thread{
 		 */
 		JLabel scoreLabel = new JLabel("Score:");
 		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
-		scoreLabel.setBounds(20, 56, 33, 14);
+		scoreLabel.setForeground(new Color(246, 214, 124));
+		scoreLabel.setBounds(20, 40, 35, 15);
 		North.add(scoreLabel);
-
-		/**
-		 * Creates a label for Player.
-		 */
-		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
-		playerLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
-		playerLabel.setBounds(10, 31, 97, 14);
-		North.add(playerLabel);
-
 
 		/**
 		 * Creates a label for the Player's grid.
 		 */
-		JLabel lblPlayer_1 = new JLabel("PLAYER");
-		lblPlayer_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
-		lblPlayer_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPlayer_1.setBounds(88, 125, 91, 14);
-		North.add(lblPlayer_1);
+		JLabel player = new JLabel("PLAYER");
+		player.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		player.setForeground(new Color(246, 214, 124));
+		player.setHorizontalAlignment(SwingConstants.CENTER);
+		player.setBounds(75, 95, 91, 15);
+		North.add(player);
 
 		/**
 		 * Creates a label for the Opponent's grid.
 		 */
-		JLabel lblOpponent = new JLabel("OPPONENT");
-		lblOpponent.setFont(new Font("Iowan Old Style", Font.PLAIN, 13));
-		lblOpponent.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOpponent.setBounds(339, 125, 106, 14);
-		North.add(lblOpponent);
+		JLabel opponent = new JLabel("OPPONENT");
+		opponent.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		opponent.setForeground(new Color(246, 214, 124));
+		opponent.setHorizontalAlignment(SwingConstants.CENTER);
+		opponent.setBounds(310, 95, 106, 15);
+		North.add(opponent);
 
 		/**
 		 * Creates a label for the score count.
 		 */
 		scoreCount = new JLabel("0");
-		scoreCount.setBounds(60, 54, 21, 16);
+		scoreCount.setForeground(new Color(246, 214, 124));
+		scoreCount.setBounds(60, 40, 21, 16);
 		North.add(scoreCount);
 
 		/**
@@ -119,13 +113,11 @@ public class View extends Thread{
 		skyLabel.setIcon(new ImageIcon(getClass().getResource("/sky.jpg")));
 		North.add(skyLabel);
 
-
 		//-----------------------------PlayerGrid-------------------------//
-
 		//Player places ships onto player grid
 		this.West = new JPanel(); // West panel of screen
 		West.setBackground(new Color(70, 130, 180));
-		West.setPreferredSize(new Dimension(400, 240));
+		West.setPreferredSize(new Dimension(240, 240));
 		West.setLayout(new GridLayout(10, 10));// 10 X 10 Grid
 
 		//List to store buttons
@@ -137,28 +129,20 @@ public class View extends Thread{
 			for (int j = 0; j < 10; j++)
 			{
 				JButton button = new JButton(); // Instance of Button	
-
-				//Button object added to West panel of screen
-				West.add(button);	
-				//Add button to list
-				buttonList.add(button);
+				button.setMargin(new Insets(0, 0, 0, 0));
+				West.add(button);		//Button object added to West panel of screen
+				buttonList.add(button);	//Add button to list
 				buttonGrid[i][j] = button;
-
-
 			}
 		}
 		playerFrame.getContentPane().add(West, BorderLayout.WEST);
-
-
-
-
 
 		//-----------------------------OpponentGrid-------------------------//
 
 		//Opponent Grid 
 		JPanel East = new JPanel();
 		East.setBackground(new Color(70, 130, 180));
-		East.setPreferredSize(new Dimension(400, 240));
+		East.setPreferredSize(new Dimension(240, 240));
 		East.setLayout(new GridLayout(10, 10));
 
 		opponentButtonList = new ArrayList<JButton>();
@@ -167,8 +151,8 @@ public class View extends Thread{
 		{
 			for (int j = 0; j < 10; j++)
 			{
-
 				JButton b = new JButton();
+				b.setMargin(new Insets(0, 0, 0, 0));
 				East.add(b);
 				opponentButtonList.add(b);
 				opponentButtonGrid[i][j] = b;
@@ -181,7 +165,7 @@ public class View extends Thread{
 		 */
 		JPanel South = new JPanel();
 		South.setBackground(new Color(70, 130, 180));
-		South.setPreferredSize(new Dimension(500, 70));
+		South.setPreferredSize(new Dimension(500, 100));
 		playerFrame.getContentPane().add(South, BorderLayout.SOUTH);
 		South.setLayout(null);
 
@@ -219,26 +203,11 @@ public class View extends Thread{
 
 
 		battleshipH.setBounds(254, 6, 50, 23);
-
-
 		South.add(battleshipH);
+		
 		JRadioButton cruiserH = new JRadioButton("H");
-
-		//battleshipH.setBounds(242, 6, 50, 23);
-
-		South.add(battleshipH);
-
-		//cruiserH.setBounds(64, 41, 62, 23);
-
-
-
-		JRadioButton cruiser = new JRadioButton("H");
-		//cruiserH.setBounds(96, 41, 50, 23);
-
 		cruiserH.setBounds(86, 41, 50, 23);
-
 		cruiserH.setOpaque(false);
-
 		South.add(cruiserH);
 		cruiserH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -249,16 +218,8 @@ public class View extends Thread{
 		});
 
 		JRadioButton destroyerH = new JRadioButton("H");
-
-		//destroyerH.setBounds(229, 41, 63, 23);
-
-
-		//destroyerH.setBounds(242, 41, 50, 23);
-
 		destroyerH.setBounds(265, 41, 50, 23);
-
 		destroyerH.setOpaque(false);
-
 		South.add(destroyerH);
 		destroyerH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -269,16 +230,8 @@ public class View extends Thread{
 		});
 
 		JRadioButton submarineH = new JRadioButton("H");
-
 		submarineH.setBounds(442, 6, 50, 23);
-
-
-		//submarineH.setBounds(413, 6, 50, 23);
-
-		//submarineH.setBounds(404, 6, 40, 23);
-
 		submarineH.setOpaque(false);
-
 		South.add(submarineH);
 		submarineH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -319,13 +272,6 @@ public class View extends Thread{
 		JRadioButton battleShipV = new JRadioButton("V");
 
 		battleShipV.setBounds(304, 6, 47, 23);
-		//battleShipV.setBounds(268, 6, 47, 23);
-
-
-		//battleShipV.setBounds(293, 6, 47, 23);
-
-		//	battleShipV.setBounds(268, 6, 47, 23);
-
 		battleShipV.setOpaque(false);
 
 		South.add(battleShipV);
@@ -344,17 +290,8 @@ public class View extends Thread{
 
 
 		JRadioButton cruiserV = new JRadioButton("V");
-
 		cruiserV.setBounds(128, 41, 47, 23);
-		//cruiserV.setBounds(101, 41, 47, 23);
-
-
-		//cruiserV.setBounds(118, 41, 47, 23);
-
-		//	cruiserV.setBounds(101, 41, 47, 23);
-
 		cruiserV.setOpaque(false);
-
 		South.add(cruiserV);
 		cruiserV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -369,16 +306,8 @@ public class View extends Thread{
 		South.add(lblDestoryer);
 
 		JRadioButton destroyerV = new JRadioButton("V");
-		//destroyerV.setBounds(292, 41, 50, 23);
-		//destroyerV.setBounds(268, 41, 43, 23);
-
-
-		//destroyerV.setBounds(293, 41, 43, 23);
-
 		destroyerV.setBounds(314, 41, 43, 23);
-
 		destroyerV.setOpaque(false);
-
 		South.add(destroyerV);
 		destroyerV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -394,18 +323,8 @@ public class View extends Thread{
 		South.add(lblSubmarine);
 
 		JRadioButton submarineV = new JRadioButton("V");
-
-
 		submarineV.setBounds(486, 6, 40, 23);
-		//submarineV.setBounds(442, 6, 40, 23);
-
-
-		//submarineV.setBounds(454, 6, 40, 23);
-
-		//submarineV.setBounds(442, 6, 40, 23);
-
 		submarineV.setOpaque(false);
-
 		South.add(submarineV);
 		submarineV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -416,7 +335,7 @@ public class View extends Thread{
 		});
 
 		JLabel seaLabel = new JLabel("");
-		seaLabel.setBounds(0, 0, 550, 70);
+		seaLabel.setBounds(0, 0, 500, 100);
 		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		South.add(seaLabel);
 
@@ -427,12 +346,12 @@ public class View extends Thread{
 
 		//Button gives player the option to exit the game.
 		JButton extButton = new JButton("EXIT");
-		extButton.setBounds(413, 43, 112, 23);
+		extButton.setBounds(370, 60, 110, 25);
 		extButton.setForeground(Color.RED);
 		extButton.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		South.add(extButton);
 		
-		seaLabel.setBounds(0, 0, 550, 70);
+		seaLabel.setBounds(0, 0, 500, 100);
 		seaLabel.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		South.add(seaLabel);
 		
@@ -590,15 +509,6 @@ public class View extends Thread{
 		return scoreCount;
 	}
 
-	public int getScreenWidth1()
-	{
-		return screenWidth;
-	}
-
-	public int getScreenHeight()
-	{
-		return screenHeight;
-	}
 	public static void player1Screen(View player1)
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
@@ -613,13 +523,13 @@ public class View extends Thread{
 	{
 		isReadyToGuess = isReady;
 	}
+	
 	private ArrayList<JButton> opponentButtonList;
 	private JButton[][] opponentButtonGrid;
 	private Integer shipLeftCounter = 0;
 	private JButton[][] buttonGrid;
 	public  JFrame playerFrame;
 	private Integer scoreNum = 0;
-	private int shipLeft = 0;
 	private int shipLength = 0;
 	private int alignment = 0;
 	private static final int HORIZONTAL  = 0;
@@ -635,22 +545,5 @@ public class View extends Thread{
 	private int col = 0;
 	private JLabel scoreCount;
 	private JButton exitButton;
-	
-	private int screenWidth;
-	private int screenHeight;
 	private boolean isReadyToGuess = false;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String args[])
-	{
-
-		View player1 = new View(1);
-		System.out.print(player1.playerNumber);
-		player1.playerFrame.setVisible(true);
-		View player2 = new View(2);
-
-	}
 }
-

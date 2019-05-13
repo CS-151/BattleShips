@@ -20,8 +20,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import edu.sjsu.cs.cs151.battleship.app.Battleships;
-
 public class Welcome 
 {
 	/**
