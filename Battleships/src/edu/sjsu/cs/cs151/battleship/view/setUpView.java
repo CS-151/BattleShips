@@ -5,9 +5,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -310,21 +307,15 @@ public class setUpView {
 	 * @param player2
 	 */
 	public void guessOponentShip(View player1, View player2) {
-		Integer scoreNum = player1.getScoreNum();
-
-		ArrayList<JButton> buttonList = player1.getOpponentButtonList();
 		opponentButtonGrid = player1.getOpponentGrid();
 		JButton[][] player2PlayerGrid = player2.getButtonGrid();
-		ArrayList<JButton> player2ButtonList = player2.getbuttonList();
 
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				JButton player1OpponentButton = opponentButtonGrid[i][j];
 				JButton player2PlayerButton = player2PlayerGrid[i][j];
 				
-				/// Listener event that places "X" on grids
-				// that have been clicked
-
+				//Listener event that places "X" on grids that have been clicked
 				player1OpponentButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
