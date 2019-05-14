@@ -1,10 +1,19 @@
 package edu.sjsu.cs.cs151.battleship.controller;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+
+import javax.swing.ImageIcon;
+
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
@@ -55,7 +64,9 @@ public class Controller {
 				});
 			}
 		});
+
 	}
+	
 	
 	/**
 	 * Handles the event when player2 switches to player1
