@@ -15,6 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import edu.sjsu.cs.cs151.battleship.controller.GameInfo;
+
 import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
 
@@ -59,9 +62,9 @@ public class View extends Thread{
 		 * Creates a label for Player.
 		 */
 		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
-		playerLabel.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		playerLabel.setFont(new Font("Iowan Old Style", Font.BOLD, 20));
 		playerLabel.setForeground(new Color(246, 214, 124));
-		playerLabel.setBounds(20, 20, 95, 15);
+		playerLabel.setBounds(20, 6, 146, 29);
 		North.add(playerLabel);
 
 		/**
@@ -69,16 +72,16 @@ public class View extends Thread{
 		 * Will display score stats.
 		 */
 		JLabel scoreLabel = new JLabel("Score:");
-		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
+		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 15));
 		scoreLabel.setForeground(new Color(246, 214, 124));
-		scoreLabel.setBounds(20, 40, 35, 15);
+		scoreLabel.setBounds(20, 40, 48, 15);
 		North.add(scoreLabel);
 
 		/**
 		 * Creates a label for the Player's grid.
 		 */
 		JLabel player = new JLabel("PLAYER");
-		player.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		player.setFont(new Font("Iowan Old Style", Font.BOLD, 15));
 		player.setForeground(new Color(246, 214, 124));
 		player.setHorizontalAlignment(SwingConstants.CENTER);
 		player.setBounds(75, 95, 91, 15);
@@ -88,7 +91,7 @@ public class View extends Thread{
 		 * Creates a label for the Opponent's grid.
 		 */
 		JLabel opponent = new JLabel("OPPONENT");
-		opponent.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		opponent.setFont(new Font("Iowan Old Style", Font.BOLD, 15));
 		opponent.setForeground(new Color(246, 214, 124));
 		opponent.setHorizontalAlignment(SwingConstants.CENTER);
 		opponent.setBounds(310, 95, 106, 15);
@@ -98,8 +101,9 @@ public class View extends Thread{
 		 * Creates a label for the score count.
 		 */
 		scoreCount = new JLabel("0");
+		scoreCount.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		scoreCount.setForeground(new Color(246, 214, 124));
-		scoreCount.setBounds(60, 40, 21, 16);
+		scoreCount.setBounds(69, 39, 21, 16);
 		North.add(scoreCount);
 
 		/**
@@ -270,7 +274,7 @@ public class View extends Thread{
 			}
 		});
 		South.add(cruiserV);
-		
+
 		/**
 		 * SUBMARINE 3
 		 */
@@ -382,70 +386,111 @@ public class View extends Thread{
 			} 
 		});
 	};
-
+	/**
+	 * gets the exit button
+	 * @return exit button 
+	 */
 	public JButton getExitButton()
 	{
 		return exitButton;
 	}
-
+	/**
+	 * Gets the list of buttons
+	 * @return buttonList
+	 */
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
 	}
-
+	/**
+	 * Gets the buttons grid
+	 * @return buttonGrid 
+	 */
 	public JButton[][] getJButtonGrid()
 	{
 		return buttonGrid;
 	}
 
-
+	/**
+	 * returns the west panel
+	 * @return West
+	 */
 	public JPanel getWestPanel()
 	{
 		return West;
 	}
-
+	/**
+	 * gets the the player grid 
+	 * @return West
+	 */
 	public JPanel getPlayerGrid()
 	{
 		return this.West;
 	}
 
 
+	/**
+	 * gets the button grid
+	 * @return buttonGrid
+	 */
 	public JButton[][] getButtonGrid()
 	{
 		return buttonGrid;
 	}
-
+	/**
+	 * gets the buttons list
+	 * @return buttonList
+	 */
 	public ArrayList<JButton> getJButtonList()
 	{
 		return buttonList;
 	}
-
+	/**
+	 * gets the alignment 
+	 * @return alignment
+	 */
 	public int getAlignment()
 	{
 		return alignment;
 	}
-
+	/**
+	 * Determines whether it is a submarine or not
+	 * @return isSubmarine
+	 */
 	public boolean getIsSubmarine()
 	{
 		return isSubmarine;
 	}
-
+	/**
+	 * gets the ship length
+	 * @return shipLength
+	 */
 	public int getShipLength()
 	{
 		return shipLength;
 	}
-
+	/**
+	 * gets the next player button
+	 * @return nextPlayerButton 
+	 */
 
 	public JButton getNextPlayerButton()
 	{
 		return nextPlayerButton;
 	}
-
+	/**
+	 * Determines wheter it has a ship
+	 * @return shipCheck
+	 */
 	public boolean[] getshipCheck()
 	{
 		return shipCheck;
 	}
-
+	/**
+	 * Determines whether a ship is there 
+	 * @param i
+	 * @return true or false
+	 */
 	public boolean isShipThere(int i)
 	{
 		return shipCheck[i]== true;
@@ -457,75 +502,123 @@ public class View extends Thread{
 			shipCheck2[i] = false;
 		}
 	}
-
+	/**
+	 * updates the ship counter 
+	 */
 	public void updateShipCounter()
 	{
 		shipLeftCounter++;
 	}
-
+	/**
+	 * gets the ship counter
+	 * @return shipLeftCounter
+	 */
 	public Integer getShipCounter()
 	{
 		return shipLeftCounter;
 	}
-
+	/**
+	 * gets the player number
+	 * @return playerNumber 
+	 */
 	public int getPlayerNumber()
 	{
 		return playerNumber;
 	}
-
+	/**
+	 * gets the row
+	 * @return row 
+	 */
 	public int getRow()
 	{
 		return row;
 	}
-
+	/**
+	 * gets the column 
+	 * @return col
+	 */
 	public int getCol()
 	{
 		return col;
 	}
-
+	/**
+	 * sets a ship
+	 * @param newShipCheck
+	 */
 	public void setShipCheck(boolean[] newShipCheck)
 	{
 		shipCheck = newShipCheck;
 	}
-
+	/**
+	 * gets the opponent's button list 
+	 * @return opponentButtonList
+	 */
 	public ArrayList<JButton> getOpponentButtonList()
 	{
 		return opponentButtonList;
 	}
+	/**
+	 * gets the opponent grid 
+	 * @return opponentButtonGrid
+	 */
 	public JButton[][] getOpponentGrid()
 	{
 		return opponentButtonGrid;
 	}
-
+	/**
+	 * gets the score number
+	 * @return scoreNum
+	 */
 	public Integer getScoreNum()
 	{
 		return scoreNum;
 	}
-
+	/**
+	 * updates the score number 
+	 * 
+	 */
 	public void updateScoreNum()
 	{
 		scoreNum++;
 	}
+	/**
+	 * gets the score count 
+	 * @return scoreCount
+	 */
 	public JLabel getScoreCount()
 	{
 		return scoreCount;
 	}
-
+	/**
+	 * player screen bounds 
+	 * @param player1
+	 */
 	public static void player1Screen(View player1)
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
-
+	/**
+	 * determines whether the next player is ready to guess
+	 * @return isReadyToGuess
+	 */
 	public boolean getIsReadyToGuess()
 	{
 		return isReadyToGuess;
 	}
-
+	/**
+	 * sets the guess
+	 * @param isReady
+	 */
 	public void setToGuess(boolean isReady)
 	{
 		isReadyToGuess = isReady;
 	}
-	
+	public void change(GameInfo gameInfo) {
+		this.gameInfo = gameInfo;
+	}
+	/**
+	 * Private instances 
+	 */
 	public  JFrame playerFrame;
 	private ArrayList<JButton> buttonList;
 	private ArrayList<JButton> opponentButtonList;
@@ -541,4 +634,5 @@ public class View extends Thread{
 	private boolean [] shipCheck = new boolean[8];
 	private JLabel scoreCount;
 	private boolean isReadyToGuess = false;
+	private GameInfo gameInfo;
 }
