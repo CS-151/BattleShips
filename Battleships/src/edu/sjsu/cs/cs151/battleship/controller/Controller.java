@@ -383,11 +383,11 @@ public class Controller {
 									if(!button.getBackground().equals(Color.GREEN))
 									{
 										player1.updateScoreNum();
-									}
-									button.setBackground(Color.GREEN);
-									//button.setText("H");
-									button.setOpaque(true);
-									button.setBorderPainted(false);
+										button.setBackground(Color.GREEN);
+										button.setOpaque(true);
+										button.setBorderPainted(false);
+										switchAfterGuess(player1,  player2);
+									}	
 									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
 									if(player1.getScoreNum() == 17)
 									{
@@ -403,13 +403,9 @@ public class Controller {
 											nt2.getFrame().dispose();
 											new Controller();
 										}
-										else
-										{
-											switchAfterGuess(player1,  player2);
-										}
 									}
 								}
-								else
+								if(!x.equals("X"))
 								{
 									button.setBackground(Color.RED);		
 									//button.setText("M");
