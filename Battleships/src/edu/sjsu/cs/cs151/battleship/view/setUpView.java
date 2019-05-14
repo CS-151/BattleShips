@@ -173,14 +173,14 @@ public class setUpView {
 								{
 									model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
 								}
-								
+
 								// Since there is space, the block of buttons would marked
 								// as placed Horizontally
 								for (int index = 0; index < player.getShipLength(); index++) {
 									System.out.println("Index: " + (player.getJButtonList().indexOf(button) + index));
 
 									player.getJButtonList().get((player.getJButtonList().indexOf(button) + index))
-											.setText("X");
+									.setText("X");
 
 									String shipLeftCounterString = player.getShipCounter().toString();
 									// player.getShipLeftCount().setText(shipLeftCounterString);
@@ -205,7 +205,7 @@ public class setUpView {
 									System.out.println("alighnment: " + player.getAlignment());
 									player.getJButtonList().get(player.getJButtonList().indexOf(button) + index);
 									player.getJButtonList().get((player.getJButtonList().indexOf(button) + index))
-											.setText("X");
+									.setText("X");
 
 									String shipLeftCounterString = player.getShipCounter().toString();
 									// player.getShipLeftCount().setText(shipLeftCounterString);
@@ -309,7 +309,7 @@ public class setUpView {
 			for (int j = 0; j < 10; j++) {
 				JButton player1OpponentButton = opponentButtonGrid[i][j];
 				JButton player2PlayerButton = player2PlayerGrid[i][j];
-				
+
 				//Listener event that places "X" on grids that have been clicked
 				player1OpponentButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
@@ -327,12 +327,12 @@ public class setUpView {
 									switchAfterGuess(player1, player2);
 								}
 								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
-										.setText("-");
+								.setText("-");
 								if (player1.getScoreNum() == 17) {
 									endOfGame = new JOptionPane();
 									endOfGame.showMessageDialog(player1OpponentButton.getParent(),
 											"Player " + player1.getPlayerNumber()
-													+ " has won the Game. Congratulations!!!!",
+											+ " has won the Game. Congratulations!!!!",
 											"Winner", endOfGame.INFORMATION_MESSAGE);
 									if (endOfGame.OK_CANCEL_OPTION == 0 || endOfGame.OK_CANCEL_OPTION == 2) {
 										player2.playerFrame.dispose();
@@ -349,7 +349,7 @@ public class setUpView {
 								button.setOpaque(true);
 								button.setBorderPainted(false);
 								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
-										.setText("O");
+								.setText("O");
 								switchAfterGuess(player1, player2);
 							}
 						}

@@ -20,7 +20,7 @@ public class NextTurn
 	{
 		initialize();
 	}
-	
+
 	/**
 	 * Creates the frame.
 	 */
@@ -42,21 +42,21 @@ public class NextTurn
 		final JLabel label = new JLabel(icon);
 		CannonPanel.add(label);
 		frame.getContentPane().add(CannonPanel);
-		
+
 		JLabel NextPlayer = new JLabel("Next Player's Turn");
 		NextPlayer.setHorizontalAlignment(SwingConstants.CENTER);
 		NextPlayer.setFont(new Font("Bahnschrift", Font.PLAIN, 35));
 		NextPlayer.setBounds(87, 211, 309, 43);
 		frame.getContentPane().add(NextPlayer);
-		
+
 		startButton = new JButton("Start");
 		startButton.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
 		startButton.setBounds(197, 294, 89, 23);
 		startButton.setForeground(new Color(255, 102, 51));
 		frame.getContentPane().add(startButton);
-		
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		//Timer for cannonball
 		final int DELAY = 10;
 		Timer t = new Timer(DELAY, event ->{
@@ -66,7 +66,7 @@ public class NextTurn
 
 		t.start();
 	}
-	
+
 	/**
 	 * Gets the frame.
 	 * @return frame the frame
@@ -84,7 +84,7 @@ public class NextTurn
 	{
 		return startButton;
 	}
-	
+
 	public JButton startButton;
 	private JFrame frame;
 }
