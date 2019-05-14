@@ -12,7 +12,7 @@ public interface Moveable
 	 * @param g2 the graphics context.
 	 */
 	void draw(Graphics2D g2);
-	
+
 	/**
 	 * Moves the shape.
 	 * It is up to the shape to move itself.
