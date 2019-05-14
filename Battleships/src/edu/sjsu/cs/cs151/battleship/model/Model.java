@@ -1,137 +1,135 @@
 package edu.sjsu.cs.cs151.battleship.model;
 
-import java.util.Scanner;
-
-public class Model {
+/**
+ * The model for the battleship
+ */
+public class Model 
+{
+	/**
+	 * Constructor of the Model class
+	 */
+	public Model()
+	{
+		this.grid = new Grid();
+		p1 = new Player();
+		p2 = new Player();
+	}
 
 	/**
-	 * Model constructor.
+	 * Starts a new game
+	 * @return
 	 */
-	public Model() {
-		player1 = new Player();
-		player2 = new Player();
-	}
-	
-	public static void main(String[] args) {
-
-		System.out.println("Welcome to BattleShip");
-		Scanner scan = new Scanner(System.in);
-
-		Player p1 = new Player();
-		Player p2 = new Player();
-
-		int row = 0;
-		int col = 0;
-		int size = 0;
-		String alignment = "";
-		int layout = 0;
-
-		String done = "no";
-		System.out.println("Player 1: Place your ships");
-		p1.getPlayerGrid().printGrid();
-		while(done.equals("no"))
-		{
-
-			System.out.println("Enter size of ship");
-			size = scan.nextInt();
-
-			System.out.println("Enter row");
-			row = scan.nextInt();
-
-			System.out.println("Enter col");
-			col = scan.nextInt();
-
-			System.out.println("Vertical or Horizontal? (v/h)");
-			alignment = scan.next();
-			alignment = alignment.toLowerCase();
-
-			if(alignment.equals("h"))
-			{
-				layout = Ship.HORIZONTAL;
-			}
-			else
-			{
-				layout = Ship.VERTICAL;
-			}
-
-			p1.chooseShipLocation(size, row, col, layout);
-			System.out.println("Are you done (yes/no)");
-			done = scan.next();
-		}
-
-		done  = "no";
-		System.out.println("Player 2: Place your ships");
-		p2.getPlayerGrid().printGrid();
-		while(done.equals("no"))
-		{
-
-
-			System.out.println("Enter size of ship");
-			size = scan.nextInt();
-
-			System.out.println("Enter row");
-			row = scan.nextInt();
-
-			System.out.println("Enter col");
-			col = scan.nextInt();
-
-			System.out.println("Vertical or Horizontal? (v/h)");
-			alignment = scan.next();
-			alignment = alignment.toLowerCase();
-
-			if(alignment.equals("h"))
-			{
-				layout = Ship.HORIZONTAL;
-			}
-			else
-			{
-				layout = Ship.VERTICAL;
-			}
-
-			p2.chooseShipLocation(size, row, col, layout);
-			System.out.println("Are you done (yes/no)");
-			done = scan.next();
-		}
-
-		done = "no";
-		while(done.equals("no"))
-		{
-			System.out.println("Player 1: Take a guess");
-
-			System.out.println("Guess row");
-			row = scan.nextInt();
-
-			System.out.println("Guess col");
-			col = scan.nextInt();
-
-			p1.guessOpponentShip(row, col, p2);
-
-			System.out.println("Player 2: Take a guess");
-
-			System.out.println("Guess row");
-			row = scan.nextInt();
-
-			System.out.println("Guess col");
-			col = scan.nextInt();
-
-			p2.guessOpponentShip(row, col, p1);
-
-			System.out.println("Are you done (yes/no)");
-			done = scan.next();
-		}
-		scan.close();
+	public Model newGame()
+	{
+		return new Model();
 	}
 
+	/**
+	 * A cell on the grid is clicked.
+	 * @param r the row on the grid
+	 * @param c the column on the grid
+	 */
+	public void clickedCell(int r, int c)
+	{
+
+		p1 = new Player();
+		p2 = new Player();
+	}
+	/**
+	 * Gets the game status
+	 * @return
+	 */
+	public boolean getStatus()
+	{
+		return gameStats;
+	}
+
+	/**
+	 * Determines if they won
+	 * @return true or false
+	 */
+	public boolean isWinner()
+	{
+		if (gameStats)
+		{
+			if(this.getNumofCells() == 17)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Gets the number of cells 
+	 * @return cellCt
+	 */
+	public int getNumofCells()
+	{
+		return cellCt;
+	}
+
+	/**
+	 * Gets the row
+	 * @return row
+	 */
+	public int getRow()
+	{
+		return row;
+	}
+
+	/**
+	 * Gets the column 
+	 * @return column 
+	 */ 
+	public int getColumn()
+	{
+		return column;
+	}
+
+	/**
+	 * Gets the grid 
+	 * @return grid
+	 */
+	public Grid getGrid()
+	{
+		return grid;
+	}
+
+	/**
+	 * gets player 1
+	 * @return p1
+	 */
 	public Player getPlayer1()
 	{
-		return player1;
+		return p1;
 	}
 
+	/**
+	 * gets player 2
+	 * @return p2
+	 */
 	public Player getPlayer2()
 	{
-		return player2;
+		return p2;
+	}
+	public void gameOver() {
+		gameOver = true;
+	}
+	
+	public void gameWon()
+	{
+		gameWon = true;
 	}
 
-	private Player player1;
-	private Player player2;
+	public boolean gameStats;
+	private int row;
+	private int column;
+	private int cellCt;
+	private Player p1;
+	private Player p2;
+	private Grid grid;
+	private boolean gameOver;
+	private boolean gameWon;
+	
 }
