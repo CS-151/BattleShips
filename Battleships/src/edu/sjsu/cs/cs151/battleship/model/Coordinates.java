@@ -3,7 +3,6 @@ package edu.sjsu.cs.cs151.battleship.model;
 /**
  * Coordinate class keeps track of the x and y coordinates of the grid. It also
  * keeps track whether a specific coordinate has already been hit or not.
- *
  */
 public class Coordinates {
 
