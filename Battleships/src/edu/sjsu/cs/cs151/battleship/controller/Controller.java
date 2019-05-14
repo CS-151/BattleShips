@@ -1,20 +1,11 @@
 package edu.sjsu.cs.cs151.battleship.controller;
 
-<<<<<<< HEAD
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import edu.sjsu.cs.cs151.battleship.model.Coordinates;
 import edu.sjsu.cs.cs151.battleship.model.Grid;
 import edu.sjsu.cs.cs151.battleship.controller.Valve.ValveResponse;
-=======
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
->>>>>>> 57fca2ed93f56dc01fc99b16b544b259b77226e7
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.View;
 import edu.sjsu.cs.cs151.battleship.view.Welcome;
@@ -36,41 +27,7 @@ public class Controller {
 		this.valves.add(new NewGameValve());
 		new setUpView();
 	}
-<<<<<<< HEAD
 
-=======
-	
-	/**
-	 * Handles the event when player1 switches to player 2
-	 */
-	public void player1ToPlayer2()
-	{
-		//Retrieve player1's next player button
-		player1.getNextPlayerButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//Once clicked, set hide player1's screen
-				player1.playerFrame.setVisible(false);
-				
-				//Make next player screen visible
-				nt.getFrame().setVisible(true);
-				
-				//Retrieve next player's start button 
-				nt.getStartButton().addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						//Once clicked, hide next player's screen
-						nt.getFrame().setVisible(false);
-						
-						//Make player2 screen visible
-						player2.playerFrame.setVisible(true);
-					}
-				});
-			}
-		});
-	}
-	
->>>>>>> 57fca2ed93f56dc01fc99b16b544b259b77226e7
 	/**
 	 * The main loop of the game.
 	 * @throws Exception
