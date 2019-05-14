@@ -40,7 +40,7 @@ Download the following to run the game:
 
 ## Authors
 
-* [Nathan Abegaze](https://github.com/Nathan-Abegaz)
+* [Nathan Abegaz](https://github.com/Nathan-Abegaz)
 * [Maryam Mostafavi](https://github.com/Marmari127)
 * [Sarah Supat](https://github.com/ssupat97)
 
