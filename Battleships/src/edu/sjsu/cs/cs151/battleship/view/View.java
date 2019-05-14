@@ -382,28 +382,43 @@ public class View extends Thread{
 			} 
 		});
 	};
-
+/**
+ * gets the exit button
+ * @return exit button 
+ */
 	public JButton getExitButton()
 	{
 		return exitButton;
 	}
-
+/**
+ * Gets the list of buttons
+ * @return buttonList
+ */
 	public ArrayList<JButton> getbuttonList()
 	{
 		return buttonList;
 	}
-
+/**
+ * Gets the buttons grid
+ * @return buttonGrid 
+ */
 	public JButton[][] getJButtonGrid()
 	{
 		return buttonGrid;
 	}
 
-
+/**
+ * returns the west panel
+ * @return West
+ */
 	public JPanel getWestPanel()
 	{
 		return West;
 	}
-
+/**
+ * gets the the player grid 
+ * @return West
+ */
 	public JPanel getPlayerGrid()
 	{
 		return this.West;
