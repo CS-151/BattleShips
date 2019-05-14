@@ -145,20 +145,7 @@ public class setUpView {
 								player.updateShipCounter();
 								int temp = player.getShipCounter();
 
-								if (player.getShipCounter() == 5) {
-									player.setToGuess(true);
-									donePlacingShips = new JOptionPane();
-									donePlacingShips.showMessageDialog(null, "Next player turn", "",
-											donePlacingShips.INFORMATION_MESSAGE);
-									if (donePlacingShips.OK_CANCEL_OPTION == 0
-											|| donePlacingShips.OK_CANCEL_OPTION == 2) {
-										switchAfterGuess(player1, player2);
-										if (player.getPlayerNumber() == 2) {
-											switchAfterGuess(player2, player1);
-										}
-									}
-
-								}
+							
 
 								// Checks if it is player1
 
@@ -216,6 +203,21 @@ public class setUpView {
 									}
 								}
 							}
+						}
+						
+						if (player.getShipCounter() == 5) {
+							player.setToGuess(true);
+							donePlacingShips = new JOptionPane();
+							donePlacingShips.showMessageDialog(null, "Next player turn", "",
+									donePlacingShips.INFORMATION_MESSAGE);
+							if (donePlacingShips.OK_CANCEL_OPTION == 0
+									|| donePlacingShips.OK_CANCEL_OPTION == 2) {
+								switchAfterGuess(player1, player2);
+								if (player.getPlayerNumber() == 2) {
+									switchAfterGuess(player2, player1);
+								}
+							}
+
 						}
 					}
 				});
