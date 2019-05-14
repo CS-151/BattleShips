@@ -305,7 +305,7 @@ public class setUpView {
 	}
 
 	/**
-	 * User guesses the placement of ships on Opponent ships 
+	 * User guesses the placement of ships from opponent's player grid
 	 * @param player1
 	 * @param player2
 	 */
@@ -375,6 +375,11 @@ public class setUpView {
 		}
 	}
 
+	/**
+	 * Switch views after between players after pressing on grid.
+	 * @param player1
+	 * @param player2
+	 */
 	public void switchAfterGuess(View player1, View player2) {
 		player1.playerFrame.dispose();
 		if (player1.getPlayerNumber() == 1) {
