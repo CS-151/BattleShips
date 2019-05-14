@@ -359,7 +359,7 @@ public class setUpView {
 								button.setBorderPainted(false);
 								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
 								.setText("O");
-								hitOrMiss.showMessageDialog(player1OpponentButton.getParent(),
+								hitOrMiss.showMessageDialog(null,
 										"Miss ",
 										"", hitOrMiss.INFORMATION_MESSAGE);
 								if (hitOrMiss.OK_CANCEL_OPTION == 0 || hitOrMiss.OK_CANCEL_OPTION == 2)
