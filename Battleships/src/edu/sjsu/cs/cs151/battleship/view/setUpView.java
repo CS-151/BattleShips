@@ -320,19 +320,26 @@ public class setUpView {
 						JButton button = player1.getOpponentButtonList()
 								.get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
 						if (player1.getIsReadyToGuess() && button.getBackground() != Color.RED && button.getBackground() != Color.GREEN) {
+							hitOrMiss = new JOptionPane();
 							if (x.equals("X")) {
 								if (!button.getBackground().equals(Color.GREEN)) {
 									player1.updateScoreNum();
 									button.setBackground(Color.GREEN);
 									button.setOpaque(true);
 									button.setBorderPainted(false);
-									switchAfterGuess(player1, player2);
+									hitOrMiss.showMessageDialog(null,
+											"Hit ",
+											"", hitOrMiss.INFORMATION_MESSAGE);
+									if (hitOrMiss.OK_CANCEL_OPTION == 0 || hitOrMiss.OK_CANCEL_OPTION == 2)
+									{
+										switchAfterGuess(player1, player2);
+									}
 								}
 								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
 								.setText("-");
 								if (player1.getScoreNum() == 17) {
 									endOfGame = new JOptionPane();
-									endOfGame.showMessageDialog(player1OpponentButton.getParent(),
+									endOfGame.showMessageDialog(null,
 											"Player " + player1.getPlayerNumber()
 											+ " has won the Game. Congratulations!!!!",
 											"Winner", endOfGame.INFORMATION_MESSAGE);
@@ -352,7 +359,13 @@ public class setUpView {
 								button.setBorderPainted(false);
 								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
 								.setText("O");
-								switchAfterGuess(player1, player2);
+								hitOrMiss.showMessageDialog(player1OpponentButton.getParent(),
+										"Miss ",
+										"", hitOrMiss.INFORMATION_MESSAGE);
+								if (hitOrMiss.OK_CANCEL_OPTION == 0 || hitOrMiss.OK_CANCEL_OPTION == 2)
+								{
+									switchAfterGuess(player1, player2);
+								}
 							}
 						}
 						String score = player1.getScoreNum().toString();
@@ -480,6 +493,7 @@ public class setUpView {
 	private JButton[][] buttonGrid;
 	private JOptionPane endOfGame;
 	private JOptionPane donePlacingShips;
+	private JOptionPane hitOrMiss;
 	private NextTurn nt;
 	private NextTurn nt2;
 	private JButton[][] opponentButtonGrid;
