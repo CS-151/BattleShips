@@ -37,7 +37,7 @@ public class Welcome
 	{
 		frame = new JFrame("Battleships");
 		frame.getContentPane().setLayout(null);
-		frame.setBounds(0, 0, 500, 500);
+		frame.setSize(500, 500);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(frame.getClass().getResource("/cannonball.png")));
@@ -187,32 +187,46 @@ public class Welcome
 		t2.start();
 	}
 
-	public static void main(String[] args) 
-	{
-		Welcome window = new Welcome();
-		window.frame.setVisible(true);
-	}
-
+	/**
+	 * Gets the frame.
+	 * @return frame the frame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;
 	}
 
+	/**
+	 * Gets the startButton.
+	 * @return start the startButton
+	 */
 	public JButton getStartButton()
 	{
 		return start;
 	}
 
+	/**
+	 * Gets the About menu button.
+	 * @return about the About menu button
+	 */
 	public JButton getAboutButton()
 	{
 		return about;
 	}
 
+	/**
+	 * Gets the Tutorial menu button.
+	 * @return tutorial the Tutorial menu button
+	 */
 	public JButton getTutorialButton()
 	{
 		return tutorial;
 	}
 
+	/**
+	 * Gets the Exit menu button.
+	 * @return exit the Exit menu button
+	 */
 	public JButton getExitButton()
 	{
 		return exit;
