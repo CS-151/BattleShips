@@ -8,14 +8,12 @@ public class Ship {
 	/**
 	 * Constructor for the Ship class.
 	 */
-
 	public Ship(int blocks) {
 		this.blocksRemaining = blocks;
 		this.size = blocks;
 		row = -1;
 		col = -1;
 		alignment = HORIZONTAL;
-
 	}
 
 	/**
@@ -64,7 +62,6 @@ public class Ship {
 	 * 
 	 * @param size
 	 */
-
 	public void setSize(int size) {
 		this.size = size;
 	}
@@ -83,7 +80,6 @@ public class Ship {
 	 * 
 	 * @param row
 	 */
-
 	public void setRow(int row) {
 		this.row = row;
 	}
@@ -102,7 +98,6 @@ public class Ship {
 	 * 
 	 * @param col
 	 */
-
 	public void setCol(int col) {
 		this.col = col;
 	}
@@ -130,7 +125,6 @@ public class Ship {
 	 * 
 	 * @return isMiss
 	 */
-
 	public boolean isMiss() {
 		return isMiss;
 	}
@@ -140,7 +134,6 @@ public class Ship {
 	 * 
 	 * @param isMiss
 	 */
-
 	public void setMiss(boolean isMiss) {
 		this.isMiss = isMiss;
 	}
@@ -150,7 +143,6 @@ public class Ship {
 	 * 
 	 * @param blocksRemaining
 	 */
-
 	public void setBlocksRemaining(int blocksRemaining) {
 		this.blocksRemaining = blocksRemaining;
 	}
