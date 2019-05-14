@@ -9,6 +9,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.BlockingQueue;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import edu.sjsu.cs.cs151.battleship.controller.GameInfo;
+import edu.sjsu.cs.cs151.battleship.controller.Message;
 
 import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
@@ -581,6 +584,8 @@ public class View extends Thread{
 	{
 		scoreNum++;
 	}
+	
+	
 	/**
 	 * gets the score count 
 	 * @return scoreCount
@@ -596,6 +601,15 @@ public class View extends Thread{
 	public static void player1Screen(View player1)
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
+	}
+	
+	/**
+	 * Waits;
+	 * @param queue
+	 * @return
+	 */
+	public static  View wait(BlockingQueue<Message> queue) {
+		return null;
 	}
 	/**
 	 * determines whether the next player is ready to guess
@@ -616,6 +630,7 @@ public class View extends Thread{
 	public void change(GameInfo gameInfo) {
 		this.gameInfo = gameInfo;
 	}
+	
 	/**
 	 * Private instances 
 	 */
@@ -635,4 +650,6 @@ public class View extends Thread{
 	private JLabel scoreCount;
 	private boolean isReadyToGuess = false;
 	private GameInfo gameInfo;
+	private BlockingQueue<Message> queue;
+	
 }

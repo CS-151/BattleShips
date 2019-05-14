@@ -16,7 +16,7 @@ public class Battleships
 	public static void main(String[] args) 
 	{
 		
-		//view = View.wait(queue);
+		view = View.wait(queue);
 		model = new Model();
 		
 		Controller game = new Controller(view, model, queue);

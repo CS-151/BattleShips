@@ -319,7 +319,7 @@ public class setUpView {
 								.getText();
 						JButton button = player1.getOpponentButtonList()
 								.get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-						if (player1.getIsReadyToGuess()) {
+						if (player1.getIsReadyToGuess() && button.getBackground() != Color.RED && button.getBackground() != Color.GREEN) {
 							if (x.equals("X")) {
 								if (!button.getBackground().equals(Color.GREEN)) {
 									player1.updateScoreNum();
