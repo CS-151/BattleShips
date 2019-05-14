@@ -3,13 +3,18 @@ package edu.sjsu.cs.cs151.battleship.view;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Point;
-
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+/**
+ * 
+ */
 public class PlayerGrid extends JPanel {
 	JPanel self;
 	
+	/**
+	 * 
+	 */
 	public PlayerGrid() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS ));
 		self = new JPanel();
@@ -23,6 +28,11 @@ public class PlayerGrid extends JPanel {
 		this.add(self);
 	}
 	
+	/**
+	 * 
+	 * @param p
+	 * @return
+	 */
 	public JPanel getTheComp(Point p) {
 		Component cmp = null;
 		for(Component child : self.getComponents()) {
@@ -34,9 +44,13 @@ public class PlayerGrid extends JPanel {
 		
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	JPanel getCell() {
 		return null;
 	}
+	
 	private JPanel val;
-
 }

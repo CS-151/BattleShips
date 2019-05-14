@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Model {
 
+	/**
+	 * Model constructor.
+	 */
 	public Model() {
 		player1 = new Player();
 		player2 = new Player();
@@ -13,7 +16,6 @@ public class Model {
 
 		System.out.println("Welcome to BattleShip");
 		Scanner scan = new Scanner(System.in);
-
 
 		Player p1 = new Player();
 		Player p2 = new Player();
@@ -52,7 +54,6 @@ public class Model {
 				layout = Ship.VERTICAL;
 			}
 
-			Ship temp = new Ship(row,col,layout);
 			p1.chooseShipLocation(size, row, col, layout);
 			System.out.println("Are you done (yes/no)");
 			done = scan.next();
@@ -87,7 +88,6 @@ public class Model {
 				layout = Ship.VERTICAL;
 			}
 
-			Ship temp = new Ship(row,col,layout);
 			p2.chooseShipLocation(size, row, col, layout);
 			System.out.println("Are you done (yes/no)");
 			done = scan.next();
@@ -119,6 +119,7 @@ public class Model {
 			System.out.println("Are you done (yes/no)");
 			done = scan.next();
 		}
+		scan.close();
 	}
 
 	public Player getPlayer1()
@@ -130,12 +131,7 @@ public class Model {
 	{
 		return player2;
 	}
-	private int row = 0;
-	private int col = 0;
-	private int size = 0;
-	private String alignment = "";
-	private int layout = 0;
+
 	private Player player1;
 	private Player player2;
-
 }

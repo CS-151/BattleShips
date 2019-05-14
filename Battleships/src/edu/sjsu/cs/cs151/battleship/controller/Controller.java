@@ -1,19 +1,9 @@
 package edu.sjsu.cs.cs151.battleship.controller;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-
-import javax.swing.ImageIcon;
-
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import edu.sjsu.cs.cs151.battleship.model.Model;
 import edu.sjsu.cs.cs151.battleship.view.NextTurn;
@@ -35,7 +25,7 @@ public class Controller {
 		welcome = new Welcome();
 		welcomeToGame();
 	}
-	
+
 	/**
 	 * Handles the event when player1 switches to player 2
 	 */
@@ -44,30 +34,20 @@ public class Controller {
 		//Retrieve player1's next player button
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				//Once clicked, set hide player1's screen
-				player1.playerFrame.setVisible(false);
-				
-				//Make next player screen visible
-				nt.getFrame().setVisible(true);
-				
+				player1.playerFrame.setVisible(false);	//Once clicked, set hide player1's screen
+				nt.getFrame().setVisible(true);	//Make next player screen visible
+
 				//Retrieve next player's start button 
 				nt.getStartButton().addActionListener(new ActionListener() {
-					
 					public void actionPerformed(ActionEvent e) {
-						//Once clicked, hide next player's screen
-						nt.getFrame().setVisible(false);
-						
-						//Make player2 screen visible
-						player2.playerFrame.setVisible(true);
+						nt.getFrame().setVisible(false);	//Once clicked, hide next player's screen
+						player2.playerFrame.setVisible(true);	//Make player2 screen visible
 					}
 				});
 			}
 		});
-
 	}
-	
-	
+
 	/**
 	 * Handles the event when player2 switches to player1
 	 */
@@ -76,28 +56,20 @@ public class Controller {
 		//Retrieve player2's next player button
 		player2.getNextPlayerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				//Once clicked, set hide player2's screen
-				player2.playerFrame.setVisible(false);
-				
-				//Make next player screen visible
-				nt2.getFrame().setVisible(true);
-				
+				player2.playerFrame.setVisible(false);	//Once clicked, set hide player2's screen
+				nt2.getFrame().setVisible(true);	//Make next player screen visible
+
 				//Retrieve next player's start button
 				nt2.getStartButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//Once clicked, hide next player's screen
-						nt2.getFrame().setVisible(false);
-						
-						//Make player1 screen visible
-						player1.playerFrame.setVisible(true);
+						nt2.getFrame().setVisible(false);	//Once clicked, hide next player's screen
+						player1.playerFrame.setVisible(true);	//Make player1 screen visible
 					}
 				});
 			}
 		});
 	}
-	
-	
+
 	/**
 	 * Collection of methods needed to start the game
 	 * @param welcome the Welcome Screen
@@ -109,13 +81,13 @@ public class Controller {
 		addShipToPlayerGrid(player1);
 		guessOponentShip(this.player1, this.player2);
 		player1.playerFrame.setVisible(true);
-		
+
 		addShipToPlayerGrid(player2);
 		guessOponentShip(player2, player1);
 
 		player1ToPlayer2();
 		player2ToPlayer1();
-		
+
 		reset();
 	}
 
@@ -132,8 +104,7 @@ public class Controller {
 			}
 		});
 	}
-	
-	
+
 	/**
 	 * Allows user to place ships on player grid
 	 * @param player view
@@ -143,24 +114,21 @@ public class Controller {
 		boolean[] shipCheckArray = player.getshipCheck();
 		player.initializeArray(shipCheckArray);
 		buttonGrid = player.getJButtonGrid();
-		
+
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
 			{	 
-
 				JButton button = buttonGrid[i][j];
-				///Add ActionListener event that places "X" on grids
-				// on buttons that have been clicked
+				///Add ActionListener event that places "X" on grids on buttons that have been clicked
 				button.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent arg0)
 					{
 						System.out.println("Coordinate: " + player.getJButtonList().indexOf(button) );
 						System.out.println("ShipLength: " + player.getShipLength() );
-						
-						//Checks whether the alignment the user clicked was 
-						// Horizontal 
+
+						//Checks whether the alignment the user clicked was Horizontal 
 						if(player.getAlignment() == HORIZONTAL)
 						{
 							//Checks if there is space for the selected option
@@ -175,7 +143,7 @@ public class Controller {
 									player.setToGuess(true);
 									donePlacingShips = new JOptionPane();
 									donePlacingShips.showMessageDialog(null, 
-											"Next player turn","Winner", donePlacingShips.INFORMATION_MESSAGE);
+											"Next Player's Turn", "", donePlacingShips.INFORMATION_MESSAGE);
 									if(donePlacingShips.OK_CANCEL_OPTION == 0 || donePlacingShips.OK_CANCEL_OPTION == 2)
 									{
 										switchAfterGuess(player1,  player2);
@@ -184,17 +152,16 @@ public class Controller {
 											switchAfterGuess(player2,player1);
 										}
 									}
-									
+
 								}
-								
+
 								//Checks if it is player1
-								
 								println("Row is " + convertToRow(player.getJButtonList().indexOf(button)));
 								println("Col is " + convertToCol(player.getJButtonList().indexOf(button)));
-								
+
 								int row = convertToRow(player.getJButtonList().indexOf(button));
 								int col = convertToCol(player.getJButtonList().indexOf(button));
-								
+
 								if(player.getPlayerNumber() == 1)
 								{
 									model.getPlayer1().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
@@ -203,66 +170,57 @@ public class Controller {
 								{
 									model.getPlayer2().chooseShipLocation(player.getShipLength(), row, col, player.getAlignment());
 								}
-								
-								//Since there is space, the block of buttons would marked
-								// as placed Horizontally
+
+								//Since there is space, the block of buttons would marked as placed Horizontally
 								for( int index  = 0 ; index < player.getShipLength(); index++)
 								{
 									System.out.println("Index: " +(player.getJButtonList().indexOf(button) +index));
-										
-										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
-
-										String shipLeftCounterString = player.getShipCounter().toString();
-										//player.getShipLeftCount().setText(shipLeftCounterString);
-										
-										if(player.getIsSubmarine())
-										{
-											shipCheckArray[7] = true;
-										}
-										else
-										{
-											shipCheckArray[player.getShipLength()] = true;
-										}
+									player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
+									if(player.getIsSubmarine())
+									{
+										shipCheckArray[7] = true;
+									}
+									else
+									{
+										shipCheckArray[player.getShipLength()] = true;
+									}
 								}
 							}
 						}
 						else
 						{
-							// User did not select Horizontal, therefore it is 
-							// Vertical
+							// User did not select Horizontal, therefore it is Vertical
 							if(isSpace(player.getShipLength(), button, player) && !doesShipExist(shipCheckArray,player.getShipLength(),player))
 							{
 								player.updateShipCounter();
-								
+
 								//Adds ships vertically
 								for( int index  = 0 ; index < player.getShipLength()*10; index = index + 10)
 								{
 									System.out.println("Index: " +(player.getJButtonList().indexOf(button) +index));
 									System.out.println("alighnment: " + player.getAlignment());
-										player.getJButtonList().get(player.getJButtonList().indexOf(button) + index);
-										player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
-										
-										String shipLeftCounterString = player.getShipCounter().toString();
-										//player.getShipLeftCount().setText(shipLeftCounterString);
-										if(player.getIsSubmarine())
-										{
-											shipCheckArray[7] = true;
-										}
-										else
-										{
-											shipCheckArray[player.getShipLength()] = true;
-										}
+									player.getJButtonList().get(player.getJButtonList().indexOf(button) + index);
+									player.getJButtonList().get((player.getJButtonList().indexOf(button) + index)).setText("X");
+
+									//player.getShipLeftCount().setText(shipLeftCounterString);
+									if(player.getIsSubmarine())
+									{
+										shipCheckArray[7] = true;
+									}
+									else
+									{
+										shipCheckArray[player.getShipLength()] = true;
+									}
 								}
 							}
 						}
-					System.out.println("========");
+						System.out.println("========");
 					}
 				});
 			}
 		}
-		
 	}
-	
+
 	/**
 	 * Checks whether the user has already placed the same type of ship on the player grid.
 	 * @param shipCheck2
@@ -306,14 +264,14 @@ public class Controller {
 	{
 		for( int index  = 0 ; index < shipLength-1; index++)
 		{
-				if(((player.getbuttonList().indexOf(button) + index)%10 == 9))
-				{
-					return true;
-				}					
+			if(((player.getbuttonList().indexOf(button) + index)%10 == 9))
+			{
+				return true;
+			}					
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Helper method that check whether the given ship would fit on to the 
 	 * selected JButton 
@@ -327,10 +285,10 @@ public class Controller {
 		{
 			for( int index  = 0 ; index < shipLength; index++)
 			{
-					if(player.getbuttonList().get((player.getbuttonList().indexOf(button) + index)).getText().equals("X"))
-					{
-						return false;
-					}					
+				if(player.getbuttonList().get((player.getbuttonList().indexOf(button) + index)).getText().equals("X"))
+				{
+					return false;
+				}					
 			}
 			return true;
 		}
@@ -338,29 +296,26 @@ public class Controller {
 		{
 			for( int index  = 0 ; index < shipLength*10; index = index + 10)
 			{
-					if(player.getbuttonList().get((player.getbuttonList().indexOf(button) + index)).getText().equals("X"))
-					{
-						return false;
-					}
+				if(player.getbuttonList().get((player.getbuttonList().indexOf(button) + index)).getText().equals("X"))
+				{
+					return false;
+				}
 			}
-		return true;
-			
+			return true;
+
 		}
 	}
 	
-
-
-
+	/**
+	 * 
+	 * @param player1
+	 * @param player2
+	 */
 	public void guessOponentShip(View player1, View player2)
-	{
-		Integer scoreNum = player1.getScoreNum();
-		
-		ArrayList<JButton> buttonList = player1.getOpponentButtonList();
+	{	
 		opponentButtonGrid = player1.getOpponentGrid();
 		JButton[][] player2PlayerGrid = player2.getButtonGrid();
-		ArrayList<JButton> player2ButtonList = player2.getbuttonList();
-		
-		
+
 		for(int i = 0; i < 10; i ++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -369,82 +324,79 @@ public class Controller {
 				JButton player2PlayerButton = player2PlayerGrid[i][j];
 				///Listener event that places "X" on grids
 				// that have been clicked
-				
-					player1OpponentButton.addActionListener(new ActionListener()
+
+				player1OpponentButton.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent arg0)
 					{
-						public void actionPerformed(ActionEvent arg0)
+						String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
+						JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
+						if(player1.getIsReadyToGuess())
 						{
-							String x = player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).getText();
-							JButton button = player1.getOpponentButtonList().get((player1.getOpponentButtonList().indexOf(player1OpponentButton)));
-							if(player1.getIsReadyToGuess())
+							if(x.equals("X"))
 							{
-								if(x.equals("X"))
+								if(!button.getBackground().equals(Color.GREEN))
 								{
-									if(!button.getBackground().equals(Color.GREEN))
+									player1.updateScoreNum();
+								}
+								button.setBackground(Color.GREEN);
+								button.setOpaque(true);
+								button.setBorderPainted(false);
+								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
+								if(player1.getScoreNum() == 17)
+								{
+									endOfGame = new JOptionPane();
+									endOfGame.showMessageDialog(player1OpponentButton.getParent(), 
+											"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", endOfGame.INFORMATION_MESSAGE);
+									if(endOfGame.OK_CANCEL_OPTION == 0 || endOfGame.OK_CANCEL_OPTION == 2)
 									{
-										player1.updateScoreNum();
+										println("EXITTTT");
+										player2.playerFrame.dispose();
+										player1.playerFrame.dispose();
+										nt.getFrame().dispose();
+										nt2.getFrame().dispose();
+										new Controller();
 									}
-									button.setBackground(Color.GREEN);
-									//button.setText("H");
-									button.setOpaque(true);
-									button.setBorderPainted(false);
-									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("-");
-									if(player1.getScoreNum() == 17)
+									else
 									{
-										endOfGame = new JOptionPane();
-										endOfGame.showMessageDialog(player1OpponentButton.getParent(), 
-												"Player " + player1.getPlayerNumber() + " has won the Game. Congratulations!!!!","Winner", endOfGame.INFORMATION_MESSAGE);
-										if(endOfGame.OK_CANCEL_OPTION == 0 || endOfGame.OK_CANCEL_OPTION == 2)
-										{
-											println("EXITTTT");
-											player2.playerFrame.dispose();
-											player1.playerFrame.dispose();
-											nt.getFrame().dispose();
-											nt2.getFrame().dispose();
-											new Controller();
-										}
-										else
-										{
-											switchAfterGuess(player1,  player2);
-										}
+										switchAfterGuess(player1,  player2);
 									}
 								}
-								else
-								{
-									button.setBackground(Color.RED);		
-									//button.setText("M");
-									button.setOpaque(true);
-									button.setBorderPainted(false);
-									player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
-									switchAfterGuess(player1,  player2);
-
-								}
-								
-							
 							}
-
-							
-							//buttonList.get((buttonList.indexOf(button))).setText("X");
-													
-							String score = player1.getScoreNum().toString();
-							player1.getScoreCount().setText(score);
+							else
+							{
+								button.setBackground(Color.RED);		
+								button.setOpaque(true);
+								button.setBorderPainted(false);
+								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton))).setText("O");
+								switchAfterGuess(player1,  player2);
+							}
 						}
-					});
-		
-
+						String score = player1.getScoreNum().toString();
+						player1.getScoreCount().setText(score);
+					}
+				});
+			}
 		}
-
 	}
-	}
+	
+	/**
+	 * 
+	 */
 	public void delay()
 	{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 
+	 * @param player1
+	 * @param player2
+	 */
 	public void switchAfterGuess(View player1, View player2)
 	{
 		player1.playerFrame.dispose();
@@ -458,47 +410,9 @@ public class Controller {
 				}
 			});								
 		}
-		
+
 		else
 		{
-			nt2.getFrame().setVisible(true);
-			nt2.getStartButton().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-							nt2.getFrame().setVisible(false);
-							player2.playerFrame.setVisible(true);
-			         
-					
-				}
-			});
-		}
-		
-	}
-	
-	/**
-	 * Switches screens after user guesses on opponent ship from player 1 to player2
-	 * @param player1 screen
-	 * @param player2 screen
-	 */
-	public void switchAfterGuessPlayer1(View player1, View player2)
-	{
-		
-			nt.getFrame().setVisible(true);
-			nt.getStartButton().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					nt.getFrame().setVisible(false);
-					player2.playerFrame.setVisible(true);
-				}
-			});								
-	}
-	
-	/**
-	 * Switches screens after user guesses on opponent ship from player 1 to player2
-	 * @param player1 screen
-	 * @param player2 screen
-	 */
-	public void switchAfterGuessPlayer2(View player1, View player2)
-	{
-		
 			nt2.getFrame().setVisible(true);
 			nt2.getStartButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -506,10 +420,49 @@ public class Controller {
 					player2.playerFrame.setVisible(true);
 				}
 			});
-		
 		}
-	
-		public void nextPlayer(View player1, View player2, NextTurn nt)
+	}
+
+	/**
+	 * Switches screens after user guesses on opponent ship from player 1 to player2
+	 * @param player1 screen
+	 * @param player2 screen
+	 */
+	public void switchAfterGuessPlayer1(View player1, View player2)
+	{
+		nt.getFrame().setVisible(true);
+		nt.getStartButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nt.getFrame().setVisible(false);
+				player2.playerFrame.setVisible(true);
+			}
+		});								
+	}
+
+	/**
+	 * Switches screens after user guesses on opponent ship from player 1 to player2
+	 * @param player1 screen
+	 * @param player2 screen
+	 */
+	public void switchAfterGuessPlayer2(View player1, View player2)
+	{
+		nt2.getFrame().setVisible(true);
+		nt2.getStartButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nt2.getFrame().setVisible(false);
+				player2.playerFrame.setVisible(true);
+			}
+		});
+
+	}
+
+	/**
+	 * 
+	 * @param player1
+	 * @param player2
+	 * @param nt
+	 */
+	public void nextPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -518,11 +471,24 @@ public class Controller {
 			}
 		});
 	}
+	
+	/**
+	 * 
+	 * @param player1
+	 * @param player2
+	 * @param nt
+	 */
 	public void selectPlayer(View player1, View player2, NextTurn nt)
 	{
 		player1.playerFrame.dispose();
 		flipScreen(player2, nt);
 	}
+	
+	/**
+	 * 
+	 * @param player1
+	 * @param nt
+	 */
 	public void flipScreen(View player1, NextTurn nt)
 	{
 		nt.startButton.addActionListener(new ActionListener() {
@@ -532,7 +498,12 @@ public class Controller {
 			}
 		});
 	}
-	
+
+	/**
+	 * 
+	 * @param player
+	 * @param nt
+	 */
 	public void coverScreen(View player, NextTurn nt)
 	{
 		player.getNextPlayerButton().addActionListener(new ActionListener() {
@@ -542,7 +513,12 @@ public class Controller {
 			}
 		});
 	}
-	
+
+	/**
+	 * 
+	 * @param player
+	 * @param nt
+	 */
 	public void uncoverScreen(View player, NextTurn nt)
 	{
 		nt.startButton.addActionListener(new ActionListener() {
@@ -552,7 +528,10 @@ public class Controller {
 			}
 		});
 	}
-	
+
+	/**
+	 * 
+	 */
 	public void player1Screen()
 	{
 		player1.getNextPlayerButton().addActionListener(new ActionListener() {
@@ -568,7 +547,10 @@ public class Controller {
 			}
 		});
 	}
-	
+
+	/**
+	 * 
+	 */
 	public void player2Screen()
 	{
 		nt2.getStartButton().addActionListener(new ActionListener() {
@@ -584,30 +566,36 @@ public class Controller {
 			}
 		});
 	}
+	
+	/**
+	 * 
+	 */
 	public void reset1()
 	{
-			player1.getExitButton().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent event) {
-					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
-					if (n == 0)
+		player1.getExitButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
+				if (n == 0)
+				{
+					try	//Exits the game entirely.
 					{
-						try
-						{
-							//Exits the game entirely.
-							player2.playerFrame.dispose();
-							player1.playerFrame.dispose();
-							nt.getFrame().dispose();
-							nt2.getFrame().dispose();
-							new Controller();
-						} catch(Exception e)
-						{
-							JOptionPane.showMessageDialog(null, e);
-						}
+						player2.playerFrame.dispose();
+						player1.playerFrame.dispose();
+						nt.getFrame().dispose();
+						nt2.getFrame().dispose();
+						new Controller();
+					} catch(Exception e)
+					{
+						JOptionPane.showMessageDialog(null, e);
 					}
 				}
-			});
+			}
+		});
 	}
-	
+
+	/**
+	 * 
+	 */
 	public void reset2()
 	{
 		player2.getExitButton().addActionListener(new ActionListener() {
@@ -630,8 +618,13 @@ public class Controller {
 				}
 			}
 		});
-}
+	}
 
+	/**
+	 * 
+	 * @param fullNumber
+	 * @return
+	 */
 	public int convertToRow(Integer fullNumber)
 	{
 		if(fullNumber > 9)
@@ -644,7 +637,12 @@ public class Controller {
 			return 0;
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param fullNumber
+	 * @return
+	 */
 	public int convertToCol(Integer fullNumber)
 	{
 		if(fullNumber > 9)
@@ -657,24 +655,23 @@ public class Controller {
 			return fullNumber;
 		}
 	}
-	
+
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 		reset1();
 		reset2();
 	}
-	
+
 	static void println(Object line) {
-	    System.out.println(line);
+		System.out.println(line);
 	}
-	private int counter = 0;
 	private Model model;
 	private View player1;
 	private View player2;
-	
-	private JButton transitionButton = new JButton();
 	private JButton[][] buttonGrid;
-	private JButton nextPlayerButton;
 	private JOptionPane endOfGame;
 	private JOptionPane donePlacingShips;
 	private NextTurn nt ;
@@ -683,5 +680,4 @@ public class Controller {
 	private boolean isReadyToGuess = false;
 	private Welcome welcome;
 	private static final int HORIZONTAL  = 0;
-	
 }
