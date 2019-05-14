@@ -62,9 +62,9 @@ public class View extends Thread{
 		 * Creates a label for Player.
 		 */
 		JLabel playerLabel = new JLabel("PLAYER: " + playerNumber);
-		playerLabel.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		playerLabel.setFont(new Font("Iowan Old Style", Font.BOLD, 20));
 		playerLabel.setForeground(new Color(246, 214, 124));
-		playerLabel.setBounds(20, 20, 95, 15);
+		playerLabel.setBounds(20, 6, 146, 29);
 		North.add(playerLabel);
 
 		/**
@@ -72,16 +72,16 @@ public class View extends Thread{
 		 * Will display score stats.
 		 */
 		JLabel scoreLabel = new JLabel("Score:");
-		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 11));
+		scoreLabel.setFont(new Font("Iowan Old Style", Font.PLAIN, 15));
 		scoreLabel.setForeground(new Color(246, 214, 124));
-		scoreLabel.setBounds(20, 40, 35, 15);
+		scoreLabel.setBounds(20, 40, 48, 15);
 		North.add(scoreLabel);
 
 		/**
 		 * Creates a label for the Player's grid.
 		 */
 		JLabel player = new JLabel("PLAYER");
-		player.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		player.setFont(new Font("Iowan Old Style", Font.BOLD, 15));
 		player.setForeground(new Color(246, 214, 124));
 		player.setHorizontalAlignment(SwingConstants.CENTER);
 		player.setBounds(75, 95, 91, 15);
@@ -91,7 +91,7 @@ public class View extends Thread{
 		 * Creates a label for the Opponent's grid.
 		 */
 		JLabel opponent = new JLabel("OPPONENT");
-		opponent.setFont(new Font("Iowan Old Style", Font.BOLD, 13));
+		opponent.setFont(new Font("Iowan Old Style", Font.BOLD, 15));
 		opponent.setForeground(new Color(246, 214, 124));
 		opponent.setHorizontalAlignment(SwingConstants.CENTER);
 		opponent.setBounds(310, 95, 106, 15);
@@ -101,8 +101,9 @@ public class View extends Thread{
 		 * Creates a label for the score count.
 		 */
 		scoreCount = new JLabel("0");
+		scoreCount.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		scoreCount.setForeground(new Color(246, 214, 124));
-		scoreCount.setBounds(60, 40, 21, 16);
+		scoreCount.setBounds(69, 39, 21, 16);
 		North.add(scoreCount);
 
 		/**
