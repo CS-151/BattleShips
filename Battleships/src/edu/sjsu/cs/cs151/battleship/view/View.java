@@ -425,42 +425,68 @@ public class View extends Thread{
 	}
 
 
+/**
+ * gets the button grid
+ * @return buttonGrid
+ */
 	public JButton[][] getButtonGrid()
 	{
 		return buttonGrid;
 	}
-
+/**
+ * gets the buttons list
+ * @return buttonList
+ */
 	public ArrayList<JButton> getJButtonList()
 	{
 		return buttonList;
 	}
-
+/**
+ * gets the alignment 
+ * @return alignment
+ */
 	public int getAlignment()
 	{
 		return alignment;
 	}
-
+/**
+ * Determines whether it is a submarine or not
+ * @return isSubmarine
+ */
 	public boolean getIsSubmarine()
 	{
 		return isSubmarine;
 	}
-
+/**
+ * gets the ship length
+ * @return shipLength
+ */
 	public int getShipLength()
 	{
 		return shipLength;
 	}
-
+/**
+ * gets the next player button
+ * @return nextPlayerButton 
+ */
 
 	public JButton getNextPlayerButton()
 	{
 		return nextPlayerButton;
 	}
-
+/**
+ * Determines wheter it has a ship
+ * @return shipCheck
+ */
 	public boolean[] getshipCheck()
 	{
 		return shipCheck;
 	}
-
+/**
+ * Determines whether a ship is there 
+ * @param i
+ * @return true or false
+ */
 	public boolean isShipThere(int i)
 	{
 		return shipCheck[i]== true;
@@ -472,75 +498,120 @@ public class View extends Thread{
 			shipCheck2[i] = false;
 		}
 	}
-
+/**
+ * updates the ship counter 
+ */
 	public void updateShipCounter()
 	{
 		shipLeftCounter++;
 	}
-
+/**
+ * gets the ship counter
+ * @return shipLeftCounter
+ */
 	public Integer getShipCounter()
 	{
 		return shipLeftCounter;
 	}
-
+/**
+ * gets the player number
+ * @return playerNumber 
+ */
 	public int getPlayerNumber()
 	{
 		return playerNumber;
 	}
-
+/**
+ * gets the row
+ * @return row 
+ */
 	public int getRow()
 	{
 		return row;
 	}
-
+/**
+ * gets the column 
+ * @return col
+ */
 	public int getCol()
 	{
 		return col;
 	}
-
+/**
+ * sets a ship
+ * @param newShipCheck
+ */
 	public void setShipCheck(boolean[] newShipCheck)
 	{
 		shipCheck = newShipCheck;
 	}
-
+/**
+ * gets the opponent's button list 
+ * @return opponentButtonList
+ */
 	public ArrayList<JButton> getOpponentButtonList()
 	{
 		return opponentButtonList;
 	}
+/**
+ * gets the opponent grid 
+ * @return opponentButtonGrid
+ */
 	public JButton[][] getOpponentGrid()
 	{
 		return opponentButtonGrid;
 	}
-
+/**
+ * gets the score number
+ * @return scoreNum
+ */
 	public Integer getScoreNum()
 	{
 		return scoreNum;
 	}
-
+/**
+ * updates the score number 
+ * 
+ */
 	public void updateScoreNum()
 	{
 		scoreNum++;
 	}
+/**
+ * gets the score count 
+ * @return scoreCount
+ */
 	public JLabel getScoreCount()
 	{
 		return scoreCount;
 	}
-
+/**
+ * player screen bounds 
+ * @param player1
+ */
 	public static void player1Screen(View player1)
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
-
+/**
+ * determines whether the next player is ready to guess
+ * @return isReadyToGuess
+ */
 	public boolean getIsReadyToGuess()
 	{
 		return isReadyToGuess;
 	}
-
+/**
+ * sets the guess
+ * @param isReady
+ */
 	public void setToGuess(boolean isReady)
 	{
 		isReadyToGuess = isReady;
 	}
-	
+	/**
+	 * Private instances 
+	 */
 	public  JFrame playerFrame;
 	private ArrayList<JButton> buttonList;
 	private ArrayList<JButton> opponentButtonList;
