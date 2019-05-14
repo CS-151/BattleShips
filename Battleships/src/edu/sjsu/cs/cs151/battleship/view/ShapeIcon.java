@@ -20,7 +20,7 @@ public class ShapeIcon implements Icon
 		width = w;
 		height = h;
 	}
-	
+
 	/**
 	 * Gets the width of the icon.
 	 */
@@ -28,7 +28,7 @@ public class ShapeIcon implements Icon
 	{
 		return width;
 	}
-	
+
 	/**
 	 * Gets the height of the icon.
 	 */
@@ -36,7 +36,7 @@ public class ShapeIcon implements Icon
 	{
 		return height;
 	}
-	
+
 	/**
 	 * Paints the icon.
 	 */
@@ -45,7 +45,7 @@ public class ShapeIcon implements Icon
 		Graphics2D g2 = (Graphics2D) g;
 		shape.draw(g2);
 	}
-	
+
 	private int width;
 	private int height;
 	private Moveable shape;
