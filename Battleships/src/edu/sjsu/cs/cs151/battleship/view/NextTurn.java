@@ -1,14 +1,9 @@
 package edu.sjsu.cs.cs151.battleship.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -72,17 +67,19 @@ public class NextTurn
 		t.start();
 	}
 	
-	public static void main(String[] args) 
-	{
-		NextTurn window = new NextTurn();
-		window.frame.setVisible(true);
-	}
-	
+	/**
+	 * Gets the frame.
+	 * @return frame the frame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;
 	}
-	
+
+	/**
+	 * Gets the startButton.
+	 * @return startButton the startButton
+	 */
 	public JButton getStartButton()
 	{
 		return startButton;
