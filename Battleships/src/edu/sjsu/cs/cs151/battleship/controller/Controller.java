@@ -116,7 +116,6 @@ public class Controller {
 			}
 
 			CellClickedMessage cellClicked = (CellClickedMessage) message;
-			model.clickedCell(cellClicked.getRow(), cellClicked.getColumn());
 			updateGameInfo();
 
 			if (model.getStatus())
