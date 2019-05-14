@@ -175,7 +175,7 @@ public class Controller {
 									player.setToGuess(true);
 									donePlacingShips = new JOptionPane();
 									donePlacingShips.showMessageDialog(null, 
-											"Next player turn","Winner", donePlacingShips.INFORMATION_MESSAGE);
+											"Next player turn","", donePlacingShips.INFORMATION_MESSAGE);
 									if(donePlacingShips.OK_CANCEL_OPTION == 0 || donePlacingShips.OK_CANCEL_OPTION == 2)
 									{
 										switchAfterGuess(player1,  player2);
@@ -588,8 +588,9 @@ public class Controller {
 	{
 			player1.getExitButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent event) {
-					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
-					if (n == 0)
+					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);					
+					
+					if (n == JOptionPane.YES_OPTION)
 					{
 						try
 						{
@@ -613,7 +614,7 @@ public class Controller {
 		player2.getExitButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
-				if (n == 0)
+				if (n == JOptionPane.YES_OPTION)
 				{
 					try
 					{
