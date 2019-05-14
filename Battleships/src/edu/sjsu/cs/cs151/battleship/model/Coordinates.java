@@ -37,16 +37,16 @@ public class Coordinates {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Returns if ship is contained.
+	 * @return containsShip the boolean
 	 */
 	public boolean isContainsShip() {
 		return containsShip;
 	}
 
 	/**
-	 * 
-	 * @param containsShip
+	 * Sets a boolean to containShip.
+	 * @param containsShip the boolean
 	 */
 	public void setContainsShip(boolean containsShip) {
 		this.containsShip = containsShip;
