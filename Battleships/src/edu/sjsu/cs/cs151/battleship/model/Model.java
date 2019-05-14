@@ -14,7 +14,7 @@ public class Model
 		p1 = new Player();
 		p2 = new Player();
 	}
-	
+
 	/**
 	 * Starts a new game
 	 * @return
@@ -25,6 +25,17 @@ public class Model
 	}
 
 	/**
+	 * A cell on the grid is clicked.
+	 * @param r the row on the grid
+	 * @param c the column on the grid
+	 */
+	public void clickedCell(int r, int c)
+	{
+
+		p1 = new Player();
+		p2 = new Player();
+	}
+	/**
 	 * Gets the game status
 	 * @return
 	 */
@@ -32,7 +43,7 @@ public class Model
 	{
 		return gameStats;
 	}
-	
+
 	/**
 	 * Determines if they won
 	 * @return true or false
@@ -48,7 +59,7 @@ public class Model
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Gets the number of cells 
 	 * @return cellCt
@@ -57,7 +68,7 @@ public class Model
 	{
 		return cellCt;
 	}
-	
+
 	/**
 	 * Gets the row
 	 * @return row
@@ -66,7 +77,7 @@ public class Model
 	{
 		return row;
 	}
-	
+
 	/**
 	 * Gets the column 
 	 * @return column 
@@ -75,7 +86,7 @@ public class Model
 	{
 		return column;
 	}
-	
+
 	/**
 	 * Gets the grid 
 	 * @return grid
@@ -84,7 +95,7 @@ public class Model
 	{
 		return grid;
 	}
-	
+
 	/**
 	 * gets player 1
 	 * @return p1
@@ -93,7 +104,7 @@ public class Model
 	{
 		return p1;
 	}
-	
+
 	/**
 	 * gets player 2
 	 * @return p2
