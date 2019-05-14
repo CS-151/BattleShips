@@ -1,7 +1,7 @@
 package edu.sjsu.cs.cs151.battleship.model;
+
 /**
  * The model for the battleship
- *
  */
 public class Model 
 {
@@ -11,14 +11,10 @@ public class Model
 	public Model()
 	{
 		this.grid = new Grid();
-		 p1 = new Player();
-		 p2 = new Player();
+		p1 = new Player();
+		p2 = new Player();
 	}
-
-	public void clickedCell(int r, int c)
-	{
-		
-	}
+	
 	/**
 	 * Starts a new game
 	 * @return
@@ -27,7 +23,7 @@ public class Model
 	{
 		return new Model();
 	}
-	
+
 	/**
 	 * Gets the game status
 	 * @return
@@ -36,6 +32,7 @@ public class Model
 	{
 		return gameStats;
 	}
+	
 	/**
 	 * Determines if they won
 	 * @return true or false
@@ -51,6 +48,7 @@ public class Model
 		}
 		return false;
 	}
+	
 	/**
 	 * Gets the number of cells 
 	 * @return cellCt
@@ -59,6 +57,7 @@ public class Model
 	{
 		return cellCt;
 	}
+	
 	/**
 	 * Gets the row
 	 * @return row
@@ -67,6 +66,7 @@ public class Model
 	{
 		return row;
 	}
+	
 	/**
 	 * Gets the column 
 	 * @return column 
@@ -75,16 +75,16 @@ public class Model
 	{
 		return column;
 	}
+	
 	/**
 	 * Gets the grid 
 	 * @return grid
 	 */
-	
-	
 	public Grid getGrid()
 	{
 		return grid;
 	}
+	
 	/**
 	 * gets player 1
 	 * @return p1
@@ -93,6 +93,7 @@ public class Model
 	{
 		return p1;
 	}
+	
 	/**
 	 * gets player 2
 	 * @return p2
@@ -101,7 +102,7 @@ public class Model
 	{
 		return p2;
 	}
-	
+
 	public boolean gameStats;
 	private int row;
 	private int column;
