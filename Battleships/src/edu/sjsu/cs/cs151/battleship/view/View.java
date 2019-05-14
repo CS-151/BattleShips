@@ -15,6 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import edu.sjsu.cs.cs151.battleship.controller.GameInfo;
+
 import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
 
@@ -609,6 +612,9 @@ public class View extends Thread{
 	{
 		isReadyToGuess = isReady;
 	}
+	public void change(GameInfo gameInfo) {
+		this.gameInfo = gameInfo;
+	}
 	/**
 	 * Private instances 
 	 */
@@ -627,4 +633,5 @@ public class View extends Thread{
 	private boolean [] shipCheck = new boolean[8];
 	private JLabel scoreCount;
 	private boolean isReadyToGuess = false;
+	private GameInfo gameInfo;
 }

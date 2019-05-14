@@ -113,6 +113,14 @@ public class Model
 	{
 		return p2;
 	}
+	public void gameOver() {
+		gameOver = true;
+	}
+	
+	public void gameWon()
+	{
+		gameWon = true;
+	}
 
 	public boolean gameStats;
 	private int row;
@@ -121,4 +129,7 @@ public class Model
 	private Player p1;
 	private Player p2;
 	private Grid grid;
+	private boolean gameOver;
+	private boolean gameWon;
+	
 }

@@ -122,19 +122,19 @@ public class Controller {
 			{
 				if (!model.isWinner())
 				{
-					//view.change(gameInfo);
+					view.change(gameInfo);
 				}
 				else
 				{
-					//model.gameWin();	//Used to debug. Implement in Model.
+					model.gameOver();	//Used to debug. Implement in Model.
 					gameInfo.setWin();
 					//view.change(gameInfo);
 				}
 			}
 			else
 			{
-				//model.gameOver();		//Used to debug. Implement in Model.
-				//view.change(gameInfo);
+				model.gameOver();		//Used to debug. Implement in Model.
+				view.change(gameInfo);
 			}
 			return ValveResponse.EXECUTED;
 		}
