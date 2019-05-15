@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import edu.sjsu.cs.cs151.battleship.controller.CarrierMessage;
 import edu.sjsu.cs.cs151.battleship.controller.GameInfo;
 import edu.sjsu.cs.cs151.battleship.controller.Message;
 
@@ -25,7 +26,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
 
 public class View extends Thread{
-
+	
 	/**
 	 * Constructor.
 	 */
@@ -33,6 +34,9 @@ public class View extends Thread{
 	{
 		this.playerNumber = playerNumber;
 		initialize();
+	}
+	public View(BlockingQueue<Message> queue) {
+		this.queue = queue;
 	}
 
 	/**
@@ -186,20 +190,21 @@ public class View extends Thread{
 		carrierH.setForeground(Color.WHITE);
 		carrierH.setBounds(80, 8, 50, 20);
 		carrierH.setOpaque(false);
-		carrierH.addActionListener(new ActionListener() {
+		carrierH.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 5;
 				alignment = HORIZONTAL;
 				isSubmarine = false;
 			}
 		});
+		
 		South.add(carrierH);
 
 		JRadioButton carrierV = new JRadioButton("V");
 		carrierV.setForeground(Color.WHITE);
 		carrierV.setBounds(130, 8, 50, 20);
 		carrierV.setOpaque(false);
-		carrierV.addActionListener(new ActionListener() {
+		carrierV.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 5;
 				alignment = VERTICAL;
@@ -221,7 +226,7 @@ public class View extends Thread{
 		battleshipH.setForeground(Color.WHITE);
 		battleshipH.setBounds(255, 10, 50, 20);
 		battleshipH.setOpaque(false);
-		battleshipH.addActionListener(new ActionListener() {
+		battleshipH.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 4;
 				alignment = HORIZONTAL;
@@ -234,7 +239,7 @@ public class View extends Thread{
 		battleShipV.setForeground(Color.WHITE);
 		battleShipV.setBounds(305, 10, 50, 20);
 		battleShipV.setOpaque(false);
-		battleShipV.addActionListener(new ActionListener() {
+		battleShipV.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 4;
 				alignment = VERTICAL;
@@ -256,7 +261,7 @@ public class View extends Thread{
 		cruiserH.setForeground(Color.WHITE);
 		cruiserH.setBounds(80, 40, 50, 20);
 		cruiserH.setOpaque(false);
-		cruiserH.addActionListener(new ActionListener() {
+		cruiserH.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 3;
 				alignment = HORIZONTAL;
@@ -269,7 +274,7 @@ public class View extends Thread{
 		cruiserV.setForeground(Color.WHITE);
 		cruiserV.setBounds(130, 40, 50, 20);
 		cruiserV.setOpaque(false);
-		cruiserV.addActionListener(new ActionListener() {
+		cruiserV.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 3;
 				alignment = VERTICAL;
@@ -291,7 +296,7 @@ public class View extends Thread{
 		submarineH.setForeground(Color.WHITE);
 		submarineH.setBounds(255, 40, 50, 20);
 		submarineH.setOpaque(false);
-		submarineH.addActionListener(new ActionListener() {
+		submarineH.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 3;
 				alignment = HORIZONTAL;
@@ -304,7 +309,7 @@ public class View extends Thread{
 		submarineV.setForeground(Color.WHITE);
 		submarineV.setBounds(305, 40, 50, 20);
 		submarineV.setOpaque(false);
-		submarineV.addActionListener(new ActionListener() {
+		submarineV.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 3;
 				alignment = VERTICAL;
@@ -326,7 +331,7 @@ public class View extends Thread{
 		destroyerH.setForeground(Color.WHITE);
 		destroyerH.setBounds(80, 70, 50, 20);
 		destroyerH.setOpaque(false);
-		destroyerH.addActionListener(new ActionListener() {
+		destroyerH.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 2;
 				alignment = HORIZONTAL;
@@ -339,7 +344,7 @@ public class View extends Thread{
 		destroyerV.setForeground(Color.WHITE);
 		destroyerV.setBounds(130, 70, 50, 20);
 		destroyerV.setOpaque(false);
-		destroyerV.addActionListener(new ActionListener() {
+		destroyerV.addActionListener(new CarrierListener() {
 			public void actionPerformed(ActionEvent e) {
 				shipLength = 2;
 				alignment = VERTICAL;
@@ -389,6 +394,17 @@ public class View extends Thread{
 			} 
 		});
 	};
+	private class CarrierListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			try {
+				queue.put(new CarrierMessage());
+			}
+			catch(InterruptedException exception) {
+				exception.printStackTrace();
+				
+			}
+		}
+	}
 	/**
 	 * gets the exit button
 	 * @return exit button 
@@ -650,6 +666,6 @@ public class View extends Thread{
 	private JLabel scoreCount;
 	private boolean isReadyToGuess = false;
 	private GameInfo gameInfo;
-	private BlockingQueue<Message> queue;
+	BlockingQueue<Message> queue;
 	
 }
