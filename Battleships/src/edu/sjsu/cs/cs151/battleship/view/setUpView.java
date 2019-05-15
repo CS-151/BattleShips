@@ -1,9 +1,11 @@
 package edu.sjsu.cs.cs151.battleship.view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import edu.sjsu.cs.cs151.battleship.model.Model;
 
@@ -327,9 +329,11 @@ public class setUpView {
 									button.setBackground(Color.GREEN);
 									button.setOpaque(true);
 									button.setBorderPainted(false);
-									hitOrMiss.showMessageDialog(null,
-											"Hit ",
-											"", hitOrMiss.INFORMATION_MESSAGE);
+									String hit = "Hit!";
+									hitLbl = new JLabel(hit);
+									hitLbl.setFont(new Font("Iowan Old Style", Font.BOLD, 25));
+									hitLbl.setForeground(new Color(39, 179, 53));
+									hitOrMiss.showMessageDialog(null, hitLbl, "", hitOrMiss.INFORMATION_MESSAGE);
 									if (hitOrMiss.OK_CANCEL_OPTION == 0 || hitOrMiss.OK_CANCEL_OPTION == 2)
 									{
 										switchAfterGuess(player1, player2);
@@ -359,9 +363,11 @@ public class setUpView {
 								button.setBorderPainted(false);
 								player2.getJButtonList().get((player2.getJButtonList().indexOf(player2PlayerButton)))
 								.setText("O");
-								hitOrMiss.showMessageDialog(null,
-										"Miss ",
-										"", hitOrMiss.INFORMATION_MESSAGE);
+								String miss = "Miss!";
+								missLbl = new JLabel(miss);
+								missLbl.setFont(new Font("Iowan Old Style", Font.BOLD, 25));
+								missLbl.setForeground(new Color(179, 39, 39));
+								hitOrMiss.showMessageDialog(null, missLbl, "", hitOrMiss.INFORMATION_MESSAGE);
 								if (hitOrMiss.OK_CANCEL_OPTION == 0 || hitOrMiss.OK_CANCEL_OPTION == 2)
 								{
 									switchAfterGuess(player1, player2);
@@ -495,6 +501,7 @@ public class setUpView {
 	private JOptionPane hitOrMiss;
 	private NextTurn nt;
 	private NextTurn nt2;
+	private JLabel hitLbl, missLbl;
 	private JButton[][] opponentButtonGrid;
 	private boolean isReadyToGuess = false;
 	private Welcome welcome;
