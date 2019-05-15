@@ -24,6 +24,7 @@ public class Controller {
 		this.model = model;
 		messageQueue = queue;
 		this.valves.add(new NewGameValve());
+		this.valves.add(new MenuValve());
 		this.valves.add(new GridSetupValve());
 		this.valves.add(new CellClickedValve());
 		this.valves.add(new ExitValve());
@@ -104,6 +105,25 @@ public class Controller {
 		}
 	}
 
+	/**
+	 * Method handles the NewGameMessage.
+	 */
+	private class MenuValve implements Valve
+	{
+		@Override
+		public ValveResponse execute(Message message)
+		{
+			if (message.getClass() != MenuMessage.class) 
+			{
+				return ValveResponse.MISS;
+			}
+			
+			MenuMessage menu = (MenuMessage) message;
+			
+			return ValveResponse.EXECUTED;
+		}
+	}
+	
 	/**
 	 * Method handles the GridSetupMessage.
 	 */

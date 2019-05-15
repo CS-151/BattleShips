@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import edu.sjsu.cs.cs151.battleship.controller.CarrierMessage;
 import edu.sjsu.cs.cs151.battleship.controller.ExitMessage;
 import edu.sjsu.cs.cs151.battleship.controller.GameInfo;
+import edu.sjsu.cs.cs151.battleship.controller.MenuMessage;
 import edu.sjsu.cs.cs151.battleship.controller.Message;
 
 import javax.swing.JRadioButton;
@@ -423,6 +424,21 @@ public class View extends Thread{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				queue.put(new CarrierMessage());
+			}
+			catch(InterruptedException exception) {
+				exception.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Inner Class for the Menu Buttons Action Listener 
+	 */
+	private class MenuListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				queue.put(new MenuMessage());
 			}
 			catch(InterruptedException exception) {
 				exception.printStackTrace();
