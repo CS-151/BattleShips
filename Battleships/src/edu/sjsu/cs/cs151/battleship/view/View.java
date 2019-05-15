@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import edu.sjsu.cs.cs151.battleship.controller.CarrierMessage;
+import edu.sjsu.cs.cs151.battleship.controller.ExitMessage;
 import edu.sjsu.cs.cs151.battleship.controller.GameInfo;
 import edu.sjsu.cs.cs151.battleship.controller.Message;
 
@@ -35,6 +36,10 @@ public class View extends Thread{
 		this.playerNumber = playerNumber;
 		initialize();
 	}
+	/**
+	 * Second constructor for the View Class
+	 * @param queue the queue for the messages
+	 */
 	public View(BlockingQueue<Message> queue) {
 		this.queue = queue;
 	}
@@ -377,7 +382,7 @@ public class View extends Thread{
 		middleSea.setIcon(null);
 		middleSea.setIcon(new ImageIcon(getClass().getResource("/sea1.jpg")));
 		playerFrame.getContentPane().add(middleSea, BorderLayout.CENTER);
-		extButton.addActionListener(new ActionListener() {
+		extButton.addActionListener(new ExitListener() {
 			public void actionPerformed(ActionEvent event) {
 				int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the game?", "Exit Game", JOptionPane.YES_NO_OPTION);
 				if (n == 0)
@@ -394,7 +399,32 @@ public class View extends Thread{
 			} 
 		});
 	};
+	/**
+	 * Inner class for the Exit Button Action Listener
+	 * 
+	 * 
+	 *
+	 */
+	private class ExitListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				queue.put(new ExitMessage());
+			}
+			catch(InterruptedException exception) {
+				exception.printStackTrace();
+				
+			}
+		
+		}
+	}
+	/**
+	 * 
+	 * Inner Class for the Radio Buttons Action Listener 
+	 *
+	 */
 	private class CarrierListener implements ActionListener{
+		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
 				queue.put(new CarrierMessage());
