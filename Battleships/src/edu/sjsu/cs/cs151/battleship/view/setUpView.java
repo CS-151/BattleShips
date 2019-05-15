@@ -208,7 +208,7 @@ public class setUpView {
 						if (player.getShipCounter() == 5) {
 							player.setToGuess(true);
 							donePlacingShips = new JOptionPane();
-							donePlacingShips.showMessageDialog(null, "Next player's turn to place their ships!", "",
+							donePlacingShips.showMessageDialog(null, "Next player's turn!", "",
 									donePlacingShips.INFORMATION_MESSAGE);
 							if (donePlacingShips.OK_CANCEL_OPTION == 0
 									|| donePlacingShips.OK_CANCEL_OPTION == 2) {
