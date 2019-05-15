@@ -25,6 +25,8 @@ public class Controller {
 		this.model = model;
 		messageQueue = queue;
 		this.valves.add(new NewGameValve());
+		this.valves.add(new CellClickedValve());
+		this.valves.add(new GridSetupValve());
 		new setUpView();
 	}
 
@@ -71,10 +73,10 @@ public class Controller {
 			{
 				for (int j = 0; j < c; j++)
 				{
-//					if (!currGrid[i][j].isHit())
-//					{
-//						gameInfo.gameInfoUpdate(i, j, gameInfo.getNumOfCellsLeft());
-//					}
+					//					if (!currGrid[i][j].isHit())
+					//					{
+					//						gameInfo.gameInfoUpdate(i, j, gameInfo.getNumOfCellsLeft());
+					//					}
 				}
 			}
 		}
@@ -105,40 +107,53 @@ public class Controller {
 	/**
 	 * Method handles the CellClickedMessage.
 	 */
-	private class CellClickedValve implements Valve
+	private class CellClickedValve implements Valve	
 	{
 		@Override
-		public ValveResponse execute(Message message)
-		{
+		public ValveResponse execute(Message message){
 			if (message.getClass() != CellClickedMessage.class) 
 			{
 				return ValveResponse.MISS;
 			}
-
 			CellClickedMessage cellClicked = (CellClickedMessage) message;
 			updateGameInfo();
 
-			if (model.getStatus())
-			{
-				if (!model.isWinner())
-				{
+			if (model.getStatus()) {
+				if (!model.isWinner()) {
 					view.change(gameInfo);
 				}
-				else
-				{
+				else {
 					model.gameOver();	//Used to debug. Implement in Model.
 					gameInfo.setWin();
 					//view.change(gameInfo);
 				}
 			}
-			else
-			{
+			else {
 				model.gameOver();		//Used to debug. Implement in Model.
 				view.change(gameInfo);
 			}
 			return ValveResponse.EXECUTED;
 		}
 
+		/**
+		 * Method handles the GridSetupMessage.
+		 */
+		private class GridSetupValve implements Valve
+		{
+			@Override
+			public ValveResponse execute(Message message)
+			{
+				if (message.getClass() != GridSetupMessage.class) 
+				{
+					return ValveResponse.MISS;
+				}
+				GridSetupMessage cellClicked = (GridSetupMessage) message;
+				updateGameInfo();
+				
+				return ValveResponse.EXECUTED;
+			}
+		}
+		
 		/**
 		 * Gets the gameInfo.
 		 * @return gameInfo the current gameInfo

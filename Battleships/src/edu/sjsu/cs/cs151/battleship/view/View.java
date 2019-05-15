@@ -27,7 +27,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ImageIcon;
 
 public class View extends Thread{
-	
+
 	/**
 	 * Constructor.
 	 */
@@ -202,7 +202,7 @@ public class View extends Thread{
 				isSubmarine = false;
 			}
 		});
-		
+
 		South.add(carrierH);
 
 		JRadioButton carrierV = new JRadioButton("V");
@@ -399,13 +399,11 @@ public class View extends Thread{
 			} 
 		});
 	};
+
 	/**
 	 * Inner class for the Exit Button Action Listener
-	 * 
-	 * 
-	 *
 	 */
-	/**private class ExitListener implements ActionListener{
+	private class ExitListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -413,15 +411,12 @@ public class View extends Thread{
 			}
 			catch(InterruptedException exception) {
 				exception.printStackTrace();
-				
 			}
-		
 		}
-	}**/
+	}
+	
 	/**
-	 * 
 	 * Inner Class for the Radio Buttons Action Listener 
-	 *
 	 */
 	private class CarrierListener implements ActionListener{
 		@Override
@@ -431,10 +426,10 @@ public class View extends Thread{
 			}
 			catch(InterruptedException exception) {
 				exception.printStackTrace();
-				
 			}
 		}
 	}
+	
 	/**
 	 * gets the exit button
 	 * @return exit button 
@@ -443,6 +438,7 @@ public class View extends Thread{
 	{
 		return exitButton;
 	}
+	
 	/**
 	 * Gets the list of buttons
 	 * @return buttonList
@@ -451,6 +447,7 @@ public class View extends Thread{
 	{
 		return buttonList;
 	}
+	
 	/**
 	 * Gets the buttons grid
 	 * @return buttonGrid 
@@ -468,6 +465,7 @@ public class View extends Thread{
 	{
 		return West;
 	}
+	
 	/**
 	 * gets the the player grid 
 	 * @return West
@@ -476,7 +474,6 @@ public class View extends Thread{
 	{
 		return this.West;
 	}
-
 
 	/**
 	 * gets the button grid
@@ -544,6 +541,11 @@ public class View extends Thread{
 	{
 		return shipCheck[i]== true;
 	}
+	
+	/**
+	 * Initializes an array of booleans to check ship.
+	 * @param shipCheck2 array of booleans
+	 */
 	public void initializeArray(boolean[] shipCheck2)
 	{
 		for (int i = 0; i <shipCheck2.length; i++)
@@ -630,8 +632,8 @@ public class View extends Thread{
 	{
 		scoreNum++;
 	}
-	
-	
+
+
 	/**
 	 * gets the score count 
 	 * @return scoreCount
@@ -648,7 +650,7 @@ public class View extends Thread{
 	{
 		player1.playerFrame.setBounds(0, 0, 550, 550);
 	}
-	
+
 	/**
 	 * Waits;
 	 * @param queue
@@ -676,7 +678,7 @@ public class View extends Thread{
 	public void change(GameInfo gameInfo) {
 		this.gameInfo = gameInfo;
 	}
-	
+
 	/**
 	 * Private instances 
 	 */
@@ -697,5 +699,5 @@ public class View extends Thread{
 	private boolean isReadyToGuess = false;
 	private GameInfo gameInfo;
 	BlockingQueue<Message> queue;
-	
+
 }
