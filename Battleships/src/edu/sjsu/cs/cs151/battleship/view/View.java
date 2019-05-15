@@ -405,7 +405,7 @@ public class View extends Thread{
 	 * 
 	 *
 	 */
-	private class ExitListener implements ActionListener{
+	/**private class ExitListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -417,7 +417,7 @@ public class View extends Thread{
 			}
 		
 		}
-	}
+	}**/
 	/**
 	 * 
 	 * Inner Class for the Radio Buttons Action Listener 
