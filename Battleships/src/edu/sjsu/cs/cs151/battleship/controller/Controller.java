@@ -12,7 +12,6 @@ import edu.sjsu.cs.cs151.battleship.view.Welcome;
 import edu.sjsu.cs.cs151.battleship.view.setUpView;;
 
 public class Controller {
-
 	/**
 	 * Constructor for Controller.
 	 * @param view the View
@@ -25,8 +24,8 @@ public class Controller {
 		this.model = model;
 		messageQueue = queue;
 		this.valves.add(new NewGameValve());
-		this.valves.add(new CellClickedValve());
 		this.valves.add(new GridSetupValve());
+		this.valves.add(new CellClickedValve());
 		new setUpView();
 	}
 
@@ -73,10 +72,10 @@ public class Controller {
 			{
 				for (int j = 0; j < c; j++)
 				{
-					//					if (!currGrid[i][j].isHit())
-					//					{
-					//						gameInfo.gameInfoUpdate(i, j, gameInfo.getNumOfCellsLeft());
-					//					}
+//					if (!currGrid[i][j].isHit())
+//					{
+//						gameInfo.gameInfoUpdate(i, j, gameInfo.getNumOfCellsLeft());
+//					}
 				}
 			}
 		}
@@ -100,6 +99,25 @@ public class Controller {
 			model = model.newGame();
 			gameInfo = new GameInfo(model);
 			//view.change(gameInfo);
+			return ValveResponse.EXECUTED;
+		}
+	}
+
+	/**
+	 * Method handles the GridSetupMessage.
+	 */
+	private class GridSetupValve implements Valve
+	{
+		@Override
+		public ValveResponse execute(Message message)
+		{
+			if (message.getClass() != GridSetupMessage.class) 
+			{
+				return ValveResponse.MISS;
+			}
+			GridSetupMessage cellClicked = (GridSetupMessage) message;
+			updateGameInfo();
+
 			return ValveResponse.EXECUTED;
 		}
 	}
@@ -135,25 +153,6 @@ public class Controller {
 			return ValveResponse.EXECUTED;
 		}
 
-		/**
-		 * Method handles the GridSetupMessage.
-		 */
-		private class GridSetupValve implements Valve
-		{
-			@Override
-			public ValveResponse execute(Message message)
-			{
-				if (message.getClass() != GridSetupMessage.class) 
-				{
-					return ValveResponse.MISS;
-				}
-				GridSetupMessage cellClicked = (GridSetupMessage) message;
-				updateGameInfo();
-				
-				return ValveResponse.EXECUTED;
-			}
-		}
-		
 		/**
 		 * Gets the gameInfo.
 		 * @return gameInfo the current gameInfo
