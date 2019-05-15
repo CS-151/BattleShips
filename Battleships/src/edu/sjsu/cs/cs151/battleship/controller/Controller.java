@@ -26,6 +26,7 @@ public class Controller {
 		this.valves.add(new NewGameValve());
 		this.valves.add(new GridSetupValve());
 		this.valves.add(new CellClickedValve());
+		this.valves.add(new ExitValve());
 		new setUpView();
 	}
 
@@ -116,6 +117,25 @@ public class Controller {
 				return ValveResponse.MISS;
 			}
 			GridSetupMessage cellClicked = (GridSetupMessage) message;
+			updateGameInfo();
+
+			return ValveResponse.EXECUTED;
+		}
+	}
+	
+	/**
+	 * Method handles the ExitMessage.
+	 */
+	private class ExitValve implements Valve
+	{
+		@Override
+		public ValveResponse execute(Message message)
+		{
+			if (message.getClass() != ExitMessage.class) 
+			{
+				return ValveResponse.MISS;
+			}
+			ExitMessage exit = (ExitMessage) message;
 			updateGameInfo();
 
 			return ValveResponse.EXECUTED;

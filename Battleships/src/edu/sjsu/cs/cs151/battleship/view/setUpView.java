@@ -489,7 +489,6 @@ public class setUpView {
 	private Model model;
 	private View player1;
 	private View player2;
-
 	private JButton[][] buttonGrid;
 	private JOptionPane endOfGame;
 	private JOptionPane donePlacingShips;
@@ -500,5 +499,4 @@ public class setUpView {
 	private boolean isReadyToGuess = false;
 	private Welcome welcome;
 	private static final int HORIZONTAL = 0;
-
 }
