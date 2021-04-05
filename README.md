@@ -26,13 +26,6 @@ The game is developed for two players: player vs player. It is played on four 10
 4.	Once the grids are set up, take turns guessing the location or coordinates of the opponent’s ship. 
 5.	The player who manages to locate all the other player’s ship is declared the winner of the game.
 
-### Installing
-
-Download the following to run the game:
-
-```diff
--Give the example
-```
 
 ## Built With
 
